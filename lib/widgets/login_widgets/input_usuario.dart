@@ -1,21 +1,20 @@
-/*
+
 import 'package:flutter/material.dart';
 
 class InputUsuario extends StatefulWidget {
 
-  late Icon iconod;
-  late Icon iconoi;
-  String label = "";
-  late bool visible;
-  InputUsuario({ Key? key, iconod, iconoi, @required label, visible}) : super(key: key);
+  final IconData iconod;
+  final String label;
+  final bool invisible;
+  String control = " ";
+  InputUsuario({ Key? key, required  this.iconod, required this.label, required this.invisible, required this.control}) : super(key: key);
 
   @override
   _InputUsuarioState createState() => _InputUsuarioState();
 }
 
 class _InputUsuarioState extends State<InputUsuario> {
-  String usuario = "";
-  String clave = "";
+
   @override
   Widget build(BuildContext context) {
      Size size = MediaQuery.of(context).size;
@@ -24,19 +23,20 @@ class _InputUsuarioState extends State<InputUsuario> {
       style: const TextStyle(color: Colors.white),
       cursorColor: Colors.white ,
       validator: (text) {
-        if (usuario.isEmpty) {
+        if (widget.control.isEmpty) {
           return "Ingrese un valor";
         }
       },
-      decoration: const InputDecoration(
+      obscureText: widget.invisible,
+      decoration: InputDecoration(
           hintText: widget.label,
           hintStyle: TextStyle(color: Colors.white),
-          icon: Icon(Icons.person, color: Colors.white),
+          icon: Icon(widget.iconod, color: Colors.white),
           labelStyle: TextStyle(color: Colors.white),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white)
           ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white)
           ), 
           errorStyle: TextStyle(color: Colors.white)
@@ -45,41 +45,16 @@ class _InputUsuarioState extends State<InputUsuario> {
       ),
           
       onChanged: (text) =>
-          setState(() => usuario = text),
+          setState(() => widget.control = text),
+          /*setState(
+            (){
+              widget.control = text;
+              print(widget.control);
+
+            }
+          ),*/
       autovalidateMode:
           AutovalidateMode.onUserInteraction
     ) ;
   }
 }
-
-/*
-TextFormField(
-                  style: const TextStyle(color: Colors.white),
-                  cursorColor: Colors.white ,
-                  validator: (text) {
-                    if (usuario.isEmpty) {
-                      return "Ingrese un valor";
-                    }
-                  },
-                  decoration: const InputDecoration(
-                      hintText: "Usuario",
-                      hintStyle: TextStyle(color: Colors.white),
-                      icon: Icon(Icons.person, color: Colors.white),
-                      labelStyle: TextStyle(color: Colors.white),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white)
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white)
-                      ), 
-                      errorStyle: TextStyle(color: Colors.white)
-                      //errorBorder: 
-                      
-                  ),
-                      
-                  onChanged: (text) =>
-                      setState(() => usuario = text),
-                  autovalidateMode:
-                      AutovalidateMode.onUserInteraction
-                ),*/
-*/
