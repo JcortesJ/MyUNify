@@ -195,7 +195,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
 
     MetodosEvento.agregarEvento(EventoOcio_, fecha);
 
-    print("Esta va para juan");
+    print("evento agregado");
 
     Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
   }

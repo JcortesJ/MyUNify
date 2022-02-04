@@ -21,24 +21,35 @@ class _VistaCalendarState extends State<VistaCalendar> {
   Map<DateTime, List<Evento>> ListaEventos = MetodosEvento.ListaEventosDB;
   //como es estatico no tienes que crear un objeto xd
 
-  List<String> eventosDelDia = ["No hay eventos para hoy"];
+  List<Evento> eventosDelDia = [];
   //la clase evento deberia tener por defecto que eventos del dia tenga este texto
   //Creamos las variables básicas donde focused day es el primer dia, y selected el que toque la persona
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
-
+  EventoOcio diaSinEvento = EventoOcio(
+      "No tienes eventos para hoy",
+      DateTime.now(),
+      2,
+      true,
+      "ninguna",
+      "este evento esta vacio",
+      "ninguna",
+      " ",
+      " ");
   void mostrarEventos() {
+    eventosDelDia = [];
+    //limpia la lista de eventos antes de mostrarlos
     DateTime escogido = _selectedDay;
+    //problema, no esta mostrando para el dia que es xd
     ListaEventos[_selectedDay] == null
-        ? eventosDelDia = ["no tienes eventos para hoy"]
-        : eventosDelDia.add(ListaEventos[_selectedDay].toString());
+        ? eventosDelDia.add(diaSinEvento)
+        : eventosDelDia.add(ListaEventos[_selectedDay] as Evento);
 
     //Lo que deberia hacer este metodo es tomar el diccionario y extraer la lista de eventos
   }
 
   void _crearEvento(BuildContext context) {
-    print("El metodo funciona");
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -197,7 +208,11 @@ class _VistaCalendarState extends State<VistaCalendar> {
                         color: colorSecundario1,
                         //border: Border.all(width: 2, color: Colors.amber),
                         borderRadius: BorderRadius.circular(6)),
-                    child: Text(eventosDelDia[index]),
+                    child: InkWell(
+                      onTap: () => _mostrarEventoDetallado(
+                          eventosDelDia[index], context),
+                      child: Text(eventosDelDia[index].nombre),
+                    ),
                   );
                 }),
               ))
@@ -227,5 +242,33 @@ class _VistaCalendarState extends State<VistaCalendar> {
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  _mostrarEventoDetallado(Evento eventosDelDia, BuildContext context) {
+    String eventoCompleto = " ";
+    if (eventosDelDia is EventoOcio) {
+      eventoCompleto =
+          "Nombre: ${eventosDelDia.nombre} \n Publico: ${eventosDelDia.publico ? "si" : "no"} \n Duracion: ${eventosDelDia.duracion} horas \n" +
+              " Descripcion: ${eventosDelDia.descripcion} \n Actividades a hacer: ${eventosDelDia.actividades} \n" +
+              "Etiquetas: ${eventosDelDia.Etiquetas}";
+    }
+    //organizar el texto segun el tipo de evento
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            //Aqui debe redirigir a otra pantalla en la que se llenen los detalles del evento
+            title: Text("Detalles del evento"),
+            content: Text(eventoCompleto),
+            actions: <Widget>[
+              FlatButton(
+                  color: colorFondo,
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Volver",
+                      style: TextStyle(color: Colors.white)))
+            ],
+          );
+        });
   }
 }

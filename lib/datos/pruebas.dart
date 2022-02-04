@@ -2,19 +2,17 @@
 
 import 'package:intl/intl.dart';
 import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/datos/EventoOcio.dart';
 import 'package:myunify/pantallas/Calendario.dart';
 
 class MetodosEvento {
   static Map<DateTime, List<Evento>> ListaEventosDB = {};
 
   static DateTime formatearFecha(String dia, String mes) {
-    String dia = "02";
-    String mes = "09";
-    String basura = "00:00:00.000Z";
-    String ano = "2022";
-    String fecha = "$ano-$dia-$mes $basura";
-    var fechaArreglada = DateTime.parse(fecha);
-    print(fechaArreglada is DateTime);
+    int dia_ = int.parse(dia);
+    int mes_ = int.parse(mes);
+
+    DateTime fechaArreglada = DateTime(2022, mes_, dia_);
     print(fechaArreglada);
     return fechaArreglada;
   }

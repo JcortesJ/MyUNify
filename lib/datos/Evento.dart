@@ -36,7 +36,7 @@ abstract class Evento {
     String cadena = " ";
     DateTime fechaActual = Fecha;
     //convierte la fecha a dia de la semana, mes y año
-    var fechaConFormato = DateFormat.yMMMEd().format(fechaActual);
+    var fechaConFormato = Fecha;
     cadena +=
         "Evento para ${fechaConFormato} \n Titulo: $nombre Publico: ${publico ? "si" : "no"}  \n Descripcion: $descripcion \n $Etiquetas";
     return cadena;
