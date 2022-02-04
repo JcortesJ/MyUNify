@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/datos/EventoOcio.dart';
+import 'package:myunify/datos/pruebas.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class VistaCalendar extends StatefulWidget {
@@ -15,7 +18,9 @@ class _VistaCalendarState extends State<VistaCalendar> {
   Color colorSecundario1 = Color(0xffFF3D68);
   Color colorBottom = Color(0xffA73489);
   //De locos, un mapa de arreglos xd
-  Map<DateTime, List<String>> ListaEventos = {};
+  Map<DateTime, List<Evento>> ListaEventos = MetodosEvento.ListaEventosDB;
+  //como es estatico no tienes que crear un objeto xd
+
   List<String> eventosDelDia = ["No hay eventos para hoy"];
   //la clase evento deberia tener por defecto que eventos del dia tenga este texto
   //Creamos las variables básicas donde focused day es el primer dia, y selected el que toque la persona
@@ -25,14 +30,11 @@ class _VistaCalendarState extends State<VistaCalendar> {
 
   void mostrarEventos() {
     DateTime escogido = _selectedDay;
-    List<String> eventoDia = [
-      "Salaverga, clase de ingles a las 11",
-      "Optimización a las 2",
-      "Jartar en el freud a las 5"
-    ];
-    ListaEventos.addAll({escogido: eventoDia});
+    ListaEventos[_selectedDay] == null
+        ? eventosDelDia = ["no tienes eventos para hoy"]
+        : eventosDelDia.add(ListaEventos[_selectedDay].toString());
+
     //Lo que deberia hacer este metodo es tomar el diccionario y extraer la lista de eventos
-    eventosDelDia = eventoDia;
   }
 
   void _crearEvento(BuildContext context) {
@@ -47,7 +49,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
             content: Text("Selecciona uno de los tipos de eventos por favor "),
             actions: <Widget>[
               FlatButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.pushNamed(context, "/EditarOcio"),
                   color: colorFondo,
                   child: const Text("Evento ocio",
                       style: TextStyle(color: Colors.white))),
@@ -142,7 +144,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                   //esto guarda el dia seleccionado dentro de la variable selectedDay
                   _selectedDay = selectedDay;
                   _focusedDay = focusedDay;
-                  print("dia seleccionado ${_focusedDay.day}");
+                  print("dia seleccionado ${_focusedDay}");
                   mostrarEventos();
                   // update `_focusedDay` here as well
                 });
