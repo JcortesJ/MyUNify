@@ -47,10 +47,10 @@ class _LoginState extends State<Login> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Containers(
-                child: InputUsuario(iconod: Icons.person, label: "Usuario", invisible: false, control: usuario)
+                child: InputUsuario(iconod: Icons.person, label: "Usuario", invisible: false, control: usuario, Callback: (String valor) => usuario = valor)
               ),
               Containers( 
-                child: InputUsuario(iconod: Icons.lock, label: "Contraseña", invisible: true, control: clave)
+                child: InputUsuario(iconod: Icons.lock, label: "Contraseña", invisible: true, control: clave, Callback: (String valor) => clave = valor)
               ),       
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 10),

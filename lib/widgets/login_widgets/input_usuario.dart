@@ -7,7 +7,8 @@ class InputUsuario extends StatefulWidget {
   final String label;
   final bool invisible;
   String control = " ";
-  InputUsuario({ Key? key, required  this.iconod, required this.label, required this.invisible, required this.control}) : super(key: key);
+  final Function Callback;
+  InputUsuario({ Key? key, required  this.iconod, required this.label, required this.invisible, required this.control, required this.Callback}) : super(key: key);
 
   @override
   _InputUsuarioState createState() => _InputUsuarioState();
@@ -45,14 +46,14 @@ class _InputUsuarioState extends State<InputUsuario> {
       ),
           
       onChanged: (text) =>
-          setState(() => widget.control = text),
-          /*setState(
+          //setState(() => widget.control = text),
+          setState(
             (){
               widget.control = text;
-              print(widget.control);
-
+              //print(widget.control);
+              widget.Callback(text);
             }
-          ),*/
+          ),
       autovalidateMode:
           AutovalidateMode.onUserInteraction
     ) ;
