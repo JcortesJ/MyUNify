@@ -34,6 +34,10 @@ class Inicio extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Image.asset(
+              'assets/InicioUNIFY.png', 
+              width: size.width*0.6, 
+              height: size.height*0.4,),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 20),
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -43,7 +47,9 @@ class Inicio extends StatelessWidget {
                 color: Colores.colorComplementario,                   
               ),
               child: TextButton(                   
-                onPressed:(){}, 
+                onPressed:(){
+                  Navigator.pushNamed(context, "/login");
+                }, 
                 child: const Text(
                   "LOGIN", 
                   style: TextStyle(color: Colors.white),)
@@ -61,7 +67,9 @@ class Inicio extends StatelessWidget {
                 color: Colors.white,                   
               ),
               child: TextButton(                   
-                onPressed:(){}, 
+                onPressed:(){
+                  Navigator.pushNamed(context, "/registro");
+                }, 
                 child: const Text(
                   "REGISTRARSE", 
                   style: TextStyle(color: Colors.black),)

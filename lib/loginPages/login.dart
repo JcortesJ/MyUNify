@@ -46,6 +46,19 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const Text(
+                'QUE SE DICE',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                )
+              ),
+              Image.asset(
+                'assets/buhoUNIFY.png',
+                width: size.width*0.6,
+                height: size.height*0.4,
+              ),
               Containers(
                 child: InputUsuario(iconod: Icons.person, label: "Usuario", invisible: false, control: usuario, Callback: (String valor) => usuario = valor)
               ),
