@@ -194,7 +194,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                     decoration: BoxDecoration(
                         color: colorSecundario1,
                         //border: Border.all(width: 2, color: Colors.amber),
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(8)),
                     child: Text(eventosDelDia[index]),
                   );
                 }),
