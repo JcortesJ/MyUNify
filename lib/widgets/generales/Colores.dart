@@ -7,4 +7,5 @@ class Colores{
   static Color colorRosado = Color(0xFFAD1457);
   static Color colorComplementario = Color(0xff000000);
   static Color colorBurbuja = Color(0xffF0E3CA);
+  static Color colorExtra = Color(0xffFA83A8);
 }
