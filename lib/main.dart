@@ -3,6 +3,7 @@ import 'package:myunify/pantallas/Calendario.dart';
 import 'package:myunify/pantallas/editarClase.dart';
 import 'package:myunify/pantallas/editarEstudio.dart';
 import 'package:myunify/pantallas/editarOcio.dart';
+import 'package:myunify/webview/pagina.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
           "/EditarOcio": (BuildContext context) => EditarEventoOcio(),
           "/EditarEventoEstudio": (BuildContext context) =>
               EditarEventoEstudio(),
-          "/EditarEventoClase": (BuildContext context) => EditarEventoClase()
+          "/EditarEventoClase": (BuildContext context) => EditarEventoClase(),
+          "/paginaBienestar": (BuildContext context) => paginaBienestar(),
 //"IDENTIFICADOR RUTA": (BuildContext context)=> nombreClaseDeLaPantalla(),
         });
   }

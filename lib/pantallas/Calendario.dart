@@ -85,6 +85,12 @@ class _VistaCalendarState extends State<VistaCalendar> {
                       style: TextStyle(color: Colors.white))),
               FlatButton(
                   color: colorFondo,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "/paginaBienestar"),
+                  child: const Text("Ingresar a web",
+                      style: TextStyle(color: Colors.white))),
+              FlatButton(
+                  color: colorFondo,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Volver",
                       style: TextStyle(color: Colors.white)))
