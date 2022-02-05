@@ -20,7 +20,7 @@ class _SchoolPaginaPrincipal extends State<PaginaPrincipal> {
     PaginaAmigos(),
     Mensajes(),
     VistaCalendar(),
-    BuscadorAmigo(),
+    /* BuscadorAmigo(), */
   ];
   @override
   Widget build(BuildContext context) {
@@ -56,10 +56,10 @@ class _SchoolPaginaPrincipal extends State<PaginaPrincipal> {
               title: Text("Calendario"),
               icon: Icon(Icons.calendar_today_rounded),
             ),
-            BottomNavigationBarItem(
+           /*  BottomNavigationBarItem(
               title: Text("Eventos"),
               icon: Icon(Icons.add_circle_rounded),
-            ),
+            ), */
           ],
         ),
         body: pages[_selectedItemIndex]

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
@@ -9,7 +10,6 @@ import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/pages/paginaPrincipal.dart';
 import 'pantalla_editar.dart';
 import 'pantalla_contrasena.dart';
-import 'package:myunify/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
 
 class PaginaPerfil extends StatefulWidget {
@@ -24,10 +24,10 @@ class _PerfilEstado extends State<PaginaPerfil> {
 
   @override
   Widget build(BuildContext context) {
-    return Fondopantalla(
-      //backgroundColor: Colores.color_fondo,
+    return Scaffold(
+      backgroundColor: Colores.colorBurbuja,
       //appBar: buildAppBar(context),
-      child: ListView(
+      body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(height: 24),

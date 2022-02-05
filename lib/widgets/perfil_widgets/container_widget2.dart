@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/Colores.dart';
 
 class ContainerWidget2 extends StatelessWidget {
   final String text;
@@ -13,7 +12,7 @@ class ContainerWidget2 extends StatelessWidget {
   Widget build(BuildContext context) => Container(
             padding: EdgeInsets.only(left:10,right:10, bottom: 3,top: 3),
             decoration: BoxDecoration(
-                    color: Colors.white,                    //border: Border.all(width: 2, color: Colors.amber),
+                    color: Colors.orange,                    //border: Border.all(width: 2, color: Colors.amber),
                     borderRadius: BorderRadius.circular(15)),
             child: Text(
             text,

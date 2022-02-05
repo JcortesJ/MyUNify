@@ -5,7 +5,6 @@ import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/datos/usuario.dart';
 
-import '../../Colores.dart';
 
 class EditarPerfil extends StatefulWidget {
   @override
@@ -35,7 +34,7 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
     controllercorreo = TextEditingController(text: usuarioActual.correo);
     
     return Scaffold(
-      backgroundColor: Colores.color_fondo,
+      backgroundColor: Colors.red,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),

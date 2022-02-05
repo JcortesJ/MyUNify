@@ -5,7 +5,6 @@ import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
-import 'package:myunify/Colores.dart';
 
 class BuscadorAmigo extends StatefulWidget {
   @override
@@ -82,14 +81,14 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {
-          return CupertinoAlertDialog(
+          return AlertDialog(
             //mirar si dejamos este o el alertDialog de material
             title: Text("Usuario encontrado"),
             content: Text("¿Desea enviar una solicitud de amistad?"),
             actions: <Widget>[
               FlatButton(
                   color: Colors.orange.shade400,
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () =>  Navigator.pop(context), // que cree la solicitud
                   child: const Text("Enviar solicitud de amistad",
                       style: TextStyle(color: Colors.black))),
               FlatButton(
@@ -107,7 +106,7 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {
-          return CupertinoAlertDialog(
+          return AlertDialog(
             //mirar si dejamos este o el alertDialog de material
             content: Text("Usuario no encontrado, intentelo de nuevo: "),
             actions: <Widget>[
@@ -125,10 +124,8 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
       text: "Buscar",
       onClicked: () {
         if (Metodos.BuscarUsuario(controlleramigo.text)) {
-          print("encontrado");
           _amigoEncontrado(context);
         } else {
-          print("no encontrado");
           _amigoNoEncontrado(context);
         }
       });

@@ -7,7 +7,6 @@ import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
 
-import '../../Colores.dart';
 
 class PerfilAmigo extends StatefulWidget {
   @override

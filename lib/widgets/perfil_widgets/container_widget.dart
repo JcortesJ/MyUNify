@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/Colores.dart';
 
 class ContainerWidget extends StatelessWidget {
   final String text;
