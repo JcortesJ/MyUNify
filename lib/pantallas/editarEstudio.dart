@@ -180,7 +180,12 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
     print(EventoEstudio_.nombre);
 
     //revisar y mejorar el codigo: no
-    //faltan metodos de eventos, y pantallas de edicion: solo borrar
+    //arreglar problema de actualizar el calendario sin que se vea paila
+    //si es posible meter animaciones xd
+    //averiguar si se pueden poner animaciones en la splash screen
+    //añadir persistencia
+    //añadir encontrar eventos
+    //buscar si se puede poner
 
     MetodosEvento.agregarEvento(EventoEstudio_, fecha);
 
