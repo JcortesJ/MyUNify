@@ -5,6 +5,7 @@ import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
+import 'package:myunify/Colores.dart';
 
 class BuscadorAmigo extends StatefulWidget {
   @override
@@ -15,7 +16,6 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
   Color color_interfaz = Color(0xff9AD0EC);
   Color color_interfazGrueso = Color(0xff1572A1);
   Color color_letra = Color(0xffEFDAD7);
-  Color color_fondo = Color(0xffE4E4E4);
 
   Usuario usuarioActual = Metodos.usuarioregistrado;
 
@@ -26,7 +26,7 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
     controlleramigo = TextEditingController(text: "");
 
     return Scaffold(
-      backgroundColor: color_fondo,
+      backgroundColor: Colores.color_fondo,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),

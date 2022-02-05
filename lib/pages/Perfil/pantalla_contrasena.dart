@@ -3,6 +3,7 @@ import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
+import '../../Colores.dart';
 import 'pantalla_perfil.dart';
 import 'package:myunify/logica/metodos.dart';
 
@@ -26,7 +27,7 @@ class _EditarContrasenaEstado extends State<EditarContrasena> {
     controllercontrasena = TextEditingController(text: "");
     
     return Scaffold(
-      backgroundColor: color_fondo,
+      backgroundColor: Colores.color_fondo,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),

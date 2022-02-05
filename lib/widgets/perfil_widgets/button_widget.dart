@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/Colores.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String text;
@@ -19,7 +20,12 @@ class ButtonWidget extends StatelessWidget {
       onPrimary: Colors.white,
       padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
     ),
-    child: Text(text),
+    child: Text(
+      text,
+      style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+            ),),
     onPressed: onClicked, 
   );
 }

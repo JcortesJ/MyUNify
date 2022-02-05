@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
+import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/datos/usuario.dart';
-import 'package:myunify/pantallas/paginaPrincipal.dart';
+import 'package:myunify/pages/paginaPrincipal.dart';
 import 'pantalla_editar.dart';
 import 'pantalla_contrasena.dart';
+import 'package:myunify/Colores.dart';
+import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
 
 class PaginaPerfil extends StatefulWidget {
   @override
@@ -21,7 +24,7 @@ class _PerfilEstado extends State<PaginaPerfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange.shade100,
+      backgroundColor: Colores.color_fondo,
       //appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -59,22 +62,11 @@ class _PerfilEstado extends State<PaginaPerfil> {
 
   Widget construirNombre(Usuario user) => Column(
         children: [
-          Text(
-            user.nombre,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
+          ContainerWidget2(text: usuarioActual.nombre),
           const SizedBox(
             height: 4,
           ),
-          Text(
-            user.nombreUsuario,
-            style: const TextStyle(
-              fontSize: 16,
-            ),
-          )
+          ContainerWidget(text: usuarioActual.nombreUsuario),
         ],
       );
 
@@ -111,43 +103,19 @@ class _PerfilEstado extends State<PaginaPerfil> {
   Widget construirInformacion(Usuario user) => Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
-            "Usuario Instagram",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
+          ContainerWidget2(text: "Instagram:"),
           const SizedBox(
             height: 6,
           ),
-          Text(
-            user.usuarioig,
-            style: const TextStyle(
-              height: 1.4,
-              fontSize: 16,
-            ),
-          ),
+          ContainerWidget(text: usuarioActual.usuarioig),
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            "Correo",
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
+          ContainerWidget2(text: "Correo:"),
           const SizedBox(
             height: 6,
           ),
-          Text(
-            user.correo,
-            style: const TextStyle(
-              height: 1.4,
-              fontSize: 16,
-            ),
-          ),
+          ContainerWidget(text: usuarioActual.correo),
           const SizedBox(
             height: 10,
           ),

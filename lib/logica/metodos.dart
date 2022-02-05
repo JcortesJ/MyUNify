@@ -102,16 +102,8 @@ class Metodos {
       "juan32",
     ),
   ];
-  //static void eliminarAmigo(Usuario borrar) {
-  //  for (var i = contactos.length - 1; i >= 0; i--) {
-  //    if (contactos[i] == borrar) {
-  //      contactos.remove(contactos[i]);
-  //    }
-  //  }
-  //}
 
-  static void EditarPerfil(
-      String nombre, String correo, String nombreUsuario, String usuarioig) {
+  static void EditarPerfil(String nombre, String correo, String nombreUsuario, String usuarioig) {
     usuarioregistrado.nombre = nombre;
     usuarioregistrado.correo = correo;
     usuarioregistrado.nombreUsuario = nombreUsuario;

@@ -4,6 +4,10 @@ import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
+import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
+
+import '../../Colores.dart';
 
 class PerfilAmigo extends StatefulWidget {
   @override
@@ -18,7 +22,7 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange.shade100,
+      backgroundColor: Colores.color_fondo,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -27,8 +31,6 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
             imagePath: amigoActual.linkFoto,
             onClicked: () async {},
           ),
-          const SizedBox(height: 24),
-          construirNombre(amigoActual),
           const SizedBox(height: 24),
           construirInformacion(amigoActual),
           const SizedBox(height: 16),
@@ -40,25 +42,6 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
       ),
     );
   }
-
-  Widget construirNombre(Usuario user) => Column(
-        children: [
-          Text(
-            user.nombre,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            user.nombreUsuario,
-            style: const TextStyle(color: Colors.black),
-          )
-        ],
-      );
 
   Widget eliminarAmigo() => ButtonWidget(
       text: "Eliminar Amigo",
@@ -85,43 +68,35 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
   Widget construirInformacion(Usuario user) => Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
-            "Usuario Instagram",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
+          ContainerWidget2(text: "Nombre:"),
           const SizedBox(
             height: 6,
           ),
-          Text(
-            user.usuarioig,
-            style: const TextStyle(
-              height: 1.4,
-              fontSize: 16,
-            ),
-          ),
+          ContainerWidget(text: user.nombre),
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            "Correo",
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
+          ContainerWidget2(text: "Nombre de usuario:"),
           const SizedBox(
             height: 6,
           ),
-          Text(
-            user.correo,
-            style: const TextStyle(
-              height: 1.4,
-              fontSize: 16,
-            ),
+          ContainerWidget(text: user.nombreUsuario),
+          const SizedBox(
+            height: 10,
           ),
+          ContainerWidget2(text: "Instagram:"),
+          const SizedBox(
+            height: 6,
+          ),
+          ContainerWidget(text: user.usuarioig),
+          const SizedBox(
+            height: 10,
+          ),
+          ContainerWidget2(text: "Correo:"),
+          const SizedBox(
+            height: 6,
+          ),
+          ContainerWidget(text: user.correo),
           const SizedBox(
             height: 10,
           ),

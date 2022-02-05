@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/pantallas/Perfil/pantalla_perfil.dart';
-import 'package:myunify/pantallas/Perfil/pantalla_editar.dart';
-import 'package:myunify/pantallas/Perfil/pantalla_contrasena.dart';
-import 'buscador_Amigo.dart';
+import 'package:myunify/pages/Perfil/pantalla_perfil.dart';
+import 'package:myunify/pages/Perfil/pantalla_editar.dart';
+import 'package:myunify/pages/Perfil/pantalla_contrasena.dart';
+import 'Amigos/buscador_Amigo.dart';
 import 'Calendario.dart';
-import 'amigos.dart';
+import 'Amigos/lista_amigos.dart';
 
 
 class PaginaPrincipal extends StatefulWidget {
