@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
@@ -23,10 +24,10 @@ class _PerfilEstado extends State<PaginaPerfil> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colores.color_fondo,
+    return Fondopantalla(
+      //backgroundColor: Colores.color_fondo,
       //appBar: buildAppBar(context),
-      body: ListView(
+      child: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(height: 24),

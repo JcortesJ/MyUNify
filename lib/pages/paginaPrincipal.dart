@@ -5,6 +5,7 @@ import 'package:myunify/pages/Perfil/pantalla_contrasena.dart';
 import 'Amigos/buscador_Amigo.dart';
 import 'Calendario.dart';
 import 'Amigos/lista_amigos.dart';
+import 'package:myunify/pages/mensajes.dart';
 
 
 class PaginaPrincipal extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SchoolPaginaPrincipal extends State<PaginaPrincipal> {
   final List pages = [
     PaginaPerfil(),
     PaginaAmigos(),
-    EditarPerfil(),
+    Mensajes(),
     VistaCalendar(),
     BuscadorAmigo(),
   ];

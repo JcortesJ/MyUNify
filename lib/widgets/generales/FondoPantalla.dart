@@ -1,25 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Colores.dart';
 
-/*void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Patrones inicio',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Fondopantalla(child: Text("")),
-    );
-  }
-}
-*/
 class Fondopantalla extends StatelessWidget {
 
   final Widget child;

@@ -85,7 +85,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.2"
-<<<<<<< HEAD
   crypto:
     dependency: transitive
     description:
@@ -93,8 +92,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-=======
->>>>>>> origin/prueba
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -195,16 +192,6 @@ packages:
     source: hosted
     version: "2.1.5"
   image_picker_platform_interface:
-<<<<<<< HEAD
-=======
-    dependency: transitive
-    description:
-      name: image_picker_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.4.3"
-  intl:
->>>>>>> origin/prueba
     dependency: transitive
     description:
       name: image_picker_platform_interface
@@ -253,8 +240,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-<<<<<<< HEAD
-=======
   path_provider:
     dependency: "direct main"
     description:
@@ -304,7 +289,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
->>>>>>> origin/prueba
   pedantic:
     dependency: transitive
     description:
@@ -312,7 +296,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.1"
-<<<<<<< HEAD
   petitparser:
     dependency: transitive
     description:
@@ -320,7 +303,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.4.0"
-=======
   platform:
     dependency: transitive
     description:
@@ -328,7 +310,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
->>>>>>> origin/prueba
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -336,8 +317,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
-<<<<<<< HEAD
-=======
   process:
     dependency: transitive
     description:
@@ -352,7 +331,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1+1"
->>>>>>> origin/prueba
   simple_gesture_detector:
     dependency: transitive
     description:
@@ -435,7 +413,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-<<<<<<< HEAD
   webview_flutter:
     dependency: "direct main"
     description:
@@ -464,21 +441,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.7.1"
-  xml:
-    dependency: transitive
-    description:
-      name: xml
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.3.1"
-  yaml:
-    dependency: transitive
-    description:
-      name: yaml
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.1.0"
-=======
   win32:
     dependency: transitive
     description:
@@ -493,7 +455,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0+1"
->>>>>>> origin/prueba
+  xml:
+    dependency: transitive
+    description:
+      name: xml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.3.1"
+  yaml:
+    dependency: transitive
+    description:
+      name: yaml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
 sdks:
   dart: ">=2.15.1 <3.0.0"
   flutter: ">=2.5.0"

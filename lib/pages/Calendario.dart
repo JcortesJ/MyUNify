@@ -191,7 +191,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
               child:
                   //Pendiente modificarlo XD
                   Text(
-                "Estos son los eventos que tienes para este dia:",
+                "Estos son los eventos que tienes para hoy:",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontSize: 16,

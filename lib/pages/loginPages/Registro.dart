@@ -7,25 +7,6 @@ import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/login_widgets/Containers.dart';
 import 'package:myunify/widgets/login_widgets/input_usuario.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Patrones inicio',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Registro(),
-    );
-  }
-}
 class Registro extends StatefulWidget {
   
   const Registro({ Key? key }) : super(key: key);
@@ -105,6 +86,7 @@ class _RegistroState extends State<Registro> {
                         style: TextStyle(color: Colors.black),)
                       ),
                   ),
+                  const SizedBox(height: 20),
                   
             ]
             )
