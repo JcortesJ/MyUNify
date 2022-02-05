@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
@@ -21,7 +22,7 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colores.color_fondo,
+      backgroundColor: Colores.colorBurbuja,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),

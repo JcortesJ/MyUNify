@@ -42,7 +42,7 @@ class _PerfilEstado extends State<PaginaPerfil> {
           ),
           const SizedBox(height: 20),
           ProfileWidget(
-            imagePath: usuarioActual.linkFoto,
+            imagePath: usuarioActual.foto,
             onClicked: () async {},
             size:55,
           ),

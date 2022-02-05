@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatelessWidget {
-  final String imagePath;
+  final File? imagePath;
   final double size;
   final VoidCallback onClicked;
 
@@ -28,11 +28,11 @@ class ProfileWidget extends StatelessWidget {
     return CircleAvatar(
       radius: _size,
       backgroundColor: Colors.transparent,
-      child: _image != "null" 
+      child: _image != null
           ? ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.file(
-                File(imagePath),
+                imagePath!,
                 fit: BoxFit.fitHeight,
               ),
             )

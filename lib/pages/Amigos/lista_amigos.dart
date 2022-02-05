@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/logica/metodos.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'buscador_Amigo.dart';
 import 'pantalla_perfil_amigo.dart';
@@ -33,7 +34,6 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
 
   void irAContacto(Usuario amigo) {
     //este metodo deberia tener el parametro Contacto y un navigator xd
-    print(amigo.linkFoto);
     setState(() {
       Metodos.viendoAmigo = amigo;
       Navigator.push(
@@ -74,7 +74,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colores.color_fondo,
+      backgroundColor: Colores.colorBurbuja,
       //appBar: AppBar(),
       appBar: AppBar(
         title: Text('Amigos actuales:  ${_amigos.length}'),
@@ -111,7 +111,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
                   children: [
                     //container de la imagen
                     ProfileWidget(
-                      imagePath: _amigos[index].linkFoto,
+                      imagePath: _amigos[index].foto,
                       onClicked: () async {},
                       size: 30,
                     ),

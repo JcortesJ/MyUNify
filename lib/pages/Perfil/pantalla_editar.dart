@@ -51,7 +51,7 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
           ),
           const SizedBox(height: 20),
           ProfileWidget(
-            imagePath: usuarioActual.linkFoto,
+            imagePath: usuarioActual.foto,
             onClicked: () async {},
             size: 55,
           ),
