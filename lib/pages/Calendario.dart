@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/datos/EventoClase.dart';
+import 'package:myunify/datos/EventoEstudio.dart';
+import 'package:myunify/datos/EventoOcio.dart';
+import 'package:myunify/datos/eventoLogica.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class VistaCalendar extends StatefulWidget {
@@ -14,29 +19,44 @@ class _VistaCalendarState extends State<VistaCalendar> {
   Color colorFondo = Color(0xffFF6767);
   Color colorSecundario1 = Color(0xffFF3D68);
   Color colorBottom = Color(0xffA73489);
+
   //De locos, un mapa de arreglos xd
-  Map<DateTime, List<String>> ListaEventos = {};
-  List<String> eventosDelDia = ["No hay eventos para hoy"];
+
+  // Map<DateTime, List<Evento>> ListaEventos = MetodosEvento.ListaEventosDB;
+  //como es estatico no tienes que crear un objeto xd
+
+  List<Evento> eventosDelDia = [];
   //la clase evento deberia tener por defecto que eventos del dia tenga este texto
   //Creamos las variables básicas donde focused day es el primer dia, y selected el que toque la persona
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
-
+  EventoOcio diaSinEvento = EventoOcio(
+      "No tienes eventos para hoy",
+      DateTime.now(),
+      2,
+      true,
+      "ninguna",
+      "este evento esta vacio",
+      "ninguna",
+      " ",
+      " ");
   void mostrarEventos() {
+    eventosDelDia = [];
+    //limpia la lista de eventos antes de mostrarlos
     DateTime escogido = _selectedDay;
-    List<String> eventoDia = [
-      "Salaverga, clase de ingles a las 11",
-      "Optimización a las 2",
-      "Jartar en el freud a las 5"
-    ];
-    ListaEventos.addAll({escogido: eventoDia});
+    //problema, no esta mostrando para el dia que es xd
+    MetodosEvento.ListaEventosDB[_selectedDay] == null
+        ? eventosDelDia.add(diaSinEvento)
+        : eventosDelDia = MetodosEvento.ListaEventosDB[_selectedDay]!;
+    print("Mostrando la lista de eventos ${eventosDelDia.isEmpty}");
+    print(eventosDelDia);
+
     //Lo que deberia hacer este metodo es tomar el diccionario y extraer la lista de eventos
-    eventosDelDia = eventoDia;
   }
 
   void _crearEvento(BuildContext context) {
-    print("El metodo funciona");
+    MetodosEvento.diaSeleccionado = _selectedDay;
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -47,19 +67,27 @@ class _VistaCalendarState extends State<VistaCalendar> {
             content: Text("Selecciona uno de los tipos de eventos por favor "),
             actions: <Widget>[
               FlatButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.pushNamed(context, "/EditarOcio"),
                   color: colorFondo,
                   child: const Text("Evento ocio",
                       style: TextStyle(color: Colors.white))),
               FlatButton(
                   color: colorFondo,
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "/EditarEventoEstudio"),
                   child: const Text("Evento Estudio",
                       style: TextStyle(color: Colors.white))),
               FlatButton(
                   color: colorFondo,
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "/EditarEventoClase"),
                   child: const Text("Añadir una clase",
+                      style: TextStyle(color: Colors.white))),
+              FlatButton(
+                  color: colorFondo,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "/paginaBienestar"),
+                  child: const Text("Ingresar a web",
                       style: TextStyle(color: Colors.white))),
               FlatButton(
                   color: colorFondo,
@@ -142,7 +170,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                   //esto guarda el dia seleccionado dentro de la variable selectedDay
                   _selectedDay = selectedDay;
                   _focusedDay = focusedDay;
-                  print("dia seleccionado ${_focusedDay.day}");
+                  print("dia seleccionado ${_focusedDay}");
                   mostrarEventos();
                   // update `_focusedDay` here as well
                 });
@@ -159,11 +187,11 @@ class _VistaCalendarState extends State<VistaCalendar> {
               decoration: BoxDecoration(
                   color: colorSecundario2,
                   borderRadius: BorderRadius.circular(30)),
-              padding: EdgeInsets.all(30),
+              padding: EdgeInsets.all(15),
               child:
                   //Pendiente modificarlo XD
                   Text(
-                "Estos son los eventos que tienes",
+                "Estos son los eventos que tienes para este dia",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontSize: 20,
@@ -194,8 +222,15 @@ class _VistaCalendarState extends State<VistaCalendar> {
                     decoration: BoxDecoration(
                         color: colorSecundario1,
                         //border: Border.all(width: 2, color: Colors.amber),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Text(eventosDelDia[index]),
+                        borderRadius: BorderRadius.circular(6)),
+                    child: InkWell(
+                      onTap: () => _mostrarEventoDetallado(eventosDelDia[index],
+                          context, _selectedDay, eventosDelDia),
+                      child: Text(
+                        "${eventosDelDia[index].nombre} \nInicia: ${eventosDelDia[index].horaInicio} \nAcaba: ${eventosDelDia[index].horaFin}",
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                    ),
                   );
                 }),
               ))
@@ -225,5 +260,64 @@ class _VistaCalendarState extends State<VistaCalendar> {
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  _mostrarEventoDetallado(Evento eventosDelDia, BuildContext context,
+      DateTime diaSeleccionado, List<Evento> lista_eventos_eseDia) {
+    String eventoCompleto = " ";
+    if (eventosDelDia is EventoOcio) {
+      eventoCompleto =
+          "Nombre: ${eventosDelDia.nombre} \nPublico: ${eventosDelDia.publico ? "si" : "no"} \nDuracion: ${eventosDelDia.duracion} horas \n" +
+              "Descripcion: ${eventosDelDia.descripcion} \nActividades a hacer: ${eventosDelDia.actividades} \n" +
+              "Etiquetas: ${eventosDelDia.Etiquetas} \nHora inicio: ${eventosDelDia.horaInicio} \nHora fin: ${eventosDelDia.horaFin}";
+    } else if (eventosDelDia is EventoClase) {
+      eventoCompleto =
+          "Nombre: ${eventosDelDia.nombre}\n Duracion: ${eventosDelDia.duracion} horas\n" +
+              " Descripcion: ${eventosDelDia.descripcion}\nProfesor: ${eventosDelDia.Profesor}\n" +
+              "Etiquetas: ${eventosDelDia.Etiquetas} \nHora inicio: ${eventosDelDia.horaInicio} \nHora fin: ${eventosDelDia.horaFin}";
+    } else if (eventosDelDia is EventoEstudio) {
+      eventoCompleto =
+          "Nombre: ${eventosDelDia.nombre}\nDuracion: ${eventosDelDia.duracion} horas\n" +
+              "Descripcion: ${eventosDelDia.descripcion}\nTemas: ${eventosDelDia.tema}\n" +
+              "Etiquetas: ${eventosDelDia.Etiquetas} \nHora inicio: ${eventosDelDia.horaInicio} \nHora fin: ${eventosDelDia.horaFin}";
+    }
+    //organizar el texto segun el tipo de evento
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            //Aqui debe redirigir a otra pantalla en la que se llenen los detalles del evento
+            title: Text("Detalles del evento"),
+            content: Text(eventoCompleto),
+            actions: <Widget>[
+              FlatButton(
+                  color: colorFondo,
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Volver",
+                      style: TextStyle(color: Colors.white))),
+              FlatButton.icon(
+                  onPressed: () => _eliminarEvento(
+                        eventosDelDia,
+                        lista_eventos_eseDia,
+                        diaSeleccionado,
+                      ),
+                  icon: Icon(
+                    Icons.delete,
+                    color: colorBottom,
+                  ),
+                  label: Text("Borrar evento")),
+            ],
+          );
+        });
+  }
+
+  //este metodo borra los eventos, sacandolo de la lista de eventos, y actualizando la lista en el diccionario
+  _eliminarEvento(Evento e, List<Evento> listaEseDia, DateTime claveDia) {
+    listaEseDia.remove(e);
+    List<Evento> listaActualizada = listaEseDia;
+    MetodosEvento.ListaEventosDB[claveDia] = listaActualizada;
+    print("evento borrado con exito");
+    Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
   }
 }
