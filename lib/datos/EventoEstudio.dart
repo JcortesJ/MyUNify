@@ -25,6 +25,6 @@ class EventoEstudio extends Evento {
 
   EventoEstudio(String _nombre, DateTime _Fecha, int _duracion, bool _publico,
       String _Etiquetas, String descripcion, this.tema, String dia, String mes)
-      : super(_Etiquetas, _Fecha, _duracion, _nombre, descripcion, _publico,
+      : super(_Etiquetas, _Fecha, _duracion, descripcion, _nombre, _publico,
             dia, mes);
 }

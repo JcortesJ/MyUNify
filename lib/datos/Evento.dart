@@ -2,8 +2,8 @@ import 'package:intl/intl.dart';
 
 abstract class Evento {
   late String _nombre;
-  late String _dia;
-  late String _mes;
+  late String _horaInicio;
+  late String _horaFin;
   late DateTime _Fecha;
   late int _duracion;
   late bool _publico;
@@ -20,6 +20,8 @@ abstract class Evento {
   set publico(bool p) => _publico = p;
   set duracion(int du) => _duracion = du;
   set Etiquetas(String l) => _Etiquetas = l;
+  set horaInicio(String h) => _horaInicio = h;
+  set horaFin(String H) => _horaInicio = H;
 
   String get nombre => _nombre;
   String get descripcion => _descripcion;
@@ -27,9 +29,11 @@ abstract class Evento {
   bool get publico => _publico;
   int get duracion => _duracion;
   String get Etiquetas => _Etiquetas;
+  String get horaInicio => _horaInicio;
+  String get horaFin => _horaFin;
 
   Evento(this._Etiquetas, this._Fecha, this._duracion, this._descripcion,
-      this._nombre, this._publico, this._dia, this._mes);
+      this._nombre, this._publico, this._horaInicio, this._horaFin);
 
   @override
   String toString() {

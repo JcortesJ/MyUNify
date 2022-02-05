@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myunify/pantallas/Calendario.dart';
+import 'package:myunify/pantallas/editarClase.dart';
+import 'package:myunify/pantallas/editarEstudio.dart';
 import 'package:myunify/pantallas/editarOcio.dart';
 
 void main() {
@@ -31,8 +33,9 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (BuildContext context) => VistaCalendar(),
           "/EditarOcio": (BuildContext context) => EditarEventoOcio(),
-          //    "/Editar": (BuildContext context) => EditarPerfil(),
-          //   "/Ver": (BuildContext context) => PaginaPerfil()
+          "/EditarEventoEstudio": (BuildContext context) =>
+              EditarEventoEstudio(),
+          "/EditarEventoClase": (BuildContext context) => EditarEventoClase()
 //"IDENTIFICADOR RUTA": (BuildContext context)=> nombreClaseDeLaPantalla(),
         });
   }

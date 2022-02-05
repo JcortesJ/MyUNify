@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/datos/EventoEstudio.dart';
 import 'package:myunify/datos/EventoOcio.dart';
 import 'package:myunify/datos/eventoLogica.dart';
 
-class EditarEventoOcio extends StatefulWidget {
+class EditarEventoEstudio extends StatefulWidget {
   @override
-  _EditarEventoOcio createState() => _EditarEventoOcio();
+  _EditarEventoEstudio createState() => _EditarEventoEstudio();
 }
 
-class _EditarEventoOcio extends State<EditarEventoOcio> {
+class _EditarEventoEstudio extends State<EditarEventoEstudio> {
   Color color_fondo = Colors.yellow.shade200;
 
   late TextEditingController controllernombreEvento;
@@ -16,24 +17,20 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
   late TextEditingController controllerHoraInicio;
   late TextEditingController controllerHoraFin;
   late TextEditingController controllergetPublico;
-  late TextEditingController controllerEtiquetas;
   late TextEditingController controllerduracion;
-  late TextEditingController controllerActividades;
+  late TextEditingController controllerTema;
 
   @override
   Widget build(BuildContext context) {
-    controllernombreEvento =
-        TextEditingController(text: "Escribe el nombre del evento");
-    controllerdescripcionEvento = TextEditingController(
-        text: "Descripcion corta de lo que vamos a hacer");
+    controllernombreEvento = TextEditingController(text: "¿Que vas a repasar?");
+    controllerdescripcionEvento =
+        TextEditingController(text: "Descripcion corta de la sesion");
     controllerHoraInicio = TextEditingController(text: "ej: 4:20");
     controllerHoraFin = TextEditingController(text: "ej: 20:10");
-    controllerEtiquetas =
-        TextEditingController(text: "ej: casual, estudio, petfriendly");
+
     controllergetPublico = TextEditingController(text: "ej: si o no");
     controllerduracion = TextEditingController(text: " ");
-    controllerActividades =
-        TextEditingController(text: "Actividades a desarrollar");
+    controllerTema = TextEditingController(text: " ");
     return Scaffold(
       backgroundColor: color_fondo,
       body: ListView(
@@ -42,7 +39,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
         children: [
           const SizedBox(height: 20),
           Text(
-            "Vamos a crear tu evento",
+            "Vamos a programar tu estudio",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
           ),
           const SizedBox(height: 24),
@@ -50,7 +47,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Nombre del evento",
+                "Nombre de la sesión",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -75,12 +72,12 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               ),
               const SizedBox(height: 10),
               Text(
-                "Actividades a desarrollar",
+                "Temas a repasar",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
               TextField(
-                controller: controllerActividades,
+                controller: controllerTema,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
@@ -138,25 +135,12 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
                       borderRadius: BorderRadius.circular(12)),
                 ),
               ),
-              const SizedBox(height: 10),
-              Text(
-                "Ponle etiquetas a tu evento",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-              TextField(
-                controller: controllerEtiquetas,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                ),
-              ),
             ],
           ),
           const SizedBox(height: 24),
           Center(
-              child:
-                  TextButton(onPressed: _guardarOcio, child: Text("Guardar"))),
+              child: TextButton(
+                  onPressed: _guardarEstudio, child: Text("Guardar"))),
         ],
       ),
     );
@@ -166,39 +150,39 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
   void dispose() {
     // Clean up the controller when the widget is removed from the widget tree.
     // This also removes the _printLatestValue listener.
-    controllerEtiquetas.dispose();
+
     controllerdescripcionEvento.dispose();
     controllerHoraInicio.dispose();
     controllerHoraFin.dispose();
     controllerduracion.dispose();
     controllergetPublico.dispose();
     controllernombreEvento.dispose();
-    controllerActividades.dispose();
+    controllerTema.dispose();
 
     super.dispose();
   }
 
-  void _guardarOcio() {
+  void _guardarEstudio() {
     //Aqui verificamos que la informacion se guarde, y la remitimos al metodo editar contacto
 
     DateTime fecha = MetodosEvento.diaSeleccionado;
     // MetodosEvento.formatearFecha(controllerdia.text, controllermes.text);
-    EventoOcio EventoOcio_ = EventoOcio(
+    EventoEstudio EventoEstudio_ = EventoEstudio(
         controllernombreEvento.text,
         fecha,
         int.parse(controllerduracion.text),
         MetodosEvento.getPublico(controllergetPublico.text),
-        controllerEtiquetas.text,
+        "Sesion de estudio",
         controllerdescripcionEvento.text,
-        controllerActividades.text,
+        controllerTema.text,
         controllerHoraInicio.text,
         controllerHoraFin.text);
-    print(EventoOcio_.nombre);
+    print(EventoEstudio_.nombre);
 
     //revisar y mejorar el codigo: no
     //faltan metodos de eventos, y pantallas de edicion: solo borrar
 
-    MetodosEvento.agregarEvento(EventoOcio_, fecha);
+    MetodosEvento.agregarEvento(EventoEstudio_, fecha);
 
     print("evento agregado");
 

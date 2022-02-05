@@ -1,9 +1,14 @@
 import 'package:myunify/datos/Evento.dart';
 
 class EventoClase extends Evento {
-  late String Profesor;
-  late String Materias;
-  late bool Modalidad;
+  late String _Profesor;
+  late String _Materias;
+
+  set Profesor(String a) => _Profesor = a;
+  String get Profesor => _Profesor;
+
+  set Materias(String m) => _Materias = m;
+  String get Materias => _Materias;
 
   @override
   void CrearEvento;
@@ -16,11 +21,8 @@ class EventoClase extends Evento {
 
   @override
   String toString() {
-    String cadena = " ";
-
-    cadena += super.toString();
-    cadena +=
-        "\n Profesor: $Profesor, Materia: $Materias,Virtual: ${Modalidad ? "si" : "no"},  ";
+    String cadena = super.toString();
+    cadena += "\n Profesor: $Profesor, Materia: $Materias,  ";
     return cadena;
   }
 
@@ -31,11 +33,10 @@ class EventoClase extends Evento {
       bool _publico,
       String _Etiquetas,
       String descripcion,
-      String dia,
-      String mes,
-      this.Materias,
-      this.Modalidad,
-      this.Profesor)
-      : super(_Etiquetas, _Fecha, _duracion, _nombre, descripcion, _publico,
-            mes, dia);
+      String horaInicio,
+      String horaFin,
+      this._Materias,
+      this._Profesor)
+      : super(_Etiquetas, _Fecha, _duracion, descripcion, _nombre, _publico,
+            horaInicio, horaFin);
 }

@@ -2,6 +2,9 @@ import 'Evento.dart';
 
 class EventoOcio extends Evento {
   late String actividades;
+
+  set Actividades(String a) => actividades = a;
+  String get Actividades => actividades;
   // late List<Usuario> asistentes;
 
   //implementar estos metodos
@@ -16,9 +19,7 @@ class EventoOcio extends Evento {
 
   @override
   String toString() {
-    String cadena = " ";
-
-    cadena += super.toString();
+    String cadena = super.toString();
     cadena += "Actividad a hacer: $actividades";
     return cadena;
   }
@@ -31,8 +32,8 @@ class EventoOcio extends Evento {
       String _Etiquetas,
       String descripcion,
       this.actividades,
-      String dia,
-      String mes)
-      : super(_Etiquetas, _Fecha, _duracion, _nombre, descripcion, _publico,
-            dia, mes);
+      String horaInicio,
+      String horaFin)
+      : super(_Etiquetas, _Fecha, _duracion, descripcion, _nombre, _publico,
+            horaInicio, horaFin);
 }
