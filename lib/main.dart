@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/paginaPrincipal.dart';
 import 'package:myunify/pages/Perfil/pantalla_editar.dart';
 import 'package:myunify/pages/Perfil/pantalla_perfil.dart';
+import 'package:myunify/pages/Perfil/pantalla_contrasena.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +24,17 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (BuildContext context) => PaginaPrincipal(),
           "/Main": (BuildContext context) => PaginaPrincipal(),
-          "/Edit": (BuildContext context) => EditarPerfil(),
+          "/Editar": (BuildContext context) => EditarPerfil(),
+          "/Contrasena": (BuildContext context) => EditarContrasena(),
           "/Ver": (BuildContext context) => PaginaPerfil(),
-        });
+        },
+        onUnknownRoute: (RouteSettings settings) {
+          return MaterialPageRoute<void>(
+            settings: settings,
+            builder: (BuildContext context) =>
+                Scaffold(body: Center(child: Text('Not Found'))),
+          );
+        },
+      );
   }
 }

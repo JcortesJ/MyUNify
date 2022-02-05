@@ -1,5 +1,5 @@
 class Usuario {
-  String linkFoto = "https://www.diariodelcesar.com/wp-content/uploads/2021/01/Alvaro-Uribe.jpg";
+  String linkFoto = "null";
   late String nombre;
   late String correo;
   late String contrasena;

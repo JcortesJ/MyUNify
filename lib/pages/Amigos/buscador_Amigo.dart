@@ -88,15 +88,15 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             content: Text("¿Desea enviar una solicitud de amistad?"),
             actions: <Widget>[
               FlatButton(
-                  color: color_interfazGrueso,
+                  color: Colors.orange.shade400,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Enviar solicitud de amistad",
-                      style: TextStyle(color: Colors.white))),
+                      style: TextStyle(color: Colors.black))),
               FlatButton(
-                  color: color_interfazGrueso,
+                  color: Colors.orange.shade400,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Cancelar",
-                      style: TextStyle(color: Colors.white))),
+                      style: TextStyle(color: Colors.black))),
             ],
           );
         });
@@ -112,10 +112,10 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             content: Text("Usuario no encontrado, intentelo de nuevo: "),
             actions: <Widget>[
               FlatButton(
-                  color: color_interfazGrueso,
+                  color: Colors.orange.shade400,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Volver",
-                      style: TextStyle(color: Colors.white))),
+                      style: TextStyle(color: Colors.black))),
             ],
           );
         });

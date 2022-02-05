@@ -88,7 +88,7 @@ class _EditarContrasenaEstado extends State<EditarContrasena> {
           controllercontrasena.text,
          );
      
-        Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, "/Main");
 
         
       });

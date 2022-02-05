@@ -54,6 +54,7 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
           ProfileWidget(
             imagePath: usuarioActual.linkFoto,
             onClicked: () async {},
+            size: 55,
           ),
           const SizedBox(height: 24),
           Column(
@@ -76,12 +77,25 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
-              TextField(
+              Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: Colors.green,
+                width: 2,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
+            ),
+            child: TextField(
                 controller: controllernombreUsuario,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
+              ),
               ),
               const SizedBox(height: 10),
               Text(
@@ -145,7 +159,7 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
           controllerinstagram.text,
           );
      
-        Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, "/Main");
 
         
       });
@@ -153,6 +167,6 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
       Widget cancelar() => ButtonWidget(
       text: "Cancelar",
       onClicked: () {    
-        Navigator.pop(context);
+      Navigator.pop(context);
       });
 }

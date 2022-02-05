@@ -34,6 +34,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
 
   void irAContacto(Usuario amigo) {
     //este metodo deberia tener el parametro Contacto y un navigator xd
+    print(amigo.linkFoto);
     setState(() {
       Metodos.viendoAmigo = amigo;
       Navigator.push(
@@ -110,16 +111,10 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     //container de la imagen
-                    ClipOval(
-                      child: Material(
-                        color: Colors.transparent,
-                        child: Ink.image(
-                          image: NetworkImage(_amigos[index].linkFoto),
-                          fit: BoxFit.cover,
-                          width: 65,
-                          height: 50,
-                        ),
-                      ),
+                    ProfileWidget(
+                      imagePath: _amigos[index].linkFoto,
+                      onClicked: () async {},
+                      size: 30,
                     ),
 
                     //container del texto
@@ -133,7 +128,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
                                   "${_amigos[index].nombre}",
                                   // ignore: prefer_const_constructors
                                   style: TextStyle(
-                                      color: Colors.deepOrange, 
+                                      color: Colors.deepOrange,
                                       fontSize: 23,
                                       fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.left,
@@ -147,13 +142,11 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
         ),
       ),*/
 
-      //Finalmente el bottomNavigationBar que supongo que repetiremos
-      //en todas las pantall
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
 
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors. black,
+        backgroundColor: Colors.black,
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => BuscadorAmigo()),

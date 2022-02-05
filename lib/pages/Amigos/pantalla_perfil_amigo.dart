@@ -30,6 +30,7 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
           ProfileWidget(
             imagePath: amigoActual.linkFoto,
             onClicked: () async {},
+            size: 55,
           ),
           const SizedBox(height: 24),
           construirInformacion(amigoActual),

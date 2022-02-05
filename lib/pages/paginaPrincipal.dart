@@ -23,9 +23,8 @@ class _SchoolPaginaPrincipal extends State<PaginaPrincipal> {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Container(
+      child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           elevation: 0,
           backgroundColor: Colors.black,

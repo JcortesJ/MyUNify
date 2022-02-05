@@ -43,6 +43,7 @@ class _PerfilEstado extends State<PaginaPerfil> {
           ProfileWidget(
             imagePath: usuarioActual.linkFoto,
             onClicked: () async {},
+            size:55,
           ),
           const SizedBox(height: 24),
           construirNombre(usuarioActual),
@@ -73,19 +74,13 @@ class _PerfilEstado extends State<PaginaPerfil> {
   Widget editarContacto() => ButtonWidget(
       text: "Editar datos",
       onClicked: () {
-        Navigator.push(
-                context,
-                 MaterialPageRoute(builder: (context) => EditarPerfil()),
-              );
+        Navigator.pushNamed(context, "/Editar");
       });
 
   Widget cambiarContrasena() => ButtonWidget(
       text: "Cambiar contraseña",
       onClicked: () {
-        Navigator.push(
-                context,
-                 MaterialPageRoute(builder: (context) => EditarContrasena()),
-              );
+        Navigator.pushNamed(context, "/Contrasena");
       });
 
   Widget cerrarSesion() => ButtonWidget(
