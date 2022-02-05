@@ -47,11 +47,12 @@ class _LoginState extends State<Login> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                'QUE SE DICE',
+                'BIENVENIDO',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
+                  fontFamily: 'Subs'
                 )
               ),
               Image.asset(

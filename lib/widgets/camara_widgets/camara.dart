@@ -67,6 +67,22 @@ class _FotoUsuarioScreenState extends State<FotoUsuario>{
   }
 
 
+
+  @override
+  Widget build(BuildContext conext){
+    return Scaffold( 
+      body:IconButton(
+        onPressed: () async{ _showSelectionDialog(context);}, 
+        icon:
+        widget.imageFile == null? Icon(Icons.photo_outlined, color: Colors.white, size: 60) : Image.file(File(widget.imageFile!.path)),
+        iconSize: 120,
+      ),
+      backgroundColor: Colors.black,
+    );
+  } 
+}
+
+/*
   @override
   Widget build(BuildContext conext){
     return Scaffold( 
@@ -80,3 +96,4 @@ class _FotoUsuarioScreenState extends State<FotoUsuario>{
     );
   } 
 }
+*/ 

@@ -9,12 +9,31 @@ class Dialogo extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return AlertDialog(
-      title: Text("Seleccione para abrir su galería"),
+      title: const Text(
+        "Seleccione para abrir su galería",
+        textAlign: TextAlign.center,
+         style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Subs'
+        )
+      ),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(32.0))
+      ),
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
+            Divider(color: Colors.black),
             GestureDetector(
-              child: const Text("Galeria"),
+              child: const Text(
+                "Galeria",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Plano',
+                  fontSize: 20
+                )
+              ),
               onTap: () {
                 accion(contexto);
               },
@@ -23,7 +42,7 @@ class Dialogo extends StatelessWidget {
           ],
         ),
       ),
-      backgroundColor: Colores.colorBurbuja,
+      backgroundColor: Colors.white,
   );;
 }
 }
