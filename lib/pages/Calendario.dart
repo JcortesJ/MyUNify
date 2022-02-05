@@ -115,7 +115,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
           Container(
             margin: EdgeInsets.only(left: 20, top: 35),
             height: MediaQuery.of(context).size.height *
-                0.18, //hace la app responsive
+                0.2, //hace la app responsive
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
                 color: colorSecundario2,
@@ -191,19 +191,19 @@ class _VistaCalendarState extends State<VistaCalendar> {
               child:
                   //Pendiente modificarlo XD
                   Text(
-                "Estos son los eventos que tienes para este dia",
+                "Estos son los eventos que tienes para este dia:",
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               )),
 
           //LISTA DE EVENTOS
           Container(
-              margin: EdgeInsets.only(left: 20, top: 20),
+              margin: EdgeInsets.only(left: 20, top: 15),
               height: MediaQuery.of(context).size.height *
-                  0.62, //hace la app responsive
+                  0.50, //hace la app responsive
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                   color: colorSecundario2,

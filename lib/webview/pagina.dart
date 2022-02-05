@@ -21,16 +21,16 @@ class paginaBienestarState extends State<paginaBienestar> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Colors.white,
       // backgroundColor: ,
       appBar: AppBar(
           title: Text("Bienestar según MyUNify"),
-          backgroundColor: colorFondo,
+          backgroundColor: Colors.black,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(70))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(0))),
 
       body: WebView(
-        initialUrl: "https://uniandes.edu.co",
+        initialUrl: "https://creatiabusiness.com/15-consejos-para-mejorar-tu-bienestar-y-felicidad/",
         //Poner el modo de Js sin restringir puede ser peligroso, pero
         // pues que le hacemos, esto es una prueba
         javascriptMode: JavascriptMode.unrestricted,
