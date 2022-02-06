@@ -3,7 +3,7 @@
 import 'package:intl/intl.dart';
 import 'package:myunify/data/Evento.dart';
 import 'package:myunify/data/EventoOcio.dart';
-import 'package:myunify/pages/Calendario.dart';
+import 'package:myunify/pages/calendario/Calendario.dart';
 
 class MetodosEvento {
   static Map<DateTime, List<Evento>> ListaEventosDB = {};

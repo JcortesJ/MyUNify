@@ -4,7 +4,7 @@ import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/mensajes_widgets/Rechazar.dart';
 import 'package:myunify/widgets/mensajes_widgets/Aceptar.dart';
-import 'package:myunify/pages/Amigos/pantalla_perfil_amigo.dart';
+import 'package:myunify/pages/Amigos/pantalla_perfil_amigo2.dart';
 
 class Msgsolicitud extends StatelessWidget {
   Usuario remitente;
@@ -98,7 +98,7 @@ class Msgsolicitud extends StatelessWidget {
                 Metodos.viendoAmigo = remitente;
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PerfilAmigo()),
+                  MaterialPageRoute(builder: (context) => PerfilAmigo2()),
                 );
               },
               child: const Icon(

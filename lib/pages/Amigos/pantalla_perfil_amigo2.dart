@@ -8,12 +8,12 @@ import 'package:myunify/data/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
 
-class PerfilAmigo extends StatefulWidget {
+class PerfilAmigo2 extends StatefulWidget {
   @override
-  _PerfilAmigoEstado createState() => _PerfilAmigoEstado();
+  _PerfilAmigo2Estado createState() => _PerfilAmigo2Estado();
 }
 
-class _PerfilAmigoEstado extends State<PerfilAmigo> {
+class _PerfilAmigo2Estado extends State<PerfilAmigo2> {
   // final contactoActual = Metodos.contactoActual;
 
   dynamic amigoActual = Metodos.viendoAmigo;
@@ -33,8 +33,6 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
           ),
           const SizedBox(height: 24),
           construirInformacion(amigoActual),
-          const SizedBox(height: 16),
-          Center(child: eliminarAmigo()),
           const SizedBox(height: 16),
           Center(child: volver()),
           const SizedBox(height: 20),

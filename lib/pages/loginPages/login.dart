@@ -31,12 +31,7 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text('BIENVENIDO',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      fontFamily: 'Subs')),
+              SizedBox(height: 50,),
               Image.asset(
                 'assets/buhoUNIFY.png',
                 width: size.width * 0.6,
