@@ -23,9 +23,8 @@ class _EditarEventoClase extends State<EditarEventoClase> {
 
   @override
   Widget build(BuildContext context) {
-    controllernombreEvento = TextEditingController(text: "¿Que clase es?");
-    controllerdescripcionEvento =
-        TextEditingController(text: "Virtual? Salón #?");
+    controllernombreEvento = TextEditingController();
+    controllerdescripcionEvento = TextEditingController();
     controllerHoraInicio = TextEditingController(text: "ej: 4:20");
     controllerHoraFin = TextEditingController(text: "ej: 20:10");
     controllerMaterias = TextEditingController(text: "ej: calculo integral");
@@ -55,6 +54,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                   controller: controllernombreEvento,
                   decoration: InputDecoration(
+                    hintText: "Nombre de tu clase",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                   )),

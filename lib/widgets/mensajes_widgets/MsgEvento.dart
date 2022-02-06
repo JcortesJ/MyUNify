@@ -28,6 +28,7 @@ class Msgevento extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Column(children: [
       Container(
+        margin: EdgeInsets.only(top: 10),
         padding: const EdgeInsets.all(10),
         width: size.width * 0.8,
         decoration: BoxDecoration(
