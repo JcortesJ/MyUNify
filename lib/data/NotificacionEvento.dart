@@ -1,6 +1,6 @@
 
 
-import 'package:myunify/Datos/Mensaje.dart';
+import 'package:myunify/data/Mensaje.dart';
 
 class NotificacionEvento extends Mensaje{
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/data/Evento.dart';
 
 class Infoevento extends StatelessWidget {
   BuildContext contexto;

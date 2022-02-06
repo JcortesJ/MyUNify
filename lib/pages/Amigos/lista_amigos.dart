@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/usuario.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
@@ -54,7 +54,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
 
     setState(() {
       prefs.setString("uxiono", jsonContactos);
-      print("Datos subidos con exito");
+      print("data subidos con exito");
     });
   }
 
@@ -66,7 +66,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
       List<Contacto> contactosDeNuevo =
           listaConts_js.map((index) => Contacto.fromJson(index)).toList();
       Metodos.contactos = contactosDeNuevo;
-      print("Datos descargados con exito");
+      print("data descargados con exito");
     });
   } */
 

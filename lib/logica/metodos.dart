@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:myunify/Datos/Solicitud.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/Solicitud.dart';
+import 'package:myunify/data/usuario.dart';
 
 class Metodos {
   static late Usuario usuarioregistrado = Usuario(
@@ -102,7 +102,7 @@ class Metodos {
 
   static EliminarMensaje(int indice, Usuario user) {
     print("cantidad de mensajes al eliminar: ${user.mensajes.length}");
-    user.mensajes.remove(user.mensajes[indice]);
+    //user.mensajes.remove(user.mensajes[indice]);
     print("cantidad de mensajes despues de eliminar: ${user.mensajes.length}");
   }
 

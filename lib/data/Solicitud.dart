@@ -1,5 +1,5 @@
-import 'package:myunify/Datos/Mensaje.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/Mensaje.dart';
+import 'package:myunify/data/usuario.dart';
 
 class Solicitud extends Mensaje{
 

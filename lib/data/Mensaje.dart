@@ -1,6 +1,7 @@
+
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/usuario.dart';
 
 class Mensaje{
 

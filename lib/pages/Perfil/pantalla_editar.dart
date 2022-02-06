@@ -8,7 +8,7 @@ import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/perfil_widgets/textfield_widget.dart';
 import 'package:myunify/widgets/camara_widgets/camara.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/usuario.dart';
 
 
 class EditarPerfil extends StatefulWidget {

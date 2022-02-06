@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myunify/Datos/Evento.dart';
-import 'package:myunify/Datos/EventoClase.dart';
-import 'package:myunify/Datos/EventoEstudio.dart';
-import 'package:myunify/Datos/EventoOcio.dart';
-import 'package:myunify/datos/eventoLogica.dart';
+import 'package:myunify/data/Evento.dart';
+import 'package:myunify/data/EventoClase.dart';
+import 'package:myunify/data/EventoEstudio.dart';
+import 'package:myunify/data/EventoOcio.dart';
+import 'package:myunify/data/eventoLogica.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -21,12 +21,19 @@ class _VistaCalendarState extends State<VistaCalendar> {
   Color colorSecundario1 = Color(0xffFF3D68);
   Color colorBottom = Color(0xffA73489);
 
+  @override
+  void init() {
+    super.initState();
+    mostrarEventos();
+  }
+
   //De locos, un mapa de arreglos xd
 
   // Map<DateTime, List<Evento>> ListaEventos = MetodosEvento.ListaEventosDB;
   //como es estatico no tienes que crear un objeto xd
 
   List<Evento> eventosDelDia = [];
+  Map<DateTime, List<Evento>> listacopia = MetodosEvento.ListaEventosDB;
   //la clase evento deberia tener por defecto que eventos del dia tenga este texto
   //Creamos las variables básicas donde focused day es el primer dia, y selected el que toque la persona
   DateTime _focusedDay = MetodosEvento.diacentrado;
@@ -47,7 +54,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
     //limpia la lista de eventos antes de mostrarlos
     DateTime escogido = _selectedDay;
     //problema, no esta mostrando para el dia que es xd
-    MetodosEvento.ListaEventosDB[_selectedDay] == null
+    listacopia[_selectedDay] == null
         ? eventosDelDia.add(diaSinEvento)
         : eventosDelDia = MetodosEvento.ListaEventosDB[_selectedDay]!;
     print("Mostrando la lista de eventos ${eventosDelDia.isEmpty}");
@@ -197,21 +204,20 @@ class _VistaCalendarState extends State<VistaCalendar> {
                   0.08, //hace la app responsive
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(30)),
+                  color: Colors.orange.shade300,
+                  borderRadius: BorderRadius.circular(30)),
               padding: EdgeInsets.all(15),
               child:
                   //Pendiente modificarlo XD
-                  ListView(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.all(15),
+                  Row(
                 children: [
                   Text(
                     "Actualizar Calendario",
-                     textAlign: TextAlign.center,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                   IconButton(
                       onPressed: () {
@@ -331,6 +337,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
     MetodosEvento.eventosPublicos.remove(e);
     List<Evento> listaActualizada = listaEseDia;
     MetodosEvento.ListaEventosDB[claveDia] = listaActualizada;
+    listacopia[claveDia] = listaActualizada;
     print("evento borrado con exito");
     // Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
     Navigator.pop(context);

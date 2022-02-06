@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/usuario.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/mensajes_widgets/Rechazar.dart';

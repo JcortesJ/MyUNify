@@ -81,6 +81,7 @@ class _RegistroState extends State<Registro> {
                       onPressed:(){
                         if(usuario!= ' ' && clave!= ' ' && correo!= ' ' && nombre != ' ' && usuarioIg != ' '){
                           Metodos.RegistrarUsuario(nombre, correo, clave, usuario, usuarioIg, foto);
+                          Navigator.pushReplacementNamed(context, "/");
                         }
                         //print('user: $usuario contraseña $clave');
                         //print('entro foto: ${foto == null? 'no funciona': 'funciono!!'} ');

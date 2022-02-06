@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/EventoClase.dart';
-import 'package:myunify/datos/eventoLogica.dart';
-import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/data/EventoClase.dart';
+import 'package:myunify/data/eventoLogica.dart';
+import 'package:myunify/data/Evento.dart';
 
 class EditarEventoClase extends StatefulWidget {
   @override

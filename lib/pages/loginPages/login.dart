@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/Solicitud.dart';
+import 'package:myunify/data/Solicitud.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/login_widgets/Containers.dart';
 import 'package:myunify/widgets/login_widgets/input_usuario.dart';

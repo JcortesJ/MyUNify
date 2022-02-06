@@ -1,8 +1,8 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:intl/intl.dart';
-import 'package:myunify/Datos/Evento.dart';
-import 'package:myunify/Datos/EventoOcio.dart';
+import 'package:myunify/data/Evento.dart';
+import 'package:myunify/data/EventoOcio.dart';
 import 'package:myunify/pages/Calendario.dart';
 
 class MetodosEvento {

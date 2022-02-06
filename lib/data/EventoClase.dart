@@ -1,4 +1,4 @@
-import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/data/Evento.dart';
 
 class EventoClase extends Evento {
   late String _Profesor;

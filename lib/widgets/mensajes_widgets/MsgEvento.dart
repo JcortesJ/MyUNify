@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/usuario.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/mensajes_widgets/Aceptar.dart';
 import 'package:myunify/widgets/mensajes_widgets/InfoEvento.dart';
 import 'package:myunify/widgets/mensajes_widgets/Rechazar.dart';
-import 'package:myunify/Datos/Evento.dart';
-import 'package:myunify/Datos/eventoLogica.dart';
+import 'package:myunify/data/Evento.dart';
+import 'package:myunify/data/eventoLogica.dart';
 
 class Msgevento extends StatelessWidget {
   final Evento eventoMostrando;
@@ -41,10 +41,15 @@ class Msgevento extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(children: [
-                  WidgetSpan(child: Icon(Icons.event, color: Colors.black)),
+                  WidgetSpan(
+                    child: Icon(
+                      Icons.event, 
+                    color: Colors.black)),
                   TextSpan(
-                    text: eventoMostrando.nombre,
+                  
+                    text: " "+eventoMostrando.nombre,
                     style: TextStyle(
+                      
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
@@ -73,8 +78,10 @@ class Msgevento extends StatelessWidget {
           const SizedBox(width: 7),
           //SizedBox(width: 10),
           Container(
-            height: 40,
-            width: 40,
+            //alignment: Alignment.centerRight,
+            margin: EdgeInsets.only(left: 30),
+            height: 50,
+            width: 50,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40), color: Colors.black),
             child: GestureDetector(

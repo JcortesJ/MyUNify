@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/data/Evento.dart';
 
 class Usuario {
   late File? foto;

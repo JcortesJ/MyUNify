@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/Datos/EventoOcio.dart';
-import 'package:myunify/Datos/NotificacionEvento.dart';
-import 'package:myunify/Datos/Solicitud.dart';
-import 'package:myunify/Datos/usuario.dart';
+import 'package:myunify/data/EventoOcio.dart';
+import 'package:myunify/data/NotificacionEvento.dart';
+import 'package:myunify/data/Solicitud.dart';
+import 'package:myunify/data/usuario.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/mensajes_widgets/AppBarMsg.dart';
 import 'package:myunify/widgets/mensajes_widgets/Cabeza.dart';
 import 'package:myunify/widgets/mensajes_widgets/MsgEvento.dart';
 import 'package:myunify/widgets/mensajes_widgets/MsgSolicitud.dart';
-import 'package:myunify/Datos/eventoLogica.dart';
-import 'package:myunify/Datos/Evento.dart';
+import 'package:myunify/data/eventoLogica.dart';
+import 'package:myunify/data/Evento.dart';
 
 class Mensajes extends StatefulWidget {
   const Mensajes({Key? key}) : super(key: key);
