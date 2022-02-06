@@ -97,7 +97,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
               //La respuesta está en este list.generate
               // DOC: https://docs.flutter.dev/cookbook/lists/grid-lists
               List.generate(_amigos.length, (index) {
-                return Container(
+            return Container(
                 padding: EdgeInsets.all(8),
                 height: 80,
                 width: 500,
@@ -140,7 +140,6 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
       /*   ],
         ),
       ),*/
-
 
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
 

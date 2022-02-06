@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:myunify/datos/Evento.dart';
 
 class Usuario {
   late File? foto;
@@ -7,6 +8,7 @@ class Usuario {
   late String contrasena;
   late String nombreUsuario;
   late String usuarioig;
+  late Map<DateTime, Evento> calendarUsuario = {};
   late List<Usuario> amigos = [
     Usuario(
     "Juan Cortes",
@@ -84,5 +86,4 @@ class Usuario {
         'nombreUsuario': nombreUsuario,
         'usuarioig': usuarioig,
       }; */
-
 }

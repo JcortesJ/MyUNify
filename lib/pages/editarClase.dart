@@ -23,9 +23,8 @@ class _EditarEventoClase extends State<EditarEventoClase> {
 
   @override
   Widget build(BuildContext context) {
-    controllernombreEvento = TextEditingController(text: "¿Que clase es?");
-    controllerdescripcionEvento =
-        TextEditingController(text: "Virtual? Salón #?");
+    controllernombreEvento = TextEditingController();
+    controllerdescripcionEvento = TextEditingController();
     controllerHoraInicio = TextEditingController(text: "ej: 4:20");
     controllerHoraFin = TextEditingController(text: "ej: 20:10");
     controllerMaterias = TextEditingController(text: "ej: calculo integral");
@@ -48,13 +47,14 @@ class _EditarEventoClase extends State<EditarEventoClase> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Nombre del evento",
+                "Nombre del la clase",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
               TextField(
                   controller: controllernombreEvento,
                   decoration: InputDecoration(
+                    hintText: "Nombre de tu clase",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                   )),
@@ -188,6 +188,9 @@ class _EditarEventoClase extends State<EditarEventoClase> {
 
     print("evento agregado");
 
-    Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
+    //Navigator.pushNamedAndRemoveUntil(context, "/Main", (route) => false);
+
+    //Pensar luego en como hacer para que te devuelva a la lista de calendario
+    Navigator.pop(context);
   }
 }

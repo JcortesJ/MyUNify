@@ -98,7 +98,8 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             actions: <Widget>[
               Center(child: FlatButton(
                   color: Colors.orange.shade400,
-                  onPressed: () =>  Navigator.pop(context), // que cree la solicitud
+                  onPressed: () =>
+                      Navigator.pop(context), // que cree la solicitud
                   child: const Text("Enviar solicitud de amistad",
                       style: TextStyle(color: Colors.black))),
               ),

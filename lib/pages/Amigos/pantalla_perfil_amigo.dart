@@ -8,7 +8,6 @@ import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
 
-
 class PerfilAmigo extends StatefulWidget {
   @override
   _PerfilAmigoEstado createState() => _PerfilAmigoEstado();
@@ -58,7 +57,6 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
         //Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
         Navigator.pop(context);
       });
-     
 
   @override
   void dispose() {
