@@ -22,18 +22,14 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
 
   @override
   Widget build(BuildContext context) {
-    controllernombreEvento =
-        TextEditingController(text: "Escribe el nombre del evento");
-    controllerdescripcionEvento = TextEditingController(
-        text: "Descripcion corta de lo que vamos a hacer");
-    controllerHoraInicio = TextEditingController(text: "ej: 4:20");
-    controllerHoraFin = TextEditingController(text: "ej: 20:10");
-    controllerEtiquetas =
-        TextEditingController(text: "ej: casual, estudio, petfriendly");
-    controllergetPublico = TextEditingController(text: "ej: si o no");
-    controllerduracion = TextEditingController(text: " ");
-    controllerActividades =
-        TextEditingController(text: "Actividades a desarrollar");
+    controllernombreEvento = TextEditingController();
+    controllerdescripcionEvento = TextEditingController();
+    controllerHoraInicio = TextEditingController();
+    controllerHoraFin = TextEditingController();
+    controllerEtiquetas = TextEditingController();
+    controllergetPublico = TextEditingController();
+    controllerduracion = TextEditingController();
+    controllerActividades = TextEditingController();
     return Scaffold(
       backgroundColor: color_fondo,
       body: ListView(
@@ -57,6 +53,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                   controller: controllernombreEvento,
                   decoration: InputDecoration(
+                    hintText: "¿como se llamará tu evento?",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                   )),
@@ -69,6 +66,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllerdescripcionEvento,
                 decoration: InputDecoration(
+                  hintText: "Donde será? contacto?",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -82,6 +80,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllerActividades,
                 decoration: InputDecoration(
+                  hintText: "¿Qué vamos a hacer?",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -95,6 +94,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllerHoraInicio,
                 decoration: InputDecoration(
+                  hintText: "ej 3:30",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -108,6 +108,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllerHoraFin,
                 decoration: InputDecoration(
+                  hintText: "ej 4:50",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -121,6 +122,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllerduracion,
                 decoration: InputDecoration(
+                  hintText: "ej 4",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -134,6 +136,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllergetPublico,
                 decoration: InputDecoration(
+                  hintText: "si o no",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -147,6 +150,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
               TextField(
                 controller: controllerEtiquetas,
                 decoration: InputDecoration(
+                  hintText: "ej pet-friendly, animalista, vegana, taciturna",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),

@@ -24,12 +24,12 @@ class _EditarEventoClase extends State<EditarEventoClase> {
   Widget build(BuildContext context) {
     controllernombreEvento = TextEditingController();
     controllerdescripcionEvento = TextEditingController();
-    controllerHoraInicio = TextEditingController(text: "ej: 4:20");
-    controllerHoraFin = TextEditingController(text: "ej: 20:10");
-    controllerMaterias = TextEditingController(text: "ej: calculo integral");
-    controllergetPublico = TextEditingController(text: "ej: si o no");
-    controllerduracion = TextEditingController(text: " ");
-    controllerProfesor = TextEditingController(text: "ej Snoop Dog");
+    controllerHoraInicio = TextEditingController();
+    controllerHoraFin = TextEditingController();
+    controllerMaterias = TextEditingController();
+    controllergetPublico = TextEditingController();
+    controllerduracion = TextEditingController();
+    controllerProfesor = TextEditingController();
     return Scaffold(
       backgroundColor: color_fondo,
       body: ListView(
@@ -66,6 +66,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                 controller: controllerdescripcionEvento,
                 decoration: InputDecoration(
+                  hintText: "Describe cortamente lo que haras",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -79,6 +80,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                 controller: controllerProfesor,
                 decoration: InputDecoration(
+                  hintText: "Cual es el profe?",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -92,6 +94,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                 controller: controllerHoraInicio,
                 decoration: InputDecoration(
+                  hintText: "ej: 4:20",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -105,6 +108,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                 controller: controllerHoraFin,
                 decoration: InputDecoration(
+                  hintText: "ej: 5:20",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -118,6 +122,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                 controller: controllerduracion,
                 decoration: InputDecoration(
+                  hintText: "ej 2",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -131,6 +136,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
               TextField(
                 controller: controllerMaterias,
                 decoration: InputDecoration(
+                  hintText: "ej calculo integral",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -178,14 +184,14 @@ class _EditarEventoClase extends State<EditarEventoClase> {
         controllerProfesor.text,
         controllerHoraInicio.text,
         controllerHoraFin.text);
-    print(EventoClase_.nombre);
+    print("hemos creado un evento clase");
 
     //revisar y mejorar el codigo: no
     //faltan metodos de eventos, y pantallas de edicion: solo borrar
-    
+
     MetodosEvento.agregarEvento(EventoClase_, fecha);
 
-    print("evento agregado");
+    print("evento clase agregado");
 
     //Navigator.pushNamedAndRemoveUntil(context, "/Main", (route) => false);
 

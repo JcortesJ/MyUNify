@@ -22,15 +22,14 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
 
   @override
   Widget build(BuildContext context) {
-    controllernombreEvento = TextEditingController(text: "¿Que vas a repasar?");
-    controllerdescripcionEvento =
-        TextEditingController(text: "Descripcion corta de la sesion");
-    controllerHoraInicio = TextEditingController(text: "ej: 4:20");
-    controllerHoraFin = TextEditingController(text: "ej: 20:10");
+    controllernombreEvento = TextEditingController();
+    controllerdescripcionEvento = TextEditingController();
+    controllerHoraInicio = TextEditingController();
+    controllerHoraFin = TextEditingController();
 
-    controllergetPublico = TextEditingController(text: "ej: si o no");
-    controllerduracion = TextEditingController(text: " ");
-    controllerTema = TextEditingController(text: " ");
+    controllergetPublico = TextEditingController();
+    controllerduracion = TextEditingController();
+    controllerTema = TextEditingController();
     return Scaffold(
       backgroundColor: color_fondo,
       body: ListView(
@@ -54,6 +53,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                   controller: controllernombreEvento,
                   decoration: InputDecoration(
+                    hintText: "¿como se llamará tu sesión?",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                   )),
@@ -66,6 +66,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                 controller: controllerdescripcionEvento,
                 decoration: InputDecoration(
+                  hintText: "Describe cosas como el sitio o en donde verse",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -79,6 +80,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                 controller: controllerTema,
                 decoration: InputDecoration(
+                  hintText: "¿Qué vas a repasar?",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -92,6 +94,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                 controller: controllerHoraInicio,
                 decoration: InputDecoration(
+                  hintText: "ej: 4:00",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -105,6 +108,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                 controller: controllerHoraFin,
                 decoration: InputDecoration(
+                  hintText: "ej 5:00",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -118,6 +122,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                 controller: controllerduracion,
                 decoration: InputDecoration(
+                  hintText: "ej 2",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -131,6 +136,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
               TextField(
                 controller: controllergetPublico,
                 decoration: InputDecoration(
+                  hintText: "si o no",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
@@ -177,7 +183,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
         controllerTema.text,
         controllerHoraInicio.text,
         controllerHoraFin.text);
-    print(EventoEstudio_.nombre);
+    print("hemos creado el evento de estudio");
 
     //revisar y mejorar el codigo: no
     //arreglar problema de actualizar el calendario sin que se vea paila
@@ -189,7 +195,7 @@ class _EditarEventoEstudio extends State<EditarEventoEstudio> {
 
     MetodosEvento.agregarEvento(EventoEstudio_, fecha);
 
-    print("evento agregado");
+    print("evento estudio agregado");
 
     //Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
     Navigator.pop(context);

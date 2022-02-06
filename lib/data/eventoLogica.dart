@@ -24,37 +24,34 @@ class MetodosEvento {
 
   static void agregarEvento(Evento e, DateTime f) {
     diacentrado = f;
-    if (e.publico = true) {
-      //añade a la lista publica si es necesario
-      eventosPublicos.add(e);
-    }
 
     List<Evento> listaPosible = [e];
 
-    //bug mas paila que alguna vez he visto
-    /**
-     * Horas invertidas resolviendo esto: 12h
-     * El error: cuando agregabas el evento, creabas una lista posible, en caso de 
-     * que no hubiera nada. Sin embargo, nunca la llené con el evento creado
-     * por esto, no se mostraba el evento y la lista salía como vacia
-     * Asi que moraleja, no codees bajo el consumo de sustancias extrañas ok no
-     * No escribas codigo por que si, sino documentalo todo y trata de hacerlo tranquilo
-     */
-
-    if (ListaEventosDB[f] == null)
+    if (ListaEventosDB[f] == null) {
       ListaEventosDB.addAll({f: listaPosible});
-    else {
+      if (e.publico = true) {
+        //añade a la lista publica si es necesario
+        eventosPublicos.add(e);
+        print("hemos añadido a una lista vacia");
+      }
+    } else {
       List<Evento> listaVieja = ListaEventosDB[f] as List<Evento>;
       listaVieja.add(e);
-      ListaEventosDB.update(f, (List<Evento> l) => listaVieja);
-      print(ListaEventosDB[f]);
+      // ListaEventosDB.update(f, (List<Evento> l) => listaVieja);
+      ListaEventosDB[f] = listaVieja;
+      if (e.publico = true) {
+        //añade a la lista publica si es necesario
+        eventosPublicos.add(e);
+      }
+      print("se ha agregado el evento a una lista vieja");
     }
   }
 
   static bool getPublico(String n) {
     if (n == "si")
       return true;
-    else
+    else {
       return false;
+    }
   }
 }
