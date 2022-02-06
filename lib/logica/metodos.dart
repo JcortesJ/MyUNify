@@ -26,7 +26,7 @@ class Metodos {
     Usuario(
       "Juan Cortes",
       "Juan@hotmail.com",
-      "holibb",
+      "123",
       "xxx",
       "123",
       null,
@@ -52,7 +52,7 @@ class Metodos {
   static bool Autenticar(String usuario, String contrasena) {
     for (var i = totalUsuarios.length - 1; i >= 0; i--) {
       if (totalUsuarios[i].NombreUsuario == usuario) {
-        if (totalUsuarios[i].contrasena == contrasena) {
+        if (totalUsuarios[i].Contrasena == contrasena) {
           return true;
         } else {
           return false;
@@ -63,7 +63,7 @@ class Metodos {
   }
 
   static void EditarPerfil(
-    String nombre, String correo, String nombreUsuario, String usuarioig) {
+      String nombre, String correo, String nombreUsuario, String usuarioig) {
     usuarioregistrado.nombre = nombre;
     usuarioregistrado.correo = correo;
     usuarioregistrado.nombreUsuario = nombreUsuario;
@@ -89,5 +89,13 @@ class Metodos {
       }
     }
     return (false);
+  }
+
+  static void EstablecerRegistrado(String usuario) {
+    for (var i = totalUsuarios.length - 1; i >= 0; i--) {
+      if (totalUsuarios[i].NombreUsuario == usuario) {
+        usuarioregistrado = totalUsuarios[i];
+      }
+    }
   }
 }

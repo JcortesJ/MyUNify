@@ -27,7 +27,7 @@ class ProfileWidget extends StatelessWidget {
 
     return CircleAvatar(
       radius: _size,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       child: _image != null
           ? ClipRRect(
               borderRadius: BorderRadius.circular(50),
@@ -38,7 +38,7 @@ class ProfileWidget extends StatelessWidget {
             )
           : Image(
             image: AssetImage('assets/images/icon.png'),
-            fit: BoxFit.cover,
+            fit: BoxFit.fitHeight,
         ),
     );
   }

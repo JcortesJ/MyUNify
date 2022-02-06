@@ -12,8 +12,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String usuario = " ";
-  String clave = " ";
+  String usuario = "";
+  String clave = "";
 
   final keyform = GlobalKey<FormState>();
 
@@ -65,11 +65,9 @@ class _LoginState extends State<Login> {
                 ),
                 child: TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "/Main");
-
-                      Metodos.Autenticar(usuario, clave)
-                          ? _autenticacionfallida(context)
-                          : Navigator.pushNamed(context, "/Main");
+                      Metodos.Autenticar(usuario, clave) == true
+                          ? _entrar(context)
+                          : _autenticacionfallida(context);
                     },
                     child: const Text(
                       "INICIAR SESION",
@@ -83,6 +81,11 @@ class _LoginState extends State<Login> {
     )));
   }
 
+  void _entrar(BuildContext context){
+    Metodos.EstablecerRegistrado(usuario);
+    Navigator.pushNamed(context, "/Main");
+  }
+
   void _autenticacionfallida(BuildContext context) {
     showDialog(
         context: context,
@@ -90,14 +93,18 @@ class _LoginState extends State<Login> {
         builder: (BuildContext context) {
           return AlertDialog(
             //mirar si dejamos este o el alertDialog de material
+
             content:
                 Text("Usuario o contraseña incorrecta, intentelo de nuevo: "),
             actions: <Widget>[
-              FlatButton(
+              Center(
+                child: FlatButton(
                   color: Colors.orange.shade400,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Volver",
-                      style: TextStyle(color: Colors.black))),
+                      style: TextStyle(color: Colors.black)),
+                ),
+              ),
             ],
           );
         });

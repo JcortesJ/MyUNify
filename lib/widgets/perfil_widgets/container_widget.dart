@@ -9,12 +9,17 @@ class ContainerWidget extends StatelessWidget {
    : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Container(            
+  Widget build(BuildContext context) => Container( 
+            padding: EdgeInsets.only(left: 10, right: 10, bottom: 3, top: 3),
+            decoration: BoxDecoration(
+            color: Colors
+                .black, //border: Border.all(width: 2, color: Colors.amber),
+                  borderRadius: BorderRadius.circular(15)),           
             child: Text(
             text,
             style: const TextStyle(
               fontSize: 20,
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
           );
