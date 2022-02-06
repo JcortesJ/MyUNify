@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: "/",
         routes: {
-          "/f": (BuildContext context) => Inicio(),
+          "/": (BuildContext context) => Inicio(),
           "/login": (BuildContext context) => Login(),
           "/registro": (BuildContext context) => Registro(),
           "/EditarOcio": (BuildContext context) => EditarEventoOcio(),
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           "/Calendario": (BuildContext context) => VistaCalendar(),
           "/EditarEventoClase": (BuildContext context) => EditarEventoClase(),
           "/paginaBienestar": (BuildContext context) => paginaBienestar(),
-          "/": (BuildContext context) => PaginaPrincipal(),
+          "/Main": (BuildContext context) => PaginaPrincipal(),
           "/Editar": (BuildContext context) => EditarPerfil(),
           "/Contrasena": (BuildContext context) => EditarContrasena(),
           "/Ver": (BuildContext context) => PaginaPerfil(),
