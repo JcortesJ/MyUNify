@@ -13,30 +13,6 @@ class Usuario {
   List<dynamic> mensajes = [];
 
   late List<Usuario> amigos = [
-    Usuario(
-    "Juan Cortes",
-    "Juan@hotmail.com",
-    "holibb",
-    "juanix",
-    "juan32",
-    null,
-  ),
-  Usuario(
-    "Juan Cortes",
-    "Juan@hotmail.com",
-    "holibb",
-    "juanix",
-    "juan32",
-    null,
-  ),
-  Usuario(
-    "Juan Cortes",
-    "Juan@hotmail.com",
-    "holibb",
-    "juanix",
-    "juan32",
-    null,
-  ),
   Usuario(
     "Juan Cortes",
     "Juan@hotmail.com",

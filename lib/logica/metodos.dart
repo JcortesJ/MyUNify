@@ -5,49 +5,58 @@ import 'package:myunify/data/usuario.dart';
 
 class Metodos {
   static late Usuario usuarioregistrado = Usuario(
-    "holix",
-    "Juan@hotmail.com",
-    "holibb",
-    "juanix",
-    "juan32",
-    null,
-  );
-  static late Usuario viendoAmigo = Usuario(
-    "Juan Cortes",
-    "Juan@hotmail.com",
-    "holibb",
-    "juanix",
-    "juan32",
-    null,
-  );
-
+    "",
+    "",
+    "",
+    "",
+    "",
+    null,);
+  static late Usuario viendoAmigo;
   static late Usuario buscandoUsuario;
 
   static List<Usuario> totalUsuarios = [
     Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "123",
-      "xxx",
-      "123",
-      null,
-    ),
+    "Jose Simon Ramos",
+    "XxpapisimonxX@hotmail.com",
+    "sutaponcito",
+    "angelsuicida",
+    "@xxemocionalssxx",
+    null,),
     Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-      null,
-    ),
+    "Juan Manuel Cortes",
+    "XxpapijuanxX@hotmail.com",
+    "salaverga",
+    "pacman",
+    "@estavaparajuan",
+    null,),
     Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-      null,
-    ),
+    "Jefferson Duvan Ramirez",
+    "XxpapijeffxX@hotmail.com",
+    "12345",
+    "jeff",
+    "@monstro32",
+    null,),
+    Usuario(
+    "Alexei Fernandez",
+    "XxiexeixX@hotmail.com",
+    "alexei",
+    "alexei12",
+    "@alexei3212",
+    null,),
+    Usuario(
+    "Pecha Rojas",
+    "XxpechisxX@hotmail.com",
+    "123",
+    "pechitagod",
+    "@pecha_pro",
+    null,),
+    Usuario(
+    "Jonatan Gomez",
+    "XxjonixX@hotmail.com",
+    "colchas",
+    "jonatanuwu",
+    "@i<3colchas",
+    null,)
   ];
 
   static bool Autenticar(String usuario, String contrasena) {
@@ -63,8 +72,7 @@ class Metodos {
     return (false);
   }
 
-  static void EditarPerfil(
-      String nombre, String correo, String nombreUsuario, String usuarioig) {
+  static void EditarPerfil(String nombre, String correo, String nombreUsuario, String usuarioig) {
     usuarioregistrado.nombre = nombre;
     usuarioregistrado.correo = correo;
     usuarioregistrado.nombreUsuario = nombreUsuario;
@@ -93,11 +101,10 @@ class Metodos {
     return Usuario('', '', '', '', '', null);
   }
 
-  static RegistrarUsuario(String nombre, String correo, String clave,
-      String username, String usuarioIg, File? foto) {
+  static RegistrarUsuario(String nombre, String correo, String clave, String username, String usuarioIg, File? foto) {
     Usuario nuevo = Usuario(nombre, correo, clave, username, usuarioIg, foto);
     print(nuevo);
-    //totalUsuarios.add(nuevo);
+    totalUsuarios.add(nuevo);
   }
 
   static EliminarMensaje(int indice, Usuario user) {

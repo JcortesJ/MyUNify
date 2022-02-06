@@ -27,9 +27,9 @@ class Msgevento extends StatelessWidget {
   Widget build(BuildContext context) {
     String fechaEvento = DateFormat.yMMMEd().format(eventoMostrando.Fecha);
     Size size = MediaQuery.of(context).size;
-    return Column(children: [
+    return 
       Container(
-        margin: EdgeInsets.only(top: 10),
+        margin: EdgeInsets.only(top: 10, left: 40,right: 40, bottom: 10),
         padding: const EdgeInsets.all(10),
         width: size.width * 0.8,
         decoration: BoxDecoration(
@@ -79,7 +79,7 @@ class Msgevento extends StatelessWidget {
           //SizedBox(width: 10),
           Container(
             //alignment: Alignment.centerRight,
-            margin: EdgeInsets.only(left: 30),
+            margin: EdgeInsets.only(left: 15),
             height: 50,
             width: 50,
             decoration: BoxDecoration(
@@ -95,8 +95,8 @@ class Msgevento extends StatelessWidget {
               ),
             ),
           ),
-        ]),
+        ]
       ),
-    ]);
+    );
   }
 }
