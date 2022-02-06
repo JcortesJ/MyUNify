@@ -1,12 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:myunify/data/usuario.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/camara_widgets/camara.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/login_widgets/Containers.dart';
 import 'package:myunify/widgets/login_widgets/input_usuario.dart';
+import 'package:myunify/widgets/login_widgets/validarRegistro.dart';
 
 class Registro extends StatefulWidget {
   
@@ -24,6 +26,18 @@ class _RegistroState extends State<Registro> {
   String nombre = " ";
   String usuarioIg = " ";
   File? foto = null;
+
+
+  
+  Future<void> _showSelectionDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return validarRegistro(
+            contexto: context,
+          );
+        });
+  }
 
   final keyform = GlobalKey<FormState>();
   @override
@@ -78,15 +92,21 @@ class _RegistroState extends State<Registro> {
                       color: Colors.white,                   
                     ),
                     child: TextButton(                   
-                      onPressed:(){
+                      onPressed:() async{
                         if(usuario!= ' ' && clave!= ' ' && correo!= ' ' && nombre != ' ' && usuarioIg != ' '){
-                          Metodos.RegistrarUsuario(nombre, correo, clave, usuario, usuarioIg, foto);
                           
-                          Navigator.pushReplacementNamed(context, "/");
-                        }
+                          Usuario nuevo = Metodos.RegistrarUsuario(nombre, correo, clave, usuario, usuarioIg, foto);
+                          bool bandera = Metodos.ValidarRegistro(nuevo);
+                          if(bandera){
+                            Metodos.totalUsuarios.add(nuevo);
+                            Navigator.pushReplacementNamed(context, "/");
+                          }else{
+                              _showSelectionDialog(context);                       
+                          }
                         //print('user: $usuario contraseña $clave');
                         //print('entro foto: ${foto == null? 'no funciona': 'funciono!!'} ');
-                      }, 
+                        }
+                      },
                       child: const Text(
                         "REGISTRARSE", 
                         style: TextStyle(color: Colors.black),)

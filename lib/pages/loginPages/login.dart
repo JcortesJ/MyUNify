@@ -66,12 +66,12 @@ class _LoginState extends State<Login> {
                 ),
                 child: TextButton(
                     onPressed: () {
-                      print("cantidad de mensajes: ");
-                      print(Metodos.usuarioregistrado.mensajes.length);
-                      Metodos.usuarioregistrado.mensajes
+                      //print("cantidad de mensajes: ");
+                      //print(Metodos.usuarioregistrado.mensajes.length);
+                      /* Metodos.usuarioregistrado.mensajes
                           .add(Solicitud("", Metodos.totalUsuarios[2], false));
                       print(Metodos.usuarioregistrado.mensajes[0]);
-                      print(Metodos.usuarioregistrado.mensajes.length);
+                      print(Metodos.usuarioregistrado.mensajes.length); */
                       Metodos.Autenticar(usuario, clave) == true
                           ? _entrar(context)
                           : _autenticacionfallida(context);

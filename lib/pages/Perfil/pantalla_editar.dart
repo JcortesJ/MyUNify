@@ -178,18 +178,26 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
       text: "Guardar",
       onClicked: () {
         //Aqui verificamos que la informacion se guarde, y la remitimos al metodo editar contacto
-        foto != null
+        /*foto != null
             ? Metodos.EditarPerfil(
                 controllernombre.text,
                 controllercorreo.text,
                 controllernombreUsuario.text,
                 controllerinstagram.text,
+                foto
               )
             : Metodos.EditarPerfil(
                 controllernombre.text,
                 controllercorreo.text,
                 controllernombreUsuario.text,
                 controllerinstagram.text,
+              );*/
+           Metodos.EditarPerfil(
+                controllernombre.text,
+                controllercorreo.text,
+                controllernombreUsuario.text,
+                controllerinstagram.text,
+                foto
               );
 
         Navigator.pushReplacementNamed(context, "/Main");
