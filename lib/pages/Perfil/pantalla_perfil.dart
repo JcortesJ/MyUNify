@@ -6,7 +6,7 @@ import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
-import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/pages/paginaPrincipal.dart';
 import 'pantalla_editar.dart';
 import 'pantalla_contrasena.dart';

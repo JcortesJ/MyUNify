@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/Datos/Solicitud.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/login_widgets/Containers.dart';
 import 'package:myunify/widgets/login_widgets/input_usuario.dart';
@@ -66,7 +67,11 @@ class _LoginState extends State<Login> {
                 child: TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, "/Main");
-
+                      print("cantidad de mensajes: ");
+                      print(Metodos.usuarioregistrado.mensajes.length);
+                      Metodos.usuarioregistrado.mensajes.add(Solicitud("", Metodos.totalUsuarios[2], false));
+                      print(Metodos.usuarioregistrado.mensajes[0]);
+                      print(Metodos.usuarioregistrado.mensajes.length);
                       Metodos.Autenticar(usuario, clave)
                           ? _autenticacionfallida(context)
                           : Navigator.pushNamed(context, "/Main");

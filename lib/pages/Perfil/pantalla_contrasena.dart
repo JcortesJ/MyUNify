@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';

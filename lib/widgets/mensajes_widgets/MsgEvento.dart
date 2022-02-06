@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/mensajes_widgets/Aceptar.dart';
 import 'package:myunify/widgets/mensajes_widgets/InfoEvento.dart';
@@ -65,9 +66,11 @@ class Msgevento extends StatelessWidget {
                   const SizedBox(height:3,),
                   Row(
                     children: [
-                      Aceptar(),
+                      //,
+                      //Aceptar(remitente: Usuario("", "", "", "", "", null), indice: 0,),
                       SizedBox(width: 3),
-                      Rechazar(),
+                      //
+                      Rechazar(indice: 3,),
                     ],
                   )
                 ],                

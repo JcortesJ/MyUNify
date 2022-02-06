@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/pages/Amigos/lista_amigos.dart';
 import 'pages/paginaPrincipal.dart';
 import 'package:myunify/pages/Perfil/pantalla_editar.dart';
 import 'package:myunify/pages/Perfil/pantalla_perfil.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           "/Main": (BuildContext context) => PaginaPrincipal(),
           "/Editar": (BuildContext context) => EditarPerfil(),
           "/Contrasena": (BuildContext context) => EditarContrasena(),
+          "/amigos": (BuildContext context) => PaginaAmigos(),
           "/Ver": (BuildContext context) => PaginaPerfil(),
         },
         onUnknownRoute: (RouteSettings settings) {

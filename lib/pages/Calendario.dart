@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/Evento.dart';
-import 'package:myunify/datos/EventoClase.dart';
-import 'package:myunify/datos/EventoEstudio.dart';
-import 'package:myunify/datos/EventoOcio.dart';
-import 'package:myunify/datos/eventoLogica.dart';
+import 'package:myunify/Datos/Evento.dart';
+import 'package:myunify/Datos/EventoClase.dart';
+import 'package:myunify/Datos/EventoEstudio.dart';
+import 'package:myunify/Datos/EventoOcio.dart';
+import 'package:myunify/Datos/eventoLogica.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class VistaCalendar extends StatefulWidget {
@@ -273,7 +273,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
     } else if (eventosDelDia is EventoClase) {
       eventoCompleto =
           "Nombre: ${eventosDelDia.nombre}\n Duracion: ${eventosDelDia.duracion} horas\n" +
-              " Descripcion: ${eventosDelDia.descripcion}\nProfesor: ${eventosDelDia.Profesor}\n" +
+              //" Descripcion: ${eventosDelDia.descripcion}\nProfesor: ${eventosDelDia.Profesor}\n" +
               "Etiquetas: ${eventosDelDia.Etiquetas} \nHora inicio: ${eventosDelDia.horaInicio} \nHora fin: ${eventosDelDia.horaFin}";
     } else if (eventosDelDia is EventoEstudio) {
       eventoCompleto =
