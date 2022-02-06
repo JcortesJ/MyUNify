@@ -25,15 +25,12 @@ class _MensajesState extends State<Mensajes> {
         body: Fondopantalla(
             child: ListView(
           scrollDirection: Axis.vertical,
+          padding: EdgeInsets.all(20),
           children: List.generate(mensajesMostrar.length, (index) {
-            SizedBox(
-              height: 15,
-            );
             if (mensajesMostrar[index] is Evento) {
-              Evento a = mensajesMostrar[index];
               return Msgevento(
                 //a veces leer bien las cosas nos hace mejores
-                eventoMostrando: a,
+                eventoMostrando: mensajesMostrar[index],
               );
             } else {
               SizedBox(
