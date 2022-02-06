@@ -64,7 +64,10 @@ class Metodos {
   }
 
   static void EditarPerfil(
-      String nombre, String correo, String nombreUsuario, String usuarioig) {
+      String nombre, String correo, String nombreUsuario, String usuarioig, File? imagen) {
+        if(imagen != null){
+          usuarioregistrado.foto = imagen;
+        }
     usuarioregistrado.nombre = nombre;
     usuarioregistrado.correo = correo;
     usuarioregistrado.nombreUsuario = nombreUsuario;
@@ -93,11 +96,23 @@ class Metodos {
     return Usuario('', '', '', '', '', null);
   }
 
-  static RegistrarUsuario(String nombre, String correo, String clave,
+  // ignore: non_constant_identifier_names
+  static bool ValidarRegistro(Usuario nuevo){
+
+      int i = 0;
+      while(i<totalUsuarios.length && (totalUsuarios[i].nombreUsuario != nuevo.NombreUsuario  && totalUsuarios[i].correo != nuevo.correo)){
+        i ++;
+      }
+      return i==totalUsuarios.length;
+      
+  }
+
+  static Usuario RegistrarUsuario(String nombre, String correo, String clave,
       String username, String usuarioIg, File? foto) {
     Usuario nuevo = Usuario(nombre, correo, clave, username, usuarioIg, foto);
-    print(nuevo);
+    //print(nuevo);
     //totalUsuarios.add(nuevo);
+    return nuevo;
   }
 
   static EliminarMensaje(int indice, Usuario user) {
