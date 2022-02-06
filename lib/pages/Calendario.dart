@@ -28,7 +28,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
   List<Evento> eventosDelDia = [];
   //la clase evento deberia tener por defecto que eventos del dia tenga este texto
   //Creamos las variables básicas donde focused day es el primer dia, y selected el que toque la persona
-  DateTime _focusedDay = DateTime.now();
+  DateTime _focusedDay = MetodosEvento.diacentrado;
   DateTime _selectedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
   EventoOcio diaSinEvento = EventoOcio(
@@ -190,13 +190,26 @@ class _VistaCalendarState extends State<VistaCalendar> {
               padding: EdgeInsets.all(15),
               child:
                   //Pendiente modificarlo XD
+                  ListView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.all(15),
+                children: [
                   Text(
-                "Estos son los eventos que tienes para hoy:",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                    "Actualizar Calendario",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          mostrarEventos();
+                        });
+                      },
+                      icon: Icon(Icons.refresh))
+                ],
               )),
 
           //LISTA DE EVENTOS
@@ -315,9 +328,11 @@ class _VistaCalendarState extends State<VistaCalendar> {
   //este metodo borra los eventos, sacandolo de la lista de eventos, y actualizando la lista en el diccionario
   _eliminarEvento(Evento e, List<Evento> listaEseDia, DateTime claveDia) {
     listaEseDia.remove(e);
+    MetodosEvento.eventosPublicos.remove(e);
     List<Evento> listaActualizada = listaEseDia;
     MetodosEvento.ListaEventosDB[claveDia] = listaActualizada;
     print("evento borrado con exito");
-    Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
+    // Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
+    Navigator.pop(context);
   }
 }

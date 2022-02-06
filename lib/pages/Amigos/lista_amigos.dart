@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/logica/metodos.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'buscador_Amigo.dart';
 import 'pantalla_perfil_amigo.dart';
@@ -97,7 +98,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
               //La respuesta está en este list.generate
               // DOC: https://docs.flutter.dev/cookbook/lists/grid-lists
               List.generate(_amigos.length, (index) {
-                return Container(
+            return Container(
                 padding: EdgeInsets.all(8),
                 height: 80,
                 width: 500,
@@ -140,7 +141,6 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
       /*   ],
         ),
       ),*/
-
 
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
 

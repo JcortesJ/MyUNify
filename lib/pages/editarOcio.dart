@@ -202,6 +202,7 @@ class _EditarEventoOcio extends State<EditarEventoOcio> {
 
     print("evento agregado");
 
-    Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
+    //  Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
+    Navigator.pop(context);
   }
 }

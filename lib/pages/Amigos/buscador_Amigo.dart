@@ -5,6 +5,7 @@ import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 
 class BuscadorAmigo extends StatefulWidget {
   @override
@@ -88,7 +89,8 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             actions: <Widget>[
               FlatButton(
                   color: Colors.orange.shade400,
-                  onPressed: () =>  Navigator.pop(context), // que cree la solicitud
+                  onPressed: () =>
+                      Navigator.pop(context), // que cree la solicitud
                   child: const Text("Enviar solicitud de amistad",
                       style: TextStyle(color: Colors.black))),
               FlatButton(

@@ -48,7 +48,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Nombre del evento",
+                "Nombre del la clase",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -188,6 +188,9 @@ class _EditarEventoClase extends State<EditarEventoClase> {
 
     print("evento agregado");
 
-    Navigator.pushNamedAndRemoveUntil(context, "/Calendario", (route) => false);
+    //Navigator.pushNamedAndRemoveUntil(context, "/Main", (route) => false);
+
+    //Pensar luego en como hacer para que te devuelva a la lista de calendario
+    Navigator.pop(context);
   }
 }

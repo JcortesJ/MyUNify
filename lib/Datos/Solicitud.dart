@@ -1,23 +1,22 @@
-
 import 'package:myunify/Datos/Mensaje.dart';
+import 'package:myunify/datos/usuario.dart';
 
-class Solicitud extends Mensaje{
+class Solicitud extends Mensaje {
   // destinatario
 
   String _contenido;
 
   Solicitud(this._contenido, bool aceptado) : super(aceptado);
-   
-   
-  String get Contenido{return _contenido;} 
 
-  set Contenido(String contenido) => _contenido; 
+  String get Contenido {
+    return _contenido;
+  }
+
+  set Contenido(String contenido) => _contenido;
 
   @override
-
   String toString() {
-      String cad = super.toString();
-      return "$cad, destinatario: ${2}, contenido: $_contenido ";
-    }
-
+    String cad = super.toString();
+    return "$cad, destinatario: ${2}, contenido: $_contenido ";
+  }
 }

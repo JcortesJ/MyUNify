@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Colores{
-
+class Colores {
+  static Color color_fondo = Color(0xFFFAAD80);
   static Color colorNaranjaClaro = Color(0xFFFAAD80);
   static Color colorNaranja = Color(0xFFFF8303);
   static Color colorRosado = Color(0xFFAD1457);

@@ -1,3 +1,5 @@
+import 'package:myunify/datos/Evento.dart';
+
 class Usuario {
   String linkFoto = "null";
   late String nombre;
@@ -5,6 +7,7 @@ class Usuario {
   late String contrasena;
   late String nombreUsuario;
   late String usuarioig;
+  late Map<DateTime, Evento> calendarUsuario = {};
   late List<Usuario> amigos = [
     Usuario(
       "Juan Cortes",
@@ -115,8 +118,8 @@ class Usuario {
   set Nombre(String n) => nombre = n;
   set Correo(String c) => correo = c;
   set Contrasena(String e) => contrasena = e;
-  set NombreUsuario(String l) => nombreUsuario= l;
-  set Usuarioig (String x) => usuarioig= x;
+  set NombreUsuario(String l) => nombreUsuario = l;
+  set Usuarioig(String x) => usuarioig = x;
 
   factory Usuario.fromJson(dynamic json) {
     return Usuario(
@@ -134,5 +137,4 @@ class Usuario {
         'nombreUsuario': nombreUsuario,
         'usuarioig': usuarioig,
       };
-
 }

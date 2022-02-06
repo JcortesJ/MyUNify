@@ -3,11 +3,15 @@
 import 'package:intl/intl.dart';
 import 'package:myunify/datos/Evento.dart';
 import 'package:myunify/datos/EventoOcio.dart';
+import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/pages/Calendario.dart';
 
 class MetodosEvento {
   static Map<DateTime, List<Evento>> ListaEventosDB = {};
+
+  static List<dynamic> eventosPublicos = [];
   static late DateTime diaSeleccionado;
+  static DateTime diacentrado = DateTime.now();
   /*
   static DateTime formatearFecha(String dia, String mes) {
     int dia_ = int.parse(dia);
@@ -20,6 +24,12 @@ class MetodosEvento {
   */
 
   static void agregarEvento(Evento e, DateTime f) {
+    diacentrado = f;
+    if (e.publico = true) {
+      //añade a la lista publica si es necesario
+      eventosPublicos.add(e);
+    }
+
     List<Evento> listaPosible = [e];
 
     //bug mas paila que alguna vez he visto

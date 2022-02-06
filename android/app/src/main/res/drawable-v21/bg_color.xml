@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- En este codigo hacemos referencia al color del background
+    referenciado en el archivo color.xml-->
+    <solid android:color="@color/primary" />
+</shape>    

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
@@ -6,7 +7,6 @@ import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
-
 
 class PerfilAmigo extends StatefulWidget {
   @override
@@ -57,7 +57,6 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
         //Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
         Navigator.pop(context);
       });
-     
 
   @override
   void dispose() {
