@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
+import 'package:myunify/widgets/perfil_widgets/textfield_widget.dart';
 import 'pantalla_perfil.dart';
 import 'package:myunify/logica/metodos.dart';
 
@@ -26,7 +28,7 @@ class _EditarContrasenaEstado extends State<EditarContrasena> {
     controllercontrasena = TextEditingController(text: "");
     
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colores.colorBurbuja,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -50,12 +52,21 @@ class _EditarContrasenaEstado extends State<EditarContrasena> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
-              TextField(
-                  controller: controllercontrasena,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                  )),
+              Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        child: TextField(
+          controller: controllercontrasena,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
+      ),
               const SizedBox(height: 10),
               
             ],

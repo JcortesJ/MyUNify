@@ -42,13 +42,11 @@ class _PerfilEstado extends State<PaginaPerfil> {
           ),
           const SizedBox(height: 20),
           ProfileWidget(
-            imagePath: usuarioActual.linkFoto,
+            imagePath: usuarioActual.foto,
             onClicked: () async {},
             size:55,
           ),
           const SizedBox(height: 24),
-          construirNombre(usuarioActual),
-          const SizedBox(height: 13),
           construirInformacion(usuarioActual),
           const SizedBox(height: 16),
           Center(child: editarContacto()),
@@ -61,16 +59,6 @@ class _PerfilEstado extends State<PaginaPerfil> {
       ),
     );
   }
-
-  Widget construirNombre(Usuario user) => Column(
-        children: [
-          ContainerWidget2(text: usuarioActual.nombre),
-          const SizedBox(
-            height: 4,
-          ),
-          ContainerWidget(text: usuarioActual.nombreUsuario),
-        ],
-      );
 
   Widget editarContacto() => ButtonWidget(
       text: "Editar datos",
@@ -99,6 +87,20 @@ class _PerfilEstado extends State<PaginaPerfil> {
   Widget construirInformacion(Usuario user) => Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          ContainerWidget2(text: "Nombre:"),
+          const SizedBox(
+            height: 6,
+          ),
+          ContainerWidget(text: usuarioActual.nombre),
+          const SizedBox(
+            height: 10,),
+          ContainerWidget2(text: "Usuario:"),
+          const SizedBox(
+            height: 6,
+          ),
+          ContainerWidget(text: usuarioActual.nombreUsuario),
+          const SizedBox(
+            height: 10,),
           ContainerWidget2(text: "Instagram:"),
           const SizedBox(
             height: 6,

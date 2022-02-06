@@ -34,7 +34,6 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
 
   void irAContacto(Usuario amigo) {
     //este metodo deberia tener el parametro Contacto y un navigator xd
-    print(amigo.linkFoto);
     setState(() {
       Metodos.viendoAmigo = amigo;
       Navigator.push(
@@ -75,7 +74,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colores.color_fondo,
+      backgroundColor: Colores.colorBurbuja,
       //appBar: AppBar(),
       appBar: AppBar(
         title: Text('Amigos actuales:  ${_amigos.length}'),
@@ -104,7 +103,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
                 width: 500,
                 margin: EdgeInsets.only(top: 13.0, right: 30, left: 30),
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.orange.shade300,
                     //border: Border.all(width: 2, color: Colors.amber),
                     borderRadius: BorderRadius.circular(15)),
                 child: ListView(
@@ -112,7 +111,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
                   children: [
                     //container de la imagen
                     ProfileWidget(
-                      imagePath: _amigos[index].linkFoto,
+                      imagePath: _amigos[index].foto,
                       onClicked: () async {},
                       size: 30,
                     ),
@@ -128,7 +127,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
                                   "${_amigos[index].nombre}",
                                   // ignore: prefer_const_constructors
                                   style: TextStyle(
-                                      color: Colors.deepOrange,
+                                      color: Colors.black,
                                       fontSize: 23,
                                       fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.left,

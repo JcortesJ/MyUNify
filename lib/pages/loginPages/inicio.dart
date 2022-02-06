@@ -49,7 +49,7 @@ class Inicio extends StatelessWidget {
               ),
               child: TextButton(                   
                 onPressed:(){
-                  Navigator.pushNamed(context, "/registro");
+                    Navigator.pushNamed(context, "/registro");
                 }, 
                 child: const Text(
                   "REGISTRARSE", 

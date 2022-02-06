@@ -21,7 +21,7 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colores.color_fondo,
+      backgroundColor: Colores.colorBurbuja,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),

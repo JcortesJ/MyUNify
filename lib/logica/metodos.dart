@@ -1,12 +1,15 @@
+import 'dart:io';
+
 import 'package:myunify/datos/usuario.dart';
 
 class Metodos {
   static late Usuario usuarioregistrado = Usuario(
-    "Juan Cortes",
+    "holix",
     "Juan@hotmail.com",
     "holibb",
     "juanix",
     "juan32",
+    null,
   );
   static late Usuario viendoAmigo = Usuario(
     "Juan Cortes",
@@ -14,15 +17,19 @@ class Metodos {
     "holibb",
     "juanix",
     "juan32",
+    null,
   );
+
   static late Usuario buscandoUsuario;
+
   static List<Usuario> totalUsuarios = [
     Usuario(
       "Juan Cortes",
       "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
+      "123",
+      "xxx",
+      "123",
+      null,
     ),
     Usuario(
       "Juan Cortes",
@@ -30,6 +37,7 @@ class Metodos {
       "holibb",
       "juanix",
       "juan32",
+      null,
     ),
     Usuario(
       "Juan Cortes",
@@ -37,73 +45,25 @@ class Metodos {
       "holibb",
       "juanix",
       "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
+      null,
     ),
   ];
 
-  static void EditarPerfil(String nombre, String correo, String nombreUsuario, String usuarioig) {
+  static bool Autenticar(String usuario, String contrasena) {
+    for (var i = totalUsuarios.length - 1; i >= 0; i--) {
+      if (totalUsuarios[i].NombreUsuario == usuario) {
+        if (totalUsuarios[i].Contrasena == contrasena) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+    return (false);
+  }
+
+  static void EditarPerfil(
+      String nombre, String correo, String nombreUsuario, String usuarioig) {
     usuarioregistrado.nombre = nombre;
     usuarioregistrado.correo = correo;
     usuarioregistrado.nombreUsuario = nombreUsuario;
@@ -129,5 +89,13 @@ class Metodos {
       }
     }
     return (false);
+  }
+
+  static void EstablecerRegistrado(String usuario) {
+    for (var i = totalUsuarios.length - 1; i >= 0; i--) {
+      if (totalUsuarios[i].NombreUsuario == usuario) {
+        usuarioregistrado = totalUsuarios[i];
+      }
+    }
   }
 }

@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/datos/usuario.dart';
-
+import 'package:myunify/widgets/perfil_widgets/textfield_widget.dart';
+import 'package:myunify/widgets/camara_widgets/camara.dart';
 
 class EditarPerfil extends StatefulWidget {
   @override
@@ -12,10 +16,7 @@ class EditarPerfil extends StatefulWidget {
 }
 
 class _EditarPerfilEstado extends State<EditarPerfil> {
-  Color color_interfaz = Color(0xff9AD0EC);
-  Color color_interfazGrueso = Color(0xff1572A1);
-  Color color_letra = Color(0xffEFDAD7);
-  Color color_fondo = Color(0xffE4E4E4);
+  File? foto = null;
 
   Usuario usuarioActual = Metodos.usuarioregistrado;
 
@@ -27,14 +28,15 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
   String prueba = " ";
   @override
   Widget build(BuildContext context) {
-
+    Size size = MediaQuery.of(context).size;
     controllernombre = TextEditingController(text: usuarioActual.nombre);
-    controllerinstagram = TextEditingController(text: usuarioActual.nombre);
-    controllernombreUsuario = TextEditingController(text: usuarioActual.nombreUsuario);
+    controllerinstagram = TextEditingController(text: usuarioActual.usuarioig);
+    controllernombreUsuario =
+        TextEditingController(text: usuarioActual.nombreUsuario);
     controllercorreo = TextEditingController(text: usuarioActual.correo);
-    
+
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colores.colorBurbuja,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -50,87 +52,112 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
             ),
           ),
           const SizedBox(height: 20),
-          ProfileWidget(
-            imagePath: usuarioActual.linkFoto,
-            onClicked: () async {},
-            size: 55,
+          Center(child: Container(
+              margin: const EdgeInsets.only(top: 7),
+              width: 140,
+              height: 140,
+              decoration: BoxDecoration(
+                border:
+                    Border.all(width: 10, color: Colores.colorComplementario),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: FotoUsuario(callback: (File? imagen) => foto = imagen)),
           ),
           const SizedBox(height: 24),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Nombre completo",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-              TextField(
-                  controller: controllernombre,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                  )),
-              const SizedBox(height: 10),
-              Text(
-                "Nombre de usuario:",
+                "Nombre:",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
               Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(
-                color: Colors.green,
-                width: 2,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        child: TextField(
+          controller: controllernombre,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
+      ),
+              const SizedBox(height: 10),
+              Text(
+                "Usuario:",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
-            ),
-            child: TextField(
-                controller: controllernombreUsuario,
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                ),
-              ),
-              ),
+              const SizedBox(height: 10),
+              Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        child: TextField(
+          controller: controllernombreUsuario,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
+      ),
               const SizedBox(height: 10),
               Text(
                 "Usuario Instagram: ",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
-              TextField(
-                controller: controllerinstagram,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                ),
-              ),
+              Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        child: TextField(
+          controller: controllerinstagram,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
+      ),
               const SizedBox(height: 10),
               Text(
                 "Correo: ",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
-              TextField(
-                controller: controllercorreo,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                ),
-              ),
+              Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        child: TextField(
+          controller: controllercorreo,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
+      ),
             ],
           ),
-         
           const SizedBox(height: 24),
           Center(child: guardar()),
           const SizedBox(height: 16),
-          Center(child: cancelar()),       
-          const SizedBox(height: 10), 
-          ],
+          Center(child: cancelar()),
+          const SizedBox(height: 10),
+        ],
       ),
     );
   }
@@ -144,28 +171,32 @@ class _EditarPerfilEstado extends State<EditarPerfil> {
     controllerinstagram.dispose();
     controllercorreo.dispose();
     super.dispose();
-  } 
+  }
 
   Widget guardar() => ButtonWidget(
       text: "Guardar",
       onClicked: () {
         //Aqui verificamos que la informacion se guarde, y la remitimos al metodo editar contacto
-        print(controllernombre.text);
-        Metodos.EditarPerfil(
-          controllernombre.text,
-          controllercorreo.text,
-          controllernombreUsuario.text,
-          controllerinstagram.text,
-          );
-     
-        Navigator.pushReplacementNamed(context, "/Main");
+        foto != null
+            ? Metodos.EditarPerfil(
+                controllernombre.text,
+                controllercorreo.text,
+                controllernombreUsuario.text,
+                controllerinstagram.text,
+              )
+            : Metodos.EditarPerfil(
+                controllernombre.text,
+                controllercorreo.text,
+                controllernombreUsuario.text,
+                controllerinstagram.text,
+              );
 
-        
+        Navigator.pushReplacementNamed(context, "/Main");
       });
 
-      Widget cancelar() => ButtonWidget(
+  Widget cancelar() => ButtonWidget(
       text: "Cancelar",
-      onClicked: () {    
-      Navigator.pop(context);
+      onClicked: () {
+        Navigator.pop(context);
       });
 }

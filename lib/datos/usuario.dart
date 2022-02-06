@@ -1,7 +1,11 @@
+
 import 'package:myunify/datos/Evento.dart';
 
+import 'dart:io';
+
+
 class Usuario {
-  String linkFoto = "null";
+  late File? foto;
   late String nombre;
   late String correo;
   late String contrasena;
@@ -10,94 +14,42 @@ class Usuario {
   late Map<DateTime, Evento> calendarUsuario = {};
   late List<Usuario> amigos = [
     Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
-    Usuario(
-      "Juan Cortes",
-      "Juan@hotmail.com",
-      "holibb",
-      "juanix",
-      "juan32",
-    ),
+    "Juan Cortes",
+    "Juan@hotmail.com",
+    "holibb",
+    "juanix",
+    "juan32",
+    null,
+  ),
+  Usuario(
+    "Juan Cortes",
+    "Juan@hotmail.com",
+    "holibb",
+    "juanix",
+    "juan32",
+    null,
+  ),
+  Usuario(
+    "Juan Cortes",
+    "Juan@hotmail.com",
+    "holibb",
+    "juanix",
+    "juan32",
+    null,
+  ),
+  Usuario(
+    "Juan Cortes",
+    "Juan@hotmail.com",
+    "holibb",
+    "juanix",
+    "juan32",
+    null,
+  ),
   ];
-  late String foto;
 
   Usuario(this.nombre, this.correo, this.contrasena, this.nombreUsuario,
-      this.usuarioig);
+      this.usuarioig,
+      this.foto);
 
   String get Correo {
     return correo;
@@ -121,7 +73,7 @@ class Usuario {
   set NombreUsuario(String l) => nombreUsuario = l;
   set Usuarioig(String x) => usuarioig = x;
 
-  factory Usuario.fromJson(dynamic json) {
+/*   factory Usuario.fromJson(dynamic json) {
     return Usuario(
         json['nombre'] as String,
         json['correo'] as String,
@@ -136,5 +88,10 @@ class Usuario {
         'contrasena': contrasena,
         'nombreUsuario': nombreUsuario,
         'usuarioig': usuarioig,
+
       };
+
+      }; */
+
+
 }

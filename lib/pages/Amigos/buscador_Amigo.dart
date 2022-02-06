@@ -26,7 +26,7 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
     controlleramigo = TextEditingController(text: "");
 
     return Scaffold(
-      backgroundColor: Colores.color_fondo,
+      backgroundColor: Colores.colorBurbuja,
       appBar: buildAppBar(context),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -50,12 +50,21 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),
               ),
               const SizedBox(height: 10),
-              TextField(
-                  controller: controlleramigo,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                  )),
+              Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        child: TextField(
+          controller: controlleramigo,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
+      ),
               const SizedBox(height: 10),
             ],
           ),
@@ -87,17 +96,20 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             title: Text("Usuario encontrado"),
             content: Text("¿Desea enviar una solicitud de amistad?"),
             actions: <Widget>[
-              FlatButton(
+              Center(child: FlatButton(
                   color: Colors.orange.shade400,
                   onPressed: () =>
                       Navigator.pop(context), // que cree la solicitud
                   child: const Text("Enviar solicitud de amistad",
                       style: TextStyle(color: Colors.black))),
-              FlatButton(
+              ),
+               Center(
+                 child:FlatButton(
                   color: Colors.orange.shade400,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Cancelar",
                       style: TextStyle(color: Colors.black))),
+                      ),
             ],
           );
         });
@@ -112,11 +124,12 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             //mirar si dejamos este o el alertDialog de material
             content: Text("Usuario no encontrado, intentelo de nuevo: "),
             actions: <Widget>[
-              FlatButton(
+              Center(child: FlatButton(
                   color: Colors.orange.shade400,
                   onPressed: () => Navigator.pop(context),
                   child: const Text("Volver",
                       style: TextStyle(color: Colors.black))),
+              ),
             ],
           );
         });

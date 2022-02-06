@@ -5,6 +5,7 @@ import 'package:myunify/datos/EventoClase.dart';
 import 'package:myunify/datos/EventoEstudio.dart';
 import 'package:myunify/datos/EventoOcio.dart';
 import 'package:myunify/datos/eventoLogica.dart';
+import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class VistaCalendar extends StatefulWidget {
@@ -16,7 +17,7 @@ class VistaCalendar extends StatefulWidget {
 
 class _VistaCalendarState extends State<VistaCalendar> {
   Color colorSecundario2 = Color(0xffFAAD80);
-  Color colorFondo = Color(0xffFF6767);
+  Color colorFondo = Colors.orange;
   Color colorSecundario1 = Color(0xffFF3D68);
   Color colorBottom = Color(0xffA73489);
 
@@ -66,34 +67,44 @@ class _VistaCalendarState extends State<VistaCalendar> {
             title: Text("Crear un evento"),
             content: Text("Selecciona uno de los tipos de eventos por favor "),
             actions: <Widget>[
-              FlatButton(
-                  onPressed: () => Navigator.pushNamed(context, "/EditarOcio"),
-                  color: colorFondo,
-                  child: const Text("Evento ocio",
-                      style: TextStyle(color: Colors.white))),
-              FlatButton(
-                  color: colorFondo,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "/EditarEventoEstudio"),
-                  child: const Text("Evento Estudio",
-                      style: TextStyle(color: Colors.white))),
-              FlatButton(
-                  color: colorFondo,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "/EditarEventoClase"),
-                  child: const Text("Añadir una clase",
-                      style: TextStyle(color: Colors.white))),
-              FlatButton(
-                  color: colorFondo,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "/paginaBienestar"),
-                  child: const Text("Ingresar a web",
-                      style: TextStyle(color: Colors.white))),
-              FlatButton(
-                  color: colorFondo,
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("Volver",
-                      style: TextStyle(color: Colors.white)))
+              Center(
+                child: FlatButton(
+                    onPressed: () =>
+                        Navigator.pushNamed(context, "/EditarOcio"),
+                    color: colorFondo,
+                    child: const Text("Evento ocio",
+                        style: TextStyle(color: Colors.black))),
+              ),
+              Center(
+                child: FlatButton(
+                    color: colorFondo,
+                    onPressed: () =>
+                        Navigator.pushNamed(context, "/EditarEventoEstudio"),
+                    child: const Text("Evento Estudio",
+                        style: TextStyle(color: Colors.black))),
+              ),
+              Center(
+                child: FlatButton(
+                    color: colorFondo,
+                    onPressed: () =>
+                        Navigator.pushNamed(context, "/EditarEventoClase"),
+                    child: const Text("Añadir una clase",
+                        style: TextStyle(color: Colors.black))),
+              ),
+              Center(
+                child: FlatButton(
+                    color: colorFondo,
+                    onPressed: () =>
+                        Navigator.pushNamed(context, "/paginaBienestar"),
+                    child: const Text("Ingresar a web",
+                        style: TextStyle(color: Colors.black))),
+              ),
+              Center(
+                  child: FlatButton(
+                      color: colorFondo,
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Volver",
+                          style: TextStyle(color: Colors.black)))),
             ],
           );
         });
@@ -108,7 +119,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colores.colorBurbuja,
       body: Column(
         //Cuerpo del calendario
         children: [
@@ -118,7 +129,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                 0.2, //hace la app responsive
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
-                color: colorSecundario2,
+                color: Colors.orange.shade300,
                 borderRadius: BorderRadius.circular(30)),
             child:
                 //Pendiente modificarlo XD
@@ -133,10 +144,10 @@ class _VistaCalendarState extends State<VistaCalendar> {
               // locale: 'es_COL', //para ponerlo hay que añadir un paquete y q pereza
               lastDay: DateTime(2023),
               calendarStyle: CalendarStyle(
-                  defaultTextStyle: TextStyle(color: Colors.white),
+                  defaultTextStyle: TextStyle(color: Colors.black),
                   todayTextStyle: TextStyle(fontWeight: FontWeight.bold),
                   weekendDecoration: BoxDecoration(
-                      color: Colors.orange,
+                      //color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(50))),
 
               calendarBuilders: CalendarBuilders(
@@ -144,7 +155,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                     margin: const EdgeInsets.all(4.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: colorBottom,
+                        color: Colors.black,
                         borderRadius: BorderRadius.circular(50)),
                     child: Text(
                       date.day.toString(),
@@ -153,9 +164,10 @@ class _VistaCalendarState extends State<VistaCalendar> {
               ),
 
               headerStyle: HeaderStyle(
+                titleCentered: true,
                 formatButtonVisible: false,
                 titleTextStyle: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
@@ -182,11 +194,10 @@ class _VistaCalendarState extends State<VistaCalendar> {
           Container(
               margin: EdgeInsets.only(left: 20, top: 10),
               height: MediaQuery.of(context).size.height *
-                  0.1, //hace la app responsive
+                  0.08, //hace la app responsive
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
-                  color: colorSecundario2,
-                  borderRadius: BorderRadius.circular(30)),
+                  color: Colors.black, borderRadius: BorderRadius.circular(30)),
               padding: EdgeInsets.all(15),
               child:
                   //Pendiente modificarlo XD
@@ -195,6 +206,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                 padding: EdgeInsets.all(15),
                 children: [
                   Text(
+
                     "Actualizar Calendario",
                     textAlign: TextAlign.left,
                     style: TextStyle(
@@ -210,6 +222,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                       },
                       icon: Icon(Icons.refresh))
                 ],
+
               )),
 
           //LISTA DE EVENTOS
@@ -219,8 +232,8 @@ class _VistaCalendarState extends State<VistaCalendar> {
                   0.50, //hace la app responsive
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
-                  color: colorSecundario2,
-                  borderRadius: BorderRadius.circular(30)),
+                  color: Colors.orange.shade300,
+                  borderRadius: BorderRadius.circular(20)),
               child:
                   //Pendiente llenarlo de eventos XD
                   ListView(
@@ -233,15 +246,15 @@ class _VistaCalendarState extends State<VistaCalendar> {
                     margin: EdgeInsets.only(top: 4.0, bottom: 5.0),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                        color: colorSecundario1,
+                        color: Colors.white,
                         //border: Border.all(width: 2, color: Colors.amber),
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(15)),
                     child: InkWell(
                       onTap: () => _mostrarEventoDetallado(eventosDelDia[index],
                           context, _selectedDay, eventosDelDia),
                       child: Text(
                         "${eventosDelDia[index].nombre} \nInicia: ${eventosDelDia[index].horaInicio} \nAcaba: ${eventosDelDia[index].horaFin}",
-                        style: TextStyle(fontSize: 15, color: Colors.white),
+                        style: TextStyle(fontSize: 15, color: Colors.black),
                       ),
                     ),
                   );
@@ -252,8 +265,11 @@ class _VistaCalendarState extends State<VistaCalendar> {
 
       floatingActionButton: FloatingActionButton(
         enableFeedback: true,
-        backgroundColor: colorBottom,
-        child: Icon(Icons.add_circle_outline_sharp),
+        backgroundColor: Colors.black,
+        child: Icon(
+          Icons.add_circle_outline_sharp,
+          color: Colors.white,
+        ),
         onPressed: () => _crearEvento(context),
       ),
 
@@ -317,7 +333,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
                       ),
                   icon: Icon(
                     Icons.delete,
-                    color: colorBottom,
+                    color: Colors.orange,
                   ),
                   label: Text("Borrar evento")),
             ],
