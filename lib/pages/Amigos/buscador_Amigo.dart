@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/datos/Solicitud.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
@@ -8,6 +9,7 @@ import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 
 class BuscadorAmigo extends StatefulWidget {
+
   @override
   _BuscadorAmigoEstado createState() => _BuscadorAmigoEstado();
 }
@@ -17,6 +19,8 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
   Color color_interfazGrueso = Color(0xff1572A1);
   Color color_letra = Color(0xffEFDAD7);
 
+
+  late Usuario amigo;
   Usuario usuarioActual = Metodos.usuarioregistrado;
 
   late TextEditingController controlleramigo;
@@ -32,10 +36,11 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.all(30.0),
         children: [
-          Center(
-            child: Text(
+          
+          const Center(
+            child:  Text(
               "Buscador Amigos",
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
               ),
@@ -98,8 +103,13 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
             actions: <Widget>[
               Center(child: FlatButton(
                   color: Colors.orange.shade400,
-                  onPressed: () =>
-                      Navigator.pop(context), // que cree la solicitud
+                  onPressed: () {
+                    Solicitud nueva = Solicitud("", usuarioActual, false);
+                    amigo.mensajes.add(nueva);
+                    //Navigator.pushReplacementNamed(context, '/amigos');
+                    Navigator.pop(context);
+                    
+                  }, // que cree la solicitud
                   child: const Text("Enviar solicitud de amistad",
                       style: TextStyle(color: Colors.black))),
               ),
@@ -138,10 +148,13 @@ class _BuscadorAmigoEstado extends State<BuscadorAmigo> {
   Widget buscar() => ButtonWidget(
       text: "Buscar",
       onClicked: () {
-        if (Metodos.BuscarUsuario(controlleramigo.text)) {
+        Usuario resultado = Metodos.BuscarUsuario(controlleramigo.text);
+        if (resultado.NombreUsuario != '') {
           _amigoEncontrado(context);
+          amigo = resultado;
         } else {
           _amigoNoEncontrado(context);
+          amigo = resultado;
         }
       });
   Widget cancelar() => ButtonWidget(

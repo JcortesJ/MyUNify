@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/Evento.dart';
-import 'package:myunify/datos/EventoClase.dart';
-import 'package:myunify/datos/EventoEstudio.dart';
-import 'package:myunify/datos/EventoOcio.dart';
+import 'package:myunify/Datos/Evento.dart';
+import 'package:myunify/Datos/EventoClase.dart';
+import 'package:myunify/Datos/EventoEstudio.dart';
+import 'package:myunify/Datos/EventoOcio.dart';
 import 'package:myunify/datos/eventoLogica.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -271,20 +271,6 @@ class _VistaCalendarState extends State<VistaCalendar> {
         onPressed: () => _crearEvento(context),
       ),
 
-      /*
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: colorBottom,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              //cambiar por icon buttons
-              icon: Icon(Icons.accessibility_new),
-              label: "Hola"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.accessibility_new), label: "Hola")
-        ],
-      ), Talbes sea mejor no tener esto por esta pantalla
-      */
-
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
@@ -300,7 +286,7 @@ class _VistaCalendarState extends State<VistaCalendar> {
     } else if (eventosDelDia is EventoClase) {
       eventoCompleto =
           "Nombre: ${eventosDelDia.nombre}\n Duracion: ${eventosDelDia.duracion} horas\n" +
-              " Descripcion: ${eventosDelDia.descripcion}\nProfesor: ${eventosDelDia.Profesor}\n" +
+              //" Descripcion: ${eventosDelDia.descripcion}\nProfesor: ${eventosDelDia.Profesor}\n" +
               "Etiquetas: ${eventosDelDia.Etiquetas} \nHora inicio: ${eventosDelDia.horaInicio} \nHora fin: ${eventosDelDia.horaFin}";
     } else if (eventosDelDia is EventoEstudio) {
       eventoCompleto =

@@ -4,7 +4,7 @@ import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
-import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget2.dart';
 
@@ -27,7 +27,7 @@ class _PerfilAmigoEstado extends State<PerfilAmigo> {
         physics: const BouncingScrollPhysics(),
         children: [
           ProfileWidget(
-            imagePath: amigoActual.linkFoto,
+            imagePath: amigoActual.foto,
             onClicked: () async {},
             size: 55,
           ),

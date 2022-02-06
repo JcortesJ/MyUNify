@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/mensajes_widgets/Aceptar.dart';
 import 'package:myunify/widgets/mensajes_widgets/InfoEvento.dart';
 import 'package:myunify/widgets/mensajes_widgets/Rechazar.dart';
-import 'package:myunify/datos/Evento.dart';
-import 'package:myunify/datos/eventoLogica.dart';
+import 'package:myunify/Datos/Evento.dart';
+import 'package:myunify/Datos/eventoLogica.dart';
 
 class Msgevento extends StatelessWidget {
   final Evento eventoMostrando;

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myunify/datos/Evento.dart';
+import 'package:myunify/datos/eventoLogica.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
 import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
@@ -6,7 +8,7 @@ import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/container_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
-import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/Datos/usuario.dart';
 import 'package:myunify/pages/paginaPrincipal.dart';
 import 'pantalla_editar.dart';
 import 'pantalla_contrasena.dart';
@@ -44,7 +46,7 @@ class _PerfilEstado extends State<PaginaPerfil> {
           ProfileWidget(
             imagePath: usuarioActual.foto,
             onClicked: () async {},
-            size:55,
+            size: 55,
           ),
           const SizedBox(height: 24),
           construirInformacion(usuarioActual),
@@ -75,6 +77,8 @@ class _PerfilEstado extends State<PaginaPerfil> {
   Widget cerrarSesion() => ButtonWidget(
       text: "Cerrar sesión",
       onClicked: () {
+        Metodos.usuarioregistrado.calendarUsuario =
+            MetodosEvento.ListaEventosDB.cast<DateTime, Evento>();
         Navigator.pushReplacementNamed(context, "/");
       });
 
@@ -93,14 +97,16 @@ class _PerfilEstado extends State<PaginaPerfil> {
           ),
           ContainerWidget(text: usuarioActual.nombre),
           const SizedBox(
-            height: 10,),
+            height: 10,
+          ),
           ContainerWidget2(text: "Usuario:"),
           const SizedBox(
             height: 6,
           ),
           ContainerWidget(text: usuarioActual.nombreUsuario),
           const SizedBox(
-            height: 10,),
+            height: 10,
+          ),
           ContainerWidget2(text: "Instagram:"),
           const SizedBox(
             height: 6,

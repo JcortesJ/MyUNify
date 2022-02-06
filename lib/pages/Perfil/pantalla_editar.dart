@@ -6,9 +6,10 @@ import 'package:myunify/widgets/perfil_widgets/appbar_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/button_widget.dart';
 import 'package:myunify/widgets/perfil_widgets/profile_widget.dart';
 import 'package:myunify/logica/metodos.dart';
-import 'package:myunify/datos/usuario.dart';
 import 'package:myunify/widgets/perfil_widgets/textfield_widget.dart';
 import 'package:myunify/widgets/camara_widgets/camara.dart';
+import 'package:myunify/Datos/usuario.dart';
+
 
 class EditarPerfil extends StatefulWidget {
   @override

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myunify/datos/Evento.dart';
 import 'package:myunify/datos/EventoClase.dart';
-import 'package:myunify/datos/EventoOcio.dart';
 import 'package:myunify/datos/eventoLogica.dart';
+import 'package:myunify/datos/Evento.dart';
 
 class EditarEventoClase extends StatefulWidget {
   @override
@@ -183,7 +182,7 @@ class _EditarEventoClase extends State<EditarEventoClase> {
 
     //revisar y mejorar el codigo: no
     //faltan metodos de eventos, y pantallas de edicion: solo borrar
-
+    
     MetodosEvento.agregarEvento(EventoClase_, fecha);
 
     print("evento agregado");

@@ -9,6 +9,9 @@ class Usuario {
   late String nombreUsuario;
   late String usuarioig;
   late Map<DateTime, Evento> calendarUsuario = {};
+
+  List<dynamic> mensajes = [];
+
   late List<Usuario> amigos = [
     Usuario(
     "Juan Cortes",
@@ -69,6 +72,11 @@ class Usuario {
   set Contrasena(String e) => contrasena = e;
   set NombreUsuario(String l) => nombreUsuario = l;
   set Usuarioig(String x) => usuarioig = x;
+
+  @override
+  String toString() {
+      return "Nombre: $nombreUsuario y tengo ${mensajes.length} mensjaes";
+  }
 
 /*   factory Usuario.fromJson(dynamic json) {
     return Usuario(

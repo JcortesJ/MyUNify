@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:myunify/logica/metodos.dart';
 import 'package:myunify/widgets/camara_widgets/camara.dart';
 import 'package:myunify/widgets/generales/Colores.dart';
 import 'package:myunify/widgets/generales/FondoPantalla.dart';
@@ -78,6 +79,9 @@ class _RegistroState extends State<Registro> {
                     ),
                     child: TextButton(                   
                       onPressed:(){
+                        if(usuario!= ' ' && clave!= ' ' && correo!= ' ' && nombre != ' ' && usuarioIg != ' '){
+                          Metodos.RegistrarUsuario(nombre, correo, clave, usuario, usuarioIg, foto);
+                        }
                         //print('user: $usuario contraseña $clave');
                         //print('entro foto: ${foto == null? 'no funciona': 'funciono!!'} ');
                       }, 

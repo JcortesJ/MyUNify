@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:myunify/datos/usuario.dart';
+import 'package:myunify/Datos/Solicitud.dart';
+import 'package:myunify/Datos/usuario.dart';
 
 class Metodos {
   static late Usuario usuarioregistrado = Usuario(
@@ -82,13 +83,35 @@ class Metodos {
     }
   }
 
-  static bool BuscarUsuario(String buscar) {
+  static Usuario BuscarUsuario(String buscar) {
     for (var i = totalUsuarios.length - 1; i >= 0; i--) {
       if (totalUsuarios[i].NombreUsuario == buscar) {
-        return (true);
+        return totalUsuarios[i];
       }
     }
-    return (false);
+
+    return Usuario('', '', '', '', '', null);
+  }
+
+  static RegistrarUsuario(String nombre, String correo, String clave,
+      String username, String usuarioIg, File? foto) {
+    Usuario nuevo = Usuario(nombre, correo, clave, username, usuarioIg, foto);
+    print(nuevo);
+    //totalUsuarios.add(nuevo);
+  }
+
+  static EliminarMensaje(int indice, Usuario user) {
+    print("cantidad de mensajes al eliminar: ${user.mensajes.length}");
+    user.mensajes.remove(user.mensajes[indice]);
+    print("cantidad de mensajes despues de eliminar: ${user.mensajes.length}");
+  }
+
+  static AceptarSolicitud(Usuario remitente, Usuario destino, int indice) {
+    print("cantidad de amigos en el metoddo aceptar: ");
+    print(destino.amigos.length);
+    destino.amigos.add(remitente);
+    print(destino.amigos.length);
+    //EliminarMensaje(indice, destino);
   }
 
   static void EstablecerRegistrado(String usuario) {
