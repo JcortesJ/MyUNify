@@ -117,7 +117,7 @@ class _PaginaAmigosState extends State<PaginaAmigos> {
 
                     //container del texto
                     Container(
-                        margin: EdgeInsets.only(left: 50, top: 15),
+                        margin: EdgeInsets.only(left: 25, top: 15),
                         child:
                             // ignore: prefer_const_constructors
                             InkWell(

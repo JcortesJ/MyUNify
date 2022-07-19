@@ -3,9 +3,9 @@ import 'package:myunify/pages/Perfil/pantalla_perfil.dart';
 import 'package:myunify/pages/Perfil/pantalla_editar.dart';
 import 'package:myunify/pages/Perfil/pantalla_contrasena.dart';
 import 'Amigos/buscador_Amigo.dart';
-import 'Calendario.dart';
+import 'calendario/Calendario.dart';
 import 'Amigos/lista_amigos.dart';
-import 'package:myunify/pages/mensajes.dart';
+import 'package:myunify/pages/mensajes/mensajes.dart';
 
 class PaginaPrincipal extends StatefulWidget {
   @override
