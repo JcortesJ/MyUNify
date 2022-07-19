@@ -1,19 +1,4 @@
-# myunify
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 # myunify-Descripción
 
 - Proyecto de los estudiantes Jefferson Ramirez, Juan Cortes y Simon Sandoval como red social para la Universidad Nacional Colombia.
@@ -34,7 +19,7 @@ A la fecha de la última versión (Enero 2022), contamos con las siguientes func
  4. Notificaciones de eventos creados y solicitudes de amistad
  5. Pantalla de datos personales y edición de estos
 
-Aquí un video con la interfaz funcional [Video](https://www.youtube.com/watch?v=v-xkI2H3Yn8&t=36s&ab_channel=JeffersonRamirez)
+### Aquí un [video con la interfaz funcional](https://www.youtube.com/watch?v=v-xkI2H3Yn8&t=36s&ab_channel=JeffersonRamirez)
 --- 
 
 ## Tecnologías utilizadas
