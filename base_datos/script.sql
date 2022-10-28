@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS Lugar (
 CREATE TABLE IF NOT EXISTS Notificacion (
   id_notificacion INT NOT NULL,
   estado TINYINT NOT NULL,
-  tipo CHAR(50) NOT NULL,
+  tipo ENUM('amistad','evento'),
   PRIMARY KEY (id_notificacion));
 
 
@@ -221,6 +221,20 @@ CREATE TABLE IF NOT EXISTS UsuarioNotificacion (
     REFERENCES MyUnify.Notificacion (id_notificacion)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+;
+
+
+-- -----------------------------------------------------
+-- Table MyUnify.EventoGuardado
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS EventoGuardado (
+  id_creador INT NOT NULL,
+  id_evento INT NOT NULL,
+  PRIMARY KEY ( id_creador,id_evento),
+    FOREIGN KEY (id_creador)
+    REFERENCES MyUnify.Creador ( id_creador),
+    FOREIGN KEY (id_evento)
+    REFERENCES MyUnify.Evento (id_evento))
 ;
 
 
