@@ -82,16 +82,16 @@ INSERT INTO respuesta(id_respuesta,Pregunta_id_pregunta,id_remitente,contenido) 
  
 -- los eventos usan notificaciones pares xd
 INSERT INTO EVENTO(id_evento,Notificacion_id_notificacion,Creador_id_creador,Lugar_id_lugar,nombre,descripcion,hora,fecha,facultad) VALUES
-(1,2,1,17,'Aprende a quererte y quererme','Evento diseñado por la red de apoyo ATUN para fomentar el amor propio y hacia el projimo',12,STR_TO_DATE("28/10/2022", "%d/%m/%Y")),
-(2,4,2,26,'Episfulvo','Evento del grupo de ingenieria de sistemas EPISUNAL para jugar futbol',13,STR_TO_DATE("02/11/2022", "%d/%m/%Y")),
-(3,4,4,28,'Jueves de astronomia','Jueves de divulgación de astronomia bajo las estrellas',18,STR_TO_DATE("08/08/2022", "%d/%m/%Y")),
-(4,6,6,18,'Taller de diseño y uso de MDF','Encontremonos y aprende a usar las maquinas que la universidad ha dispuesto para ti',9,STR_TO_DATE("28/09/2021", "%d/%m/%Y")),
-(5,8,7,19,'Telas UN','Demostracion artistica del grupo de telas de la universidad nacional',11,STR_TO_DATE("15/10/2021", "%d/%m/%Y")),
-(6,2,8,20,'La arquitectura hoy y ayer, reflexiones de la nueva era','Evento de divulgacion sobre la historia de la arquitectura colombiana',14,STR_TO_DATE("22/05/2021", "%d/%m/%Y")),
-(7,4,9,22,'Despidiendo al leon','Ultimo concierto de la banda de egresados de la unal',10,STR_TO_DATE("13/03/2021", "%d/%m/%Y")),
-(8,6,10,23,'MilongaUNAL','Clase abierta de Milonga, bajo la antigua torre de enfermeria ',18,STR_TO_DATE("05/06/2022", "%d/%m/%Y")),
-(9,8,3,25,'Lo perderas todo pero no este parcial','Evento para estudiar para calculo diferencial',8,STR_TO_DATE("07/07/2021", "%d/%m/%Y")),
-(10,4,2,29,'Almuerzo 50 años facultad de economia','Evento de integracion dirigido por la direccion de bienestar FCE',12,STR_TO_DATE("09/11/2022", "%d/%m/%Y"));
+(1,2,1,17,'Aprende a quererte y quererme','Evento diseñado por la red de apoyo ATUN para fomentar el amor propio y hacia el projimo',12,STR_TO_DATE("28/10/2022", "%d/%m/%Y"),'Bienestar'),
+(2,4,2,26,'Episfulvo','Evento del grupo de ingenieria de sistemas EPISUNAL para jugar futbol',13,STR_TO_DATE("02/11/2022", "%d/%m/%Y"),'Ingenieria'),
+(3,4,4,28,'Jueves de astronomia','Jueves de divulgación de astronomia bajo las estrellas',18,STR_TO_DATE("08/08/2022", "%d/%m/%Y"),'Ciencias'),
+(4,6,6,18,'Taller de diseño y uso de MDF','Encontremonos y aprende a usar las maquinas que la universidad ha dispuesto para ti',9,STR_TO_DATE("28/09/2021", "%d/%m/%Y"),'Ingenieria'),
+(5,8,7,19,'Telas UN','Demostracion artistica del grupo de telas de la universidad nacional',11,STR_TO_DATE("15/10/2021", "%d/%m/%Y"),'Artes'),
+(6,2,8,20,'La arquitectura hoy y ayer, reflexiones de la nueva era','Evento de divulgacion sobre la historia de la arquitectura colombiana',14,STR_TO_DATE("22/05/2021", "%d/%m/%Y"),'Artes'),
+(7,4,9,22,'Despidiendo al leon','Ultimo concierto de la banda de egresados de la unal',10,STR_TO_DATE("13/03/2021", "%d/%m/%Y"),'Artes'),
+(8,6,10,23,'MilongaUNAL','Clase abierta de Milonga, bajo la antigua torre de enfermeria ',18,STR_TO_DATE("05/06/2022", "%d/%m/%Y"),'Bienestar'),
+(9,8,3,25,'Lo perderas todo pero no este parcial','Evento para estudiar para calculo diferencial',8,STR_TO_DATE("07/07/2021", "%d/%m/%Y"),'Sin facultad'),
+(10,4,2,29,'Almuerzo 50 años facultad de economia','Evento de integracion dirigido por la direccion de bienestar FCE',12,STR_TO_DATE("09/11/2022", "%d/%m/%Y"),'FCE');
 
 INSERT eventoetiqueta(Evento_id_evento,Etiqueta_id_etiqueta) VALUES 
 (1,8),
