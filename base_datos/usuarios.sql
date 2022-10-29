@@ -63,16 +63,18 @@ GROUP BY etiqueta.descripcion ORDER BY COUNT(id_etiqueta) DESC LIMIT 5;
 CREATE VIEW vw_eventosMes AS SELECT MONTH(evento.fecha) AS MES , COUNT(id_evento) AS NUMERO FROM evento
 GROUP BY MONTH(evento.fecha);
 
+
+
 -- asignar permisos de lectura al rol sobre las vistas
 GRANT SELECT  ON myunify.vw_eventosMes TO 'fraternidad_rol';
 GRANT SELECT  ON myunify.vw_etiquetasComunes TO 'fraternidad_rol';
 GRANT SELECT  ON myunify.vw_usuariosFraternidad TO 'fraternidad_rol';
-
+flush privileges;
 -- roles simon
 -- Asigfnacion perfiles MODERADOR
 
 -- crracion rol moderador
-CREATE ROLE "moderador";
+CREATE ROLE 'moderador';
 
 -- permisos a moderador
 GRANT SELECT, DELETE ON creador TO "moderador";
@@ -90,3 +92,5 @@ GRANT SELECT, DELETE ON Evento TO "moderador";
 
 CREATE USER 'modX' IDENTIFIED BY 'mod123';
 GRANT 'moderador' TO 'modX';
+
+SELECT User FROM mysql.user
