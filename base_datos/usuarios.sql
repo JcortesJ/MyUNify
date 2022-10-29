@@ -68,3 +68,24 @@ GRANT SELECT  ON myunify.vw_etiquetasComunes TO 'fraternidad_rol';
 GRANT SELECT  ON myunify.vw_usuariosFraternidad TO 'fraternidad_rol';
 
 -- roles simon
+-- Asigfnacion perfiles MODERADOR
+
+-- crracion rol moderador
+CREATE ROLE "moderador";
+
+-- permisos a moderador
+GRANT SELECT, DELETE ON creador TO "moderador";
+GRANT SELECT, DELETE ON fraternidad TO "moderador";
+
+DROP VIEW IF EXISTS vw_user_mod;
+CREATE VIEW vw_user_mod AS SELECT id_usuario, id_fraternidad, apodos, instagram FROM usuario;
+
+GRANT SELECT, DELETE ON vw_user_mod TO "moderador";
+GRANT SELECT, DELETE ON Respuesta TO "moderador"; 
+GRANT SELECT, DELETE ON Pregunta TO "moderador"; 
+GRANT SELECT, DELETE ON Evento TO "moderador"; 
+
+-- creacion de un moderador
+
+CREATE USER 'modX' IDENTIFIED BY 'mod123';
+GRANT 'moderador' TO 'modX';
