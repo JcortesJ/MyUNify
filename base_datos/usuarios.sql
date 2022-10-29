@@ -1,6 +1,5 @@
 -- Creación rol Usuario
-CREATE ROLE usuario;
-
+CREATE ROLE 'usuario';
 -- Asignación permisos a rol usuario
 GRANT SELECT, DELETE ON creador TO 'usuario';
 GRANT SELECT, INSERT, UPDATE, DELETE ON fraternidad TO 'usuario';
@@ -11,7 +10,7 @@ GRANT SELECT, INSERT, DELETE ON respuesta TO 'usuario';
 GRANT SELECT, INSERT, DELETE ON pregunta TO 'usuario';
 GRANT SELECT ON etiqueta TO 'usuario';
 CREATE VIEW vw_notificacion AS SELECT id_notificacion, estado,tipo
-	FROM notificación ;
+	FROM notificacion ;
 GRANT SELECT, DELETE ON vw_notificacion TO 'usuario';
 GRANT SELECT, INSERT, UPDATE, DELETE ON evento TO 'usuario';
 GRANT SELECT, INSERT ON lugar TO 'usuario';
