@@ -1,3 +1,65 @@
+INSERT INTO Creador (id_creador, nombre_creador) 
+VALUES
+-- FRATERNIDADES
+	(1, 'TapitasClub'),
+    (2, 'GameOfUnal'),
+    (3,'YogaUnal'),
+    (4,'SalsaUnal'),
+    (5,'FutbolUnal'),
+    (6,'Unal4All'),
+    (7,'FictionBooks'),
+    (8,'Sentipensando'),
+    (9,'Ingeniando'),
+    (10,'BudaUnal'),
+    -- JEFES DE FRATERNIDAD (QUE SON USUARIOS)
+    (11, 'Miguel Angel Parra Moreno'),
+    (21, 'David Trinidad'),
+    (31, 'Simon Blanco Gonzales'),
+    (41, 'Juan Manuel Torres Lopez'),
+    (51, "Jefferson Stiven Garcia"),
+    (61, 'Davo Garnacho'),
+    (71, 'Juan Camilo Lizandro Perdomo'),
+    (81, 'Fernando Soto Parrado'),
+    (91, 'Victor Jara Lara'),
+    (101, 'Alvaro Uribe'),
+    
+    -- USUARIOS QUE NO SON JEFES
+    (12, 'Saul Sandoval Hernan'),
+    (13, "Luk Sanderman"),
+    (14, 'Laura Figueroa Caicedo'),
+    (15, 'Samuel kairus'),
+    (16, 'Samanta Ramos Jimenez'),
+    (17, 'Cesar Lopez Zamora'),
+    (18, 'Wilson Mechado Marchan'),
+    (19, 'Luna Jaimes Salsedo')
+;
+
+-- no le meti el id fraternidad para que no hayan conflictos. Una consulta de actualizacion sería meter los usuarios a fraternidades
+INSERT INTO Usuario (id_usuario, apodos, clave, correo, instagram, importancia) 
+VALUES
+	-- Jefes Fraternidades
+	(11, 'Angelo', 'MA124', 'mango@unal.edu.co', 'magoLolo', 90),
+    (21, 'Diva', 'DT654', 'dtrini@unal.edu.co', 'divatrini14', 90),
+    (31, 'Simoncho', 'SB188', 'simba@unal.edu.co', 'simba88', 90),
+    (41, 'JuanMan', 'JT909', 'jmanto@unal.edu.co', 'juanman', 90),
+    (51, 'Jeff', 'JG356', 'jstgar@unal.edu.co', 'jeff', 90),
+    (61, 'Davismo', 'DG112', 'dgarna@unal.edu.co', 'davismoOficial', 90),
+    (71, 'Juanca', 'JL124', 'jucaliz@unal.edu.co', 'juanca77', 90),
+    (81, 'Fer', 'FS344', 'fsoto@unal.edu.co', 'xxferxx', 90),
+    (91, 'Victicor', 'VJ124', 'vjara@unal.edu.co', 'jara33', 90),
+    (101, 'Alvarito', 'MA124', 'AlUrCa@unal.edu.co', 'paraAlvaro', 90),
+    -- USUARIOS NORMALES
+    (12, 'Saul', 'SS224', 'ssando@unal.edu.co', 'bettercallsaul123', 76),
+    (13, 'Sandy', 'LS234', 'sanderman@unal.edu.co', 'sanderman98', 88),
+    (14, 'Lala', 'LF354', 'lafigo@unal.edu.co', 'lalafigueroa', 45),
+    (15, 'Samu', 'SK344', 'skairus@unal.edu.co', 'samukkk', 85),
+    (16, 'Sam', 'SR474', 'samramos@unal.edu.co', 'samy99', 95),
+    (17, 'El Gordo', 'CL990', 'ceslop@unal.edu.co', 'gordocesar', 88),
+    (18, 'Willy', 'WM998', 'willmercha@unal.edu.co', 'willymer', 45),
+    (19, 'LuJaimes', 'LJ335', 'lujimenCa@unal.edu.co', 'lu', 65)
+;
+
+
 INSERT INTO fraternidad (id_creador_fraternidad,id_usuarioJefe,descripcion,nombre)
 VALUES 
    (1,1,'Club de reciclaje para cuidar el planeta','TapitasClub'),
@@ -39,7 +101,25 @@ VALUES
    (9,TRUE,'evento'),
    (10,TRUE,'evento')
 ;
-   
+  
+INSERT INTO UsuarioNotificacion(Notificacion_id_usuario, Notificacion_id_notificacion)
+VALUES 
+	(13, 1),
+    (14,2),
+    (13,2),
+    (15,5),
+    (12, 2),
+    (13,8),
+    (15,8),
+    (16,6),
+    (12,6),
+    (11,7),
+    (12,3),
+    (21,9),
+    (21,10),
+    (31,4)
+;
+
 INSERT INTO Lugar (id_lugar,nombre,direccion,aforo)
 VALUES 
 	(17,'CYT','Salón 304, edificio 454', 20),
@@ -108,3 +188,48 @@ INSERT eventoetiqueta(Evento_id_evento,Etiqueta_id_etiqueta) VALUES
 -- Al momento que vayas a crear datos recuerda usar los numeros de 1-10 para tus ids. Si es posible revisa las otras tablas
 -- para que haya concordancia entre los datos
 
+INSERT INTO EtiquetaUsuario (Etiqueta_id_usuario,Etiqueta_id_etiqueta) 
+VALUES 
+-- Jefes Fraternidades
+	(11, 1),
+    (21, 3),
+    (31, 5),
+    (41, 7),
+    (51, 9),
+    (61, 2),
+    (71, 4),
+    (81, 4),
+    (91, 5),
+    (101, 5),
+    -- USUARIOS NORMALES
+    (12, 10),
+    (13, 1),
+    (14, 9),
+    (15, 2),
+    (16, 8),
+    (17, 3),
+    (18, 7),
+    (19, 4)
+;
+
+INSERT INTO amigos ( id_amigo1, id_amigo2)
+VALUES 
+	(11, 21),
+    (31, 11),
+    (31, 18),
+    (31, 10),
+    (21, 19),
+    (61, 12),
+    (71, 14),
+    (81, 14),
+    (91, 15),
+    (101, 15),
+    (81, 13),
+    (91, 16),
+    (81, 17),
+    (18, 17),
+    (11, 19),
+    (13, 19),
+    (15, 14),
+    (16, 14)
+;
