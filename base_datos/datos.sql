@@ -17,7 +17,7 @@ WHERE id_usuario=21;
 
 UPDATE usuario
 SET id_fraternidad=3
-WHERE id_usuario=81 AND id_usuario=12 AND id_usuario=17;
+WHERE id_usuario=81;
 
 UPDATE usuario
 SET id_fraternidad=3
@@ -45,7 +45,7 @@ WHERE id_usuario=14;
 
 UPDATE usuario
 SET id_fraternidad=5
-WHERE id_usuario=91 AND id_usuario=18;
+WHERE id_usuario=91;
 
 UPDATE usuario
 SET id_fraternidad=6
