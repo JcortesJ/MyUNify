@@ -31,4 +31,4 @@ HAVING COUNT(pregunta.id_remitente)>=COUNT(respuesta.id_remitente) LIMIT 1;
 
 -- las 5 fraternidades más importantes en promedio
 SELECT fraternidad.nombre, AVG(usuario.importancia) AS importancia_promedio FROM fraternidad JOIN usuario ON usuario.id_fraternidad = fraternidad.id_creador_fraternidad
-group by fraternidad.nombre ORDER BY AVG(usuario.importancia)  DESC LIMIT 5 ;
+group by fraternidad.nombre ORDER BY AVG(usuario.importancia)  DESC LIMIT 5;
