@@ -27,4 +27,8 @@ GROUP BY usuario.id_fraternidad ORDER BY COUNT(usuario.id_usuario) DESC LIMIT 1;
 -- Qué personas han hecho más preguntas que respuestas 
 SELECT usuario.apodos,COUNT(pregunta.id_remitente) AS preguntas, COUNT(respuesta.id_remitente) AS respuestas FROM usuario LEFT JOIN pregunta ON id_usuario = pregunta.id_remitente
 LEFT JOIN respuesta  ON  id_usuario=respuesta.id_remitente GROUP BY usuario.apodos
-HAVING COUNT(pregunta.id_remitente)>=COUNT(respuesta.id_remitente) LIMIT 1
+HAVING COUNT(pregunta.id_remitente)>=COUNT(respuesta.id_remitente) LIMIT 1;
+
+-- las 5 fraternidades más importantes en promedio
+SELECT fraternidad.nombre, AVG(usuario.importancia) AS importancia_promedio FROM fraternidad JOIN usuario ON usuario.id_fraternidad = fraternidad.id_creador_fraternidad
+group by fraternidad.nombre ORDER BY AVG(usuario.importancia)  DESC LIMIT 5 ;
