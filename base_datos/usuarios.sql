@@ -1,53 +1,75 @@
 -- Creación rol Usuario
-CREATE ROLE 'usuario';
+CREATE ROLE 'usuario'@'localhost' ;
+
 -- Asignación permisos a rol usuario
-GRANT SELECT, DELETE ON creador TO 'usuario';
-GRANT SELECT, INSERT, UPDATE, DELETE ON fraternidad TO 'usuario';
+GRANT SELECT, DELETE ON creador TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT, UPDATE, DELETE ON fraternidad TO 'usuario'@'localhost' ;
 CREATE VIEW vw_users AS SELECT id_usuario,id_fraternidad,apodos,correo,instagram,importancia
 	FROM usuario;
-GRANT SELECT, UPDATE, DELETE ON vw_users TO 'usuario';
-GRANT SELECT, INSERT, DELETE ON respuesta TO 'usuario';
-GRANT SELECT, INSERT, DELETE ON pregunta TO 'usuario';
-GRANT SELECT ON etiqueta TO 'usuario';
+GRANT SELECT, UPDATE, DELETE ON vw_users TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT, DELETE ON respuesta TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT, DELETE ON pregunta TO 'usuario'@'localhost' ;
+GRANT SELECT ON etiqueta TO 'usuario'@'localhost' ;
 CREATE VIEW vw_notificacion AS SELECT id_notificacion, estado,tipo
-	FROM notificacion ;
-GRANT SELECT, DELETE ON vw_notificacion TO 'usuario';
-GRANT SELECT, INSERT, UPDATE, DELETE ON evento TO 'usuario';
-GRANT SELECT, INSERT ON lugar TO 'usuario';
-GRANT SELECT, DELETE ON usuarionotificacion TO 'usuario';
-GRANT SELECT, INSERT, DELETE ON eventoetiqueta TO 'usuario';
-GRANT SELECT, INSERT, DELETE ON amigos TO 'usuario';
+	FROM notificación ;
+GRANT SELECT, DELETE ON vw_notificacion TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT, UPDATE, DELETE ON evento TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT ON lugar TO 'usuario'@'localhost' ;
+GRANT SELECT, DELETE ON usuarionotificacion TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT, DELETE ON eventoetiqueta TO 'usuario'@'localhost' ;
+GRANT SELECT, INSERT, DELETE ON amigos TO 'usuario'@'localhost' ;
 
 -- Creación de usuario de ejemplo a partir de rol
-CREATE USER 'usuarioX' IDENTIFIED BY 'user123';
-GRANT 'usuario' TO 'usuarioX';
+DROP USER 'usuarioX'@'localhost' ;
+CREATE USER 'usuarioX'@'localhost' IDENTIFIED BY 'user123';
+GRANT 'usuario'@'localhost' TO 'usuarioX'@'localhost' ;
 
--- Creacion de roles jm 
+
+
+-- ROL USUARIO SIN REGISTRAR
+
+CREATE ROLE 'unregisteredUser'@'localhost';
+
+GRANT INSERT ON creador TO 'unregisteredUser'@'localhost';
+GRANT INSERT ON usuario TO 'unregisteredUser'@'localhost';
+
+CREATE USER "unregisteredX"@'localhost' IDENTIFIED BY "unre123"; 
+GRANT 'unregisteredUser'@'localhost' TO "unregisteredX"@'localhost';
+
+GRANT INSERT ON creador TO 'unregisteredX'@'localhost';
+GRANT INSERT ON usuario TO 'unregisteredX'@'localhost';
+GRANT ALL PRIVILEGES ON myunify TO 'unregisteredX'@"localhost" ;
+
 -- Rol de fraternidad 
 
-CREATE ROLE 'fraternidad_rol';
+CREATE ROLE 'fraternidad_rol'@'localhost';
 -- Sobre creador solo lectura
-GRANT SELECT ON creador to 'fraternidad';
+GRANT SELECT ON creador to 'fraternidad_rol'@'localhost';
 -- sobre fraternidad leer, actualizar y borrar
-GRANT SELECT,UPDATE,DELETE on fraternidad to 'fraternidad_rol';
+GRANT SELECT,UPDATE,DELETE on fraternidad to 'fraternidad_rol'@'localhost';
 -- Sobre usuario solo leer
-GRANT SELECT on usuario to 'fraternidad_rol';
+GRANT SELECT on usuario to 'fraternidad_rol'@'localhost';
 -- sobre respuesta crear, LEER y borrar
-GRANT SELECT,UPDATE,INSERT on respuesta to 'fraternidad_rol';
+GRANT SELECT,UPDATE,INSERT on respuesta to 'fraternidad_rol'@'localhost';
 -- sobre pregunta lo mismo
-GRANT SELECT,UPDATE,INSERT on pregunta to 'fraternidad_rol';
+GRANT SELECT,UPDATE,INSERT on pregunta to 'fraternidad_rol'@'localhost';
 -- sobre etiqueta solo leer
-GRANT SELECT on etiqueta to 'fraternidad_rol';
+GRANT SELECT on etiqueta to 'fraternidad_rol'@'localhost';
 -- sobre notificacion borrar y leer
-GRANT SELECT,DELETE on notificacion to 'fraternidad_rol';
+GRANT SELECT,DELETE on notificacion to 'fraternidad_rol'@'localhost';
 -- sobre evento es todo el crud
-GRANT SELECT,INSERT,UPDATE,DELETE on evento to 'fraternidad_rol';
+GRANT SELECT,INSERT,UPDATE,DELETE on evento to 'fraternidad_rol'@'localhost';
 -- sobre lugar solo es leer y crear
-GRANT SELECT,INSERT on etiqueta to 'fraternidad_rol';
+GRANT SELECT,INSERT on etiqueta to 'fraternidad_rol'@'localhost';
 
 -- Creación de usuario de ejemplo a partir de rol
-CREATE USER 'fraternidadX' IDENTIFIED BY 'toor';
-GRANT 'fraternidad_rol' TO 'fraternidadX';
+CREATE USER 'fraternidadX'@'localhost' IDENTIFIED BY 'toor';
+GRANT 'fraternidad_rol'@'localhost' TO 'fraternidadX'@'localhost';
+SHOW GRANTS FOR 'fraternidadX'@'localhost';
+-- sobre fraternidad leer, actualizar y borrar
+GRANT SELECT,UPDATE,DELETE on fraternidad to 'fraternidadX'@'localhost'; -- BORRAR ESTE
+GRANT SELECT ON creador to 'fraternidadX'@'localhost'; -- BORRA ESTE TAMBIEN
+GRANT ALL PRIVILEGES ON myunify TO 'fraternidadX'@"localhost" ;
 
 -- las vistas que le podrian interesar a la fraternidad son:
 -- numero de usuarios que están suscritos a ellas
@@ -60,37 +82,41 @@ JOIN evento ON Evento_id_evento=evento.id_evento -- AND evento.Creador_id_creado
 GROUP BY etiqueta.descripcion ORDER BY COUNT(id_etiqueta) DESC LIMIT 5;
 -- numero de eventos creados por mes
 -- probar si esta consulta sirve
-CREATE VIEW vw_eventosMes AS SELECT monthname(evento.fecha) AS MES , COUNT(id_evento) AS NUMERO FROM evento
+CREATE VIEW vw_eventosMes AS SELECT MONTH(evento.fecha) AS MES , COUNT(id_evento) AS NUMERO FROM evento
 GROUP BY MONTH(evento.fecha);
 
 
 
 -- asignar permisos de lectura al rol sobre las vistas
-GRANT SELECT  ON myunify.vw_eventosMes TO 'fraternidad_rol';
-GRANT SELECT  ON myunify.vw_etiquetasComunes TO 'fraternidad_rol';
-GRANT SELECT  ON myunify.vw_usuariosFraternidad TO 'fraternidad_rol';
+GRANT SELECT  ON myunify.vw_eventosMes TO 'fraternidad_rol'@'localhost';
+GRANT SELECT  ON myunify.vw_etiquetasComunes TO 'fraternidad_rol'@'localhost';
+GRANT SELECT  ON myunify.vw_usuariosFraternidad TO 'fraternidad_rol'@'localhost';
 flush privileges;
--- roles simon
+
 -- Asigfnacion perfiles MODERADOR
 
 -- crracion rol moderador
-CREATE ROLE 'moderador';
+
+CREATE ROLE "moderador"@'localhost';
 
 -- permisos a moderador
-GRANT SELECT, DELETE ON creador TO "moderador";
-GRANT SELECT, DELETE ON fraternidad TO "moderador";
+GRANT SELECT, DELETE ON MyUnify.creador TO "moderador"@'localhost';
+GRANT SELECT, DELETE ON MyUnify.fraternidad TO "moderador"@'localhost';
+
 
 DROP VIEW IF EXISTS vw_user_mod;
 CREATE VIEW vw_user_mod AS SELECT id_usuario, id_fraternidad, apodos, instagram FROM usuario;
 
-GRANT SELECT, DELETE ON vw_user_mod TO "moderador";
-GRANT SELECT, DELETE ON Respuesta TO "moderador"; 
-GRANT SELECT, DELETE ON Pregunta TO "moderador"; 
-GRANT SELECT, DELETE ON Evento TO "moderador"; 
+GRANT SELECT, DELETE ON MyUnify.vw_user_mod TO "moderador"@'localhost';
+GRANT SELECT, DELETE ON Respuesta TO "moderador"@'localhost'; 
+GRANT SELECT, DELETE ON Pregunta TO "moderador"@'localhost'; 
+GRANT SELECT, DELETE ON MyUnify.Evento TO "moderador"@'localhost'; 
 
 -- creacion de un moderador
 
-CREATE USER 'modX' IDENTIFIED BY 'mod123';
-GRANT 'moderador' TO 'modX';
-
-SELECT User FROM mysql.user
+CREATE USER 'modX'@"localhost"  IDENTIFIED BY 'mod123';
+GRANT 'moderador'@'localhost' TO 'modX'@"localhost" ;
+flush privileges;
+SHOW GRANTS FOR 'modX'@'localhost';
+GRANT SELECT, DELETE ON Respuesta TO "modX"@'localhost'; 
+GRANT ALL PRIVILEGES ON myunify TO 'modX'@"localhost" ;

@@ -1,4 +1,5 @@
 
+
 INSERT INTO Creador (id_creador, nombre_creador) 
 VALUES
 -- FRATERNIDADES
@@ -137,6 +138,7 @@ VALUES
     (21,10),
     (31,4)
 ;
+
 
 SELECT * FROM usuario;
  INSERT INTO pregunta (id_pregunta,Evento_id_evento,id_remitente,contenido)
