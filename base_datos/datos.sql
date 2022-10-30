@@ -74,7 +74,7 @@ WHERE id_usuario=101;
 
 SELECT * FROM usuario;
 
-SELECT * FROM vw_usuariosfraternidad;
+-- SELECT * FROM vw_usuariosfraternidad;
 
 -- CASOS DE USO BORRADOS Y ACTUALIZACIONES:
 -- CASO 1, UN USUARIO CREA UN EVENTO, PERO DECIDE CAMBIAR LA FECHA Y LUGAR POR OTRO
@@ -97,3 +97,4 @@ WHERE usuario.id_usuario=190;
 -- CASO 4 UN USUARIO DECIDE DARSE DE BAJA DE LA APLICACIÓN
 DELETE FROM usuario
 WHERE id_usuario=190;
+
