@@ -98,3 +98,32 @@ WHERE usuario.id_usuario=190;
 DELETE FROM usuario
 WHERE id_usuario=190;
 
+-- CASO 5 MODERADOR ELIMINA UNA RESPUESTA Y UNA PREGUNTA
+-- borramos una pregunta
+SELECT * FROM pregunta;
+DELETE FROM pregunta WHERE lower(pregunta.contenido) LIKE "%ropa%";
+
+-- borramos una respuesta
+SELECT * FROM respuesta;
+DELETE FROM respuesta WHERE lower(respuesta.contenido) LIKE "%bebida%";
+
+-- CASO 6 FRATERNIDAD CAMBIA DE JEFE
+
+SELECT creador.id_creador FROM creador WHERE  lower(creador.nombre_creador) LIKE '%simon%'; -- obtenemos el id de simon, que es 31
+
+UPDATE fraternidad  -- cambios el lider de la fraternidad de id 1
+SET fraternidad.id_usuarioJefe = (
+	SELECT creador.id_creador 
+    FROM creador 
+    WHERE  lower(creador.nombre_creador) LIKE '%simon%' ) 
+WHERE fraternidad.id_creador_fraternidad =  1;
+
+
+-- CASO 7 Usuario se registra
+
+INSERT INTO creador(id_creador, nombre_creador) -- PRIMERO HAY QUE AÑADIRLO A CREADOR
+VALUES(120,'Nacho Jaimes');
+
+INSERT INTO usuario(id_usuario, apodos, clave, correo, instagram, importancia) 
+VALUES (120, 'nacho', "1234", "nac@unal.edu.co", 'nachito12', 99);
+
