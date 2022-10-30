@@ -1,3 +1,4 @@
+
 INSERT INTO Creador (id_creador, nombre_creador) 
 VALUES
 -- FRATERNIDADES
@@ -178,7 +179,7 @@ INSERT INTO respuesta(id_respuesta,Pregunta_id_pregunta,id_remitente,contenido) 
  (10,'Academico, Estudio, Rutinas');
  
 
-INSERT eventoetiqueta(Evento_id_evento,Etiqueta_id_etiqueta) VALUES 
+INSERT INTO eventoetiqueta(Evento_id_evento,Etiqueta_id_etiqueta) VALUES 
 (1,8),
 (2,9),
 (3,10),
@@ -238,4 +239,3 @@ VALUES
     (15, 14),
     (16, 14)
 ;
-
