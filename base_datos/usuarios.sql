@@ -1,5 +1,6 @@
 -- Creación rol Usuario
-CREATE ROLE 'usuario'@'localhost' ;
+-- CREATE ROLE 'usuario'@'localhost' ;
+CREATE USER 'usuario'@'localhost' ;
 
 -- Asignación permisos a rol usuario
 GRANT SELECT, DELETE ON creador TO 'usuario'@'localhost' ;
@@ -18,31 +19,46 @@ GRANT SELECT, INSERT ON lugar TO 'usuario'@'localhost' ;
 GRANT SELECT, DELETE ON usuarionotificacion TO 'usuario'@'localhost' ;
 GRANT SELECT, INSERT, DELETE ON eventoetiqueta TO 'usuario'@'localhost' ;
 GRANT SELECT, INSERT, DELETE ON amigos TO 'usuario'@'localhost' ;
-
+flush privileges;
 -- Creación de usuario de ejemplo a partir de rol
-DROP USER 'usuarioX'@'localhost' ;
-CREATE USER 'usuarioX'@'localhost' IDENTIFIED BY 'user123';
-GRANT 'usuario'@'localhost' TO 'usuarioX'@'localhost' ;
+-- DROP USER 'usuarioX'@'localhost' ;
+-- CREATE USER 'usuarioX'@'localhost' IDENTIFIED BY 'user123';
+-- GRANT 'usuario'@'localhost' TO 'usuarioX'@'localhost' ;
+-- flush privileges;
 
-
+SELECT * FROM mysql.user;
+-- DROP USER "modX"@'localhost';
+-- DROP USER "fraternidadX"@'localhost';
+-- DROP USER "unregisteredUser"@'localhost';
+-- DROP USER "unregisteredX"@'localhost';
+-- DROP USER "fraternidad_rol"@'localhost';
+-- DROP USER "usuarioX"@'localhost';
+-- DROP USER "usuario"@'localhost';
+-- DROP USER "moderador";
+-- DROP USER "fraternidadX";
+-- DROP USER "fraternidad_rol";
+-- DROP USER "usuarioX";
+-- DROP USER "usuario";
 
 -- ROL USUARIO SIN REGISTRAR
 
-CREATE ROLE 'unregisteredUser'@'localhost';
+-- CREATE ROLE 'unregisteredUser'@'localhost';
+CREATE USER 'unregisteredUser'@'localhost';
 
 GRANT INSERT ON creador TO 'unregisteredUser'@'localhost';
 GRANT INSERT ON usuario TO 'unregisteredUser'@'localhost';
 
-CREATE USER "unregisteredX"@'localhost' IDENTIFIED BY "unre123"; 
-GRANT 'unregisteredUser'@'localhost' TO "unregisteredX"@'localhost';
+-- CREATE USER "unregisteredX"@'localhost' IDENTIFIED BY "unre123"; 
+-- GRANT 'unregisteredUser'@'localhost' TO "unregisteredX"@'localhost';
 
-GRANT INSERT ON creador TO 'unregisteredX'@'localhost';
-GRANT INSERT ON usuario TO 'unregisteredX'@'localhost';
-GRANT ALL PRIVILEGES ON myunify TO 'unregisteredX'@"localhost" ;
+-- GRANT INSERT ON creador TO 'unregisteredX'@'localhost';
+-- GRANT INSERT ON usuario TO 'unregisteredX'@'localhost';
+-- GRANT ALL PRIVILEGES ON myunify TO 'unregisteredX'@"localhost" ;
 
 -- Rol de fraternidad 
 
-CREATE ROLE 'fraternidad_rol'@'localhost';
+-- CREATE ROLE 'fraternidad_rol'@'localhost';
+CREATE USER 'fraternidad_rol'@'localhost';
 -- Sobre creador solo lectura
 GRANT SELECT ON creador to 'fraternidad_rol'@'localhost';
 -- sobre fraternidad leer, actualizar y borrar
@@ -63,13 +79,14 @@ GRANT SELECT,INSERT,UPDATE,DELETE on evento to 'fraternidad_rol'@'localhost';
 GRANT SELECT,INSERT on etiqueta to 'fraternidad_rol'@'localhost';
 
 -- Creación de usuario de ejemplo a partir de rol
-CREATE USER 'fraternidadX'@'localhost' IDENTIFIED BY 'toor';
-GRANT 'fraternidad_rol'@'localhost' TO 'fraternidadX'@'localhost';
-SHOW GRANTS FOR 'fraternidadX'@'localhost';
+-- CREATE USER 'fraternidadX'@'localhost' IDENTIFIED BY 'toor';
+-- GRANT 'fraternidad_rol'@'localhost' TO 'fraternidadX'@'localhost';
+-- flush privileges;
+-- SHOW GRANTS FOR 'fraternidadX'@'localhost';
 -- sobre fraternidad leer, actualizar y borrar
-GRANT SELECT,UPDATE,DELETE on fraternidad to 'fraternidadX'@'localhost'; -- BORRAR ESTE
-GRANT SELECT ON creador to 'fraternidadX'@'localhost'; -- BORRA ESTE TAMBIEN
-GRANT ALL PRIVILEGES ON myunify TO 'fraternidadX'@"localhost" ;
+-- GRANT SELECT,UPDATE,DELETE on fraternidad to 'fraternidadX'@'localhost'; -- BORRAR ESTE
+-- GRANT SELECT ON creador to 'fraternidadX'@'localhost'; -- BORRA ESTE TAMBIEN
+-- GRANT ALL PRIVILEGES ON myunify TO 'fraternidadX'@"localhost" ;
 
 -- las vistas que le podrian interesar a la fraternidad son:
 -- numero de usuarios que están suscritos a ellas
@@ -84,7 +101,7 @@ GROUP BY etiqueta.descripcion ORDER BY COUNT(id_etiqueta) DESC LIMIT 5;
 -- probar si esta consulta sirve
 CREATE VIEW vw_eventosMes AS SELECT MONTH(evento.fecha) AS MES , COUNT(id_evento) AS NUMERO FROM evento
 GROUP BY MONTH(evento.fecha);
-
+flush privileges;
 
 
 -- asignar permisos de lectura al rol sobre las vistas
@@ -97,12 +114,13 @@ flush privileges;
 
 -- crracion rol moderador
 
-CREATE ROLE "moderador"@'localhost';
+-- CREATE ROLE "moderador"@'localhost';
+CREATE USER "moderador"@'localhost';
 
 -- permisos a moderador
 GRANT SELECT, DELETE ON MyUnify.creador TO "moderador"@'localhost';
 GRANT SELECT, DELETE ON MyUnify.fraternidad TO "moderador"@'localhost';
-
+flush privileges;
 
 DROP VIEW IF EXISTS vw_user_mod;
 CREATE VIEW vw_user_mod AS SELECT id_usuario, id_fraternidad, apodos, instagram FROM usuario;
@@ -111,12 +129,13 @@ GRANT SELECT, DELETE ON MyUnify.vw_user_mod TO "moderador"@'localhost';
 GRANT SELECT, DELETE ON Respuesta TO "moderador"@'localhost'; 
 GRANT SELECT, DELETE ON Pregunta TO "moderador"@'localhost'; 
 GRANT SELECT, DELETE ON MyUnify.Evento TO "moderador"@'localhost'; 
-
+flush privileges;
 -- creacion de un moderador
 
-CREATE USER 'modX'@"localhost"  IDENTIFIED BY 'mod123';
-GRANT 'moderador'@'localhost' TO 'modX'@"localhost" ;
-flush privileges;
-SHOW GRANTS FOR 'modX'@'localhost';
-GRANT SELECT, DELETE ON Respuesta TO "modX"@'localhost'; 
-GRANT ALL PRIVILEGES ON myunify TO 'modX'@"localhost" ;
+-- CREATE USER 'modX'@"localhost"  IDENTIFIED BY 'mod123';
+-- GRANT 'moderador'@'localhost' TO 'modX'@"localhost" ;
+-- flush privileges;
+-- SHOW GRANTS FOR 'modX'@'localhost';
+-- GRANT SELECT, DELETE ON Respuesta TO "modX"@'localhost'; 
+-- GRANT ALL PRIVILEGES ON myunify TO 'modX'@"localhost" ;
+-- flush privileges;
