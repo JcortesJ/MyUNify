@@ -1,6 +1,16 @@
 -- ¿Cuántos usuarios tiene cada fraternidad?
 
--- Amigos en común entre dos usuarios
+-- Amigos en común entre el usurio 15 y el usuario 31 
+
+SELECT * FROM
+    (SELECT * FROM 
+	(SELECT id_amigo2 FROM (SELECT id_amigo2 FROM amigos WHERE id_amigo1=15)AS tab1 UNION
+	(SELECT id_amigo1 FROM amigos WHERE id_amigo2=15)) AS tab2 WHERE id_amigo2 IN 
+    (SELECT id_amigo2 FROM 
+    (SELECT id_amigo2 FROM amigos WHERE id_amigo1=31)AS tab3 UNION
+	(SELECT id_amigo1 FROM amigos WHERE id_amigo2=31))) AS tab4
+    INNER JOIN usuario ON tab4.id_amigo2= usuario.id_usuario;
+
 
 -- Usuarios que no pertenezcan a ninguna fraternidad
 INSERT INTO creador VALUES (103,'oso perezoso');
@@ -9,12 +19,17 @@ INSERT INTO usuario(id_usuario,apodos,clave,correo,instagram,importancia) VALUES
 SELECT usuario.apodos FROM usuario WHERE id_fraternidad IS NULL;
 -- etiquetas que tengan más usuarios
 -- Cual es el evento que más usuarios tienen guardados en su calendario
+SELECT id_evento, nombre,cantidadGuardados FROM evento NATURAL JOIN
+	(SELECT id_evento,MAX(total) AS cantidadGuardados FROM 
+	(SELECT id_evento,COUNT(id_evento) AS total FROM EventoGuardado GROUP BY id_evento)AS tabla2) AS tabla3;
 
 -- Cual es el evento que tiene más cantidad de preguntas
 SELECT evento.nombre, COUNT(evento.id_evento) AS Numero FROM evento JOIN pregunta ON evento.id_evento = pregunta.Evento_id_evento
 GROUP BY evento.nombre ORDER BY COUNT(evento.id_evento) DESC LIMIT 1;
 -- Cuantos eventos existen por cada etiqueta
+
 -- Cuantos usuarios pertenecen a cada fraternidad 
+SELECT nombre,integrantes FROM (SELECT id_fraternidad,COUNT(id_fraternidad) AS integrantes FROM usuario GROUP BY id_fraternidad) AS tab1 NATURAL JOIN fraternidad;
 
 -- Etiqueta más común entre los usuarios de una misma fraternidad
 SELECT fraternidad.nombre,etiqueta.descripcion ,COUNT(usuario.id_usuario) AS usuarios FROM etiqueta JOIN etiquetausuario 
@@ -22,7 +37,12 @@ ON etiqueta.id_etiqueta = etiquetausuario.Etiqueta_id_etiqueta  JOIN usuario ON 
 JOIN fraternidad ON usuario.id_fraternidad=fraternidad.id_creador_fraternidad
 GROUP BY usuario.id_fraternidad ORDER BY COUNT(usuario.id_usuario) DESC LIMIT 1;
 -- Cual es el creador que más eventos ha creado
--- Usuarios con más de 10 amigos
+
+
+-- Usuarios con más de 3 amigos
+SELECT id_amigo1 AS id_usuario,count1+count2 AS totalAmigos FROM (SELECT id_amigo1,COUNT(id_amigo1) AS count1 FROM amigos GROUP BY id_amigo1) AS tab1 LEFT JOIN
+(SELECT id_amigo2,COUNT(id_amigo2) AS count2 FROM amigos GROUP BY id_amigo2) AS tab2 ON tab1.id_amigo1=tab2.id_amigo2 WHERE count1+count2>3;
+
 
 -- Qué personas han hecho más preguntas que respuestas 
 SELECT usuario.apodos,COUNT(pregunta.id_remitente) AS preguntas, COUNT(respuesta.id_remitente) AS respuestas FROM usuario LEFT JOIN pregunta ON id_usuario = pregunta.id_remitente
