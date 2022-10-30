@@ -239,5 +239,3 @@ VALUES
     (16, 14)
 ;
 
-SELECT * FROM amigos;
-DELETE FROM amigos WHERE id_amigo1 != 0 AND id_amigo2 != 0;
