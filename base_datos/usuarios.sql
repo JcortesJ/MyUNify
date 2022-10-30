@@ -60,7 +60,7 @@ JOIN evento ON Evento_id_evento=evento.id_evento -- AND evento.Creador_id_creado
 GROUP BY etiqueta.descripcion ORDER BY COUNT(id_etiqueta) DESC LIMIT 5;
 -- numero de eventos creados por mes
 -- probar si esta consulta sirve
-CREATE VIEW vw_eventosMes AS SELECT MONTH(evento.fecha) AS MES , COUNT(id_evento) AS NUMERO FROM evento
+CREATE VIEW vw_eventosMes AS SELECT monthname(evento.fecha) AS MES , COUNT(id_evento) AS NUMERO FROM evento
 GROUP BY MONTH(evento.fecha);
 
 
