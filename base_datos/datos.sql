@@ -193,9 +193,6 @@ INSERT INTO eventoetiqueta(Evento_id_evento,Etiqueta_id_etiqueta) VALUES
 (9,1),
 (10,5);
 
--- Al momento que vayas a crear datos recuerda usar los numeros de 1-10 para tus ids. Si es posible revisa las otras tablas
--- para que haya concordancia entre los datos
-
 INSERT INTO EtiquetaUsuario (Etiqueta_id_usuario,Etiqueta_id_etiqueta) 
 VALUES 
 -- Jefes Fraternidades

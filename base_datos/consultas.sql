@@ -1,4 +1,3 @@
--- ¿Cuántos usuarios tiene cada fraternidad?
 
 -- Amigos en común entre el usurio 15 y el usuario 31 
 
@@ -17,7 +16,7 @@ INSERT INTO creador VALUES (103,'oso perezoso');
 INSERT INTO usuario(id_usuario,apodos,clave,correo,instagram,importancia) VALUES (103,'osito perezoso','123','oso_1230','jcorns@gmail.com',33);
 
 SELECT usuario.apodos FROM usuario WHERE id_fraternidad IS NULL;
--- etiquetas que tengan más usuarios
+
 -- Cual es el evento que más usuarios tienen guardados en su calendario
 SELECT id_evento, nombre,cantidadGuardados FROM evento NATURAL JOIN
 	(SELECT id_evento,MAX(total) AS cantidadGuardados FROM 
