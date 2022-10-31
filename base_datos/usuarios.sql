@@ -1,5 +1,5 @@
 -- Creación rol Usuario
-CREATE USER 'usuario'@'localhost' ;
+CREATE USER 'usuario'@'localhost' IDENTIFIED BY "123" ;
 
 -- Asignación permisos a rol usuario
 GRANT SELECT, DELETE ON creador TO 'usuario'@'localhost' ;
@@ -23,7 +23,7 @@ flush privileges;
 -- ROL USUARIO SIN REGISTRAR
 
 -- CREATE ROLE 'unregisteredUser'@'localhost';
-CREATE USER 'unregisteredUser'@'localhost';
+CREATE USER 'unregisteredUser'@'localhost' IDENTIFIED BY "123";
 
 GRANT INSERT ON creador TO 'unregisteredUser'@'localhost';
 GRANT INSERT ON usuario TO 'unregisteredUser'@'localhost';
@@ -72,7 +72,7 @@ GRANT SELECT  ON myunify.vw_etiquetasComunes TO 'fraternidad_rol'@'localhost';
 GRANT SELECT  ON myunify.vw_usuariosFraternidad TO 'fraternidad_rol'@'localhost';
 flush privileges;
 
-CREATE USER "moderador"@'localhost';
+CREATE USER "moderador"@'localhost' IDENTIFIED BY "123";
 
 -- permisos a moderador
 GRANT SELECT, DELETE ON MyUnify.creador TO "moderador"@'localhost';
