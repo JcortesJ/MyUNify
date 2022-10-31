@@ -11,7 +11,7 @@ GRANT SELECT, INSERT, DELETE ON respuesta TO 'usuario'@'localhost' ;
 GRANT SELECT, INSERT, DELETE ON pregunta TO 'usuario'@'localhost' ;
 GRANT SELECT ON etiqueta TO 'usuario'@'localhost' ;
 CREATE VIEW vw_notificacion AS SELECT id_notificacion, estado,tipo
-	FROM notificación ;
+	FROM notificacion ;
 GRANT SELECT, DELETE ON vw_notificacion TO 'usuario'@'localhost' ;
 GRANT SELECT, INSERT, UPDATE, DELETE ON evento TO 'usuario'@'localhost' ;
 GRANT SELECT, INSERT ON lugar TO 'usuario'@'localhost' ;
