@@ -6,3 +6,6 @@ etiqueta(id_etiqueta);
 
 -- Justificacion: es un indice unico por que se busca que las etiquetas no se repitan en la aplicación.
 
+CREATE INDEX indice_evento ON evento(nombre);
+
+-- Justificación: como el punto central de la aplicación es tener bastantes eventos, al momento de buscarlos esto no debe tardar mucho tiempo
