@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS Creador(
   nombre_creador CHAR(60) NOT NULL,
   PRIMARY KEY (id_creador));
 
-
 -- -----------------------------------------------------
 -- Tabla Usuario
 -- -----------------------------------------------------
