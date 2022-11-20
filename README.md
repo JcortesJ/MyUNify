@@ -18,6 +18,12 @@ A la fecha de la última versión (Enero 2022), contamos con las siguientes func
  3. Solicitudes de amistad entre usuarios
  4. Notificaciones de eventos creados y solicitudes de amistad
  5. Pantalla de datos personales y edición de estos
+ 
+ ## funcionalidades en progreso para la segunda versión
+ 1. Mejora del diseño de la interfaz
+ 2. Actualización de logotipos para que no nos confundan con grindr
+ 3. Implementación de persistencia a través de una base de datos
+ 4. Mejora y diseño de la página MyUnify-Bienestar
 
 ### Aquí un [video con la interfaz funcional](https://www.youtube.com/watch?v=v-xkI2H3Yn8&t=36s&ab_channel=JeffersonRamirez)
 --- 
@@ -26,4 +32,6 @@ A la fecha de la última versión (Enero 2022), contamos con las siguientes func
 
 - Flutter 2.81
 - Android Shared Preferences
+- MySQL server 8.0
+- Typescript, Next.js?
 
