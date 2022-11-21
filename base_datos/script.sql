@@ -84,9 +84,11 @@ CREATE TABLE IF NOT EXISTS Lugar (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Notificacion (
   id_notificacion INT NOT NULL,
+  id_remitente INT NOT NULL,
   estado TINYINT NOT NULL,
   tipo ENUM('amistad','evento'),
-  PRIMARY KEY (id_notificacion));
+  PRIMARY KEY (id_notificacion),
+  FOREIGN KEY(id_remitente) REFERENCES MyUnify.Creador(id_creador));
 
 
 -- -----------------------------------------------------
