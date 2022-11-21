@@ -42,3 +42,69 @@ BEGIN
     RETURN numero;
 END $$
 DELIMITER ;
+
+
+-- (Funcion) dada una notificacion de solicitud de amistad aceptada, crear el registro de amigos
+
+DROP FUNCTION IF EXISTS agregarAmigos;
+DROP FUNCTION IF EXISTS validarNot;
+
+DELIMITER $$
+CREATE FUNCTION agregarAmigos(id_not INT)
+RETURNS boolean DETERMINISTIC
+BEGIN
+    DECLARE done boolean DEFAULT true;
+	DECLARE receptor INT DEFAULT 0;
+    DECLARE remitente INT DEFAULT 0;
+	SET remitente = ( SELECT id_remitente from notificacion WHERE id_notificacion = id_not); -- el remitente es un atributo de la tabla notificacion
+    -- El receptor es una tributo de la tabla usuarioNotificacion
+    SET receptor = ( SELECT Notificacion_id_usuario FROM notificacion JOIN usuarioNotificacion ON (notificacion.id_notificacion = usuarioNotificacion.Notificacion_id_notificacion) WHERE notificacion.id_notificacion = id_not );
+    
+    INSERT INTO amigos(id_amigo1, id_amigo2) VALUES (remitente, receptor); -- creamos el registro de los nuevos amigos
+    
+    RETURN done;
+END $$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE FUNCTION validarNot(id_not INT)
+RETURNS varchar(20) DETERMINISTIC
+BEGIN
+	DECLARE allow enum('amistad');
+    DECLARE tipo VARCHAR(20) DEFAULT "d";
+    DECLARE done boolean DEFAULT false; -- para controlar si la funcion se ejecuto con exito
+	SET tipo = (SELECT tipo FROM notificacion WHERE notificacion.id_notificacion = id_not); -- para saber si la notificacion es una solicitud de amistad
+    IF tipo = allow THEN
+		CALL agregarAmigos(id_not); -- llamamos la funcion que los vuelve amigos en la base de datos
+        SET done = TRUE; -- la funcion se ejecuto con exito
+    END IF;
+    
+    RETURN tipo;
+END $$
+DELIMITER ;
+
+show columns FROM notificacion;
+SET @DONE = validarNot(5);
+SELECt @DONE; 
+
+
+-- Al crear un usuario, insertarlo en ambas tablas creador y usuario
+DROP FUNCTION IF EXISTS createUser;
+
+DELIMITER $$
+CREATE FUNCTION createUser(id_usuario INT,nombre char(60), apodos char(45), clave char(25), correo char(60), instagram char(30))
+RETURNS boolean DETERMINISTIC
+BEGIN
+    DECLARE done boolean DEFAULT true; -- para controlar si la funcion se ejecuto con exito
+    
+	INSERT INTO creador(id_creador, nombre_creador) -- PRIMERO HAY QUE AÑADIRLO A CREADOR
+	VALUES(id_usuario,nombre);
+
+	INSERT INTO usuario(id_usuario, apodos, clave, correo, instagram, importancia)  -- luego lo metemos a usuario
+	VALUES (id_usuario, apodos, clave, correo, instagram, 99);
+    
+    RETURN done;
+END $$
+DELIMITER ;
+

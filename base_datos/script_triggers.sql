@@ -19,3 +19,26 @@ CREATE TRIGGER crear_notificacion
         END;     
         $$
 	DELIMITER ;
+    
+-- al momento de un cambio en la tabla notificación, crear un nuevo registro en la tabla de amigos
+
+DROP TRIGGER IF EXISTS crearAmigos;
+
+DELIMITER $$
+CREATE TRIGGER crearamigos    
+    AFTER UPDATE 
+         ON notificacion FOR EACH ROW 
+         BEGIN    
+         
+		-- obtenemos el nuevo valor del estado de la notificacion
+        SET @not_respond = notificacion.estado;
+        
+        -- obtebemos el id de la notificacion que sufrio el cambio
+        SET @id_not = Notificacion_id_notificacion;
+        IF(@not_respond = 1) THEN -- si el cambio es que la acepto agregamos los amigos
+			SET @DONE = agregarAmigos(@id_not);
+		END IF;
+
+        END;     
+        $$
+	DELIMITER ;

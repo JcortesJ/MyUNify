@@ -33,8 +33,28 @@ SELECT * FROM amigos;
 SELECT * FROM etiquetausuario;
 SELECT * FROM usuarionotificacion;
 SELECT * FROM creador;
-
 CALL baja_usuario(2342);
 CALL baja_usuario(2000);
 CALL baja_usuario(4554);
+
+-- pruebas para crear amigos
+
+select * from notificacion;
+select * from usuarionotificacion;
+select * from amigos WHERE id_amigo1 = 15;
+
+INSERT INTO notificacion VALUES (12,15,0,'amistad');
+INSERT INTO usuarioNotificacion VALUES(31,12);
+
+
+INSERT INTO notificacion VALUES (13,15,0,'evento');
+INSERT INTO usuarioNotificacion VALUES(31,13);
+
+
+UPDATE notificacion SET estado = 1 WHERE id_notificacion = 12;
+
+SET @BOL = agregarAmigos(13);
+
+
+
 
