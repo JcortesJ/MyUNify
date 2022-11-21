@@ -82,7 +82,6 @@ UPDATE etiqueta
 SET descripcion='marcha'
 WHERE id_etiqueta=1;
 
--- SELECT * FROM vw_usuariosfraternidad;
 
 -- CASOS DE USO BORRADOS Y ACTUALIZACIONES:
 -- CASO 1, UN USUARIO CREA UN EVENTO, PERO DECIDE CAMBIAR LA FECHA Y LUGAR POR OTRO

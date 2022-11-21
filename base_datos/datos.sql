@@ -77,18 +77,18 @@ VALUES
 ;
    
 
-INSERT INTO notificacion (id_notificacion,estado,tipo)
+INSERT INTO notificacion (id_notificacion,id_remitente,estado,tipo)
 VALUES 
-   (1,TRUE,'amistad'),
-   (2,TRUE,'evento'),
-   (3,FALSE,'amistad'),
-   (4,TRUE,'evento'),
-   (5,FALSE,'amistad'),
-   (6,TRUE,'evento'),
-   (7,TRUE,'amistad'),
-   (8,FALSE,'evento'),
-   (9,TRUE,'evento'),
-   (10,TRUE,'evento')
+   (1,15,TRUE,'amistad'),
+   (2,16,TRUE,'evento'),
+   (3,17,FALSE,'amistad'),
+   (4,11,TRUE,'evento'),
+   (5,13,FALSE,'amistad'),
+   (6,12,TRUE,'evento'),
+   (7,14,TRUE,'amistad'),
+   (8,17,FALSE,'evento'),
+   (9,11,TRUE,'evento'),
+   (10,12,TRUE,'evento')
 ;
 
 INSERT INTO Lugar (id_lugar,nombre,direccion,aforo)
@@ -192,9 +192,6 @@ INSERT INTO eventoetiqueta(Evento_id_evento,Etiqueta_id_etiqueta) VALUES
 (8,8),
 (9,1),
 (10,5);
-
--- Al momento que vayas a crear datos recuerda usar los numeros de 1-10 para tus ids. Si es posible revisa las otras tablas
--- para que haya concordancia entre los datos
 
 INSERT INTO EtiquetaUsuario (Etiqueta_id_usuario,Etiqueta_id_etiqueta) 
 VALUES 
