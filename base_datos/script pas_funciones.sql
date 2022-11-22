@@ -69,20 +69,19 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE FUNCTION validarNot(id_not INT)
-RETURNS varchar(20) DETERMINISTIC
+RETURNS boolean DETERMINISTIC
 BEGIN
-	DECLARE allow enum('amistad');
-    DECLARE tipo VARCHAR(20) DEFAULT "d";
+    DECLARE tipoNot VARCHAR(20) DEFAULT "";
     DECLARE done boolean DEFAULT false; -- para controlar si la funcion se ejecuto con exito
-	SET tipo = (SELECT tipo FROM notificacion WHERE notificacion.id_notificacion = id_not); -- para saber si la notificacion es una solicitud de amistad
-    IF tipo = allow THEN
-		CALL agregarAmigos(id_not); -- llamamos la funcion que los vuelve amigos en la base de datos
-        SET done = TRUE; -- la funcion se ejecuto con exito
+	SELECT tipo INTO tipoNot FROM notificacion WHERE notificacion.id_notificacion = id_not; -- para saber el tipo de la notificacion
+    IF tipoNot LIKE 'amistad' THEN -- Si la notificacion es de amistad
+		set done =  agregarAmigos(id_not); -- llamamos la funcion que los vuelve amigos en la base de datos
     END IF;
     
-    RETURN tipo;
+    RETURN done;
 END $$
 DELIMITER ;
+
 
 show columns FROM notificacion;
 SET @DONE = validarNot(5);
@@ -90,13 +89,12 @@ SELECt @DONE;
 
 
 -- Al crear un usuario, insertarlo en ambas tablas creador y usuario
-DROP FUNCTION IF EXISTS createUser;
+
+DROP PROCEDURE IF EXISTS createUser;
 
 DELIMITER $$
-CREATE FUNCTION createUser(id_usuario INT,nombre char(60), apodos char(45), clave char(25), correo char(60), instagram char(30))
-RETURNS boolean DETERMINISTIC
+CREATE PROCEDURE createUser(id_usuario INT,nombre char(60), apodos char(45), clave char(25), correo char(60), instagram char(30))
 BEGIN
-    DECLARE done boolean DEFAULT true; -- para controlar si la funcion se ejecuto con exito
     
 	INSERT INTO creador(id_creador, nombre_creador) -- PRIMERO HAY QUE AÑADIRLO A CREADOR
 	VALUES(id_usuario,nombre);
@@ -104,7 +102,6 @@ BEGIN
 	INSERT INTO usuario(id_usuario, apodos, clave, correo, instagram, importancia)  -- luego lo metemos a usuario
 	VALUES (id_usuario, apodos, clave, correo, instagram, 99);
     
-    RETURN done;
 END $$
 DELIMITER ;
 

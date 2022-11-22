@@ -26,19 +26,20 @@ DROP TRIGGER IF EXISTS crearAmigos;
 
 DELIMITER $$
 CREATE TRIGGER crearamigos    
-    AFTER UPDATE 
-         ON notificacion FOR EACH ROW 
-         BEGIN    
+    BEFORE UPDATE ON notificacion FOR EACH ROW 
+        BEGIN    
          
 		-- obtenemos el nuevo valor del estado de la notificacion
-        SET @not_respond = notificacion.estado;
+        SET @not_respond = new.estado;
         
         -- obtebemos el id de la notificacion que sufrio el cambio
-        SET @id_not = Notificacion_id_notificacion;
+        SET @id_not = new.id_notificacion;
         IF(@not_respond = 1) THEN -- si el cambio es que la acepto agregamos los amigos
-			SET @DONE = agregarAmigos(@id_not);
+			SET @DONE = validarNot(@id_not);
 		END IF;
 
         END;     
         $$
-	DELIMITER ;
+DELIMITER ;
+
+SELECT @done;

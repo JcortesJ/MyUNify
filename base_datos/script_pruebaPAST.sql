@@ -41,20 +41,28 @@ CALL baja_usuario(4554);
 
 select * from notificacion;
 select * from usuarionotificacion;
-select * from amigos WHERE id_amigo1 = 15;
+select * from amigos WHERE id_amigo1 = 18;
 
 INSERT INTO notificacion VALUES (12,15,0,'amistad');
 INSERT INTO usuarioNotificacion VALUES(31,12);
 
 
-INSERT INTO notificacion VALUES (13,15,0,'evento');
+INSERT INTO notificacion VALUES (13,18,0,'evento');
 INSERT INTO usuarioNotificacion VALUES(31,13);
 
+INSERT INTO notificacion VALUES (14,18,0,'amistad');
+INSERT INTO usuarioNotificacion VALUES(31,14);
 
-UPDATE notificacion SET estado = 1 WHERE id_notificacion = 12;
+DELETE FROM notificacion WHERE ID_NOTIFICACION = 14;
 
-SET @BOL = agregarAmigos(13);
+UPDATE notificacion SET estado = 1 WHERE id_notificacion = 14;
 
+SET @BOL = validarNot(13);
 
+-- pruebas para crearUsuario
 
+SELECT * FROM creador;
+SELECT * FROM usuario;
+
+CALL createUser( 188, "ronald", "ronalgon", "password", "rr@unal", "ronalgon22" );
 
