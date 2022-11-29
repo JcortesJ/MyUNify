@@ -46,7 +46,7 @@ DELIMITER $$
     SELECT DISTINCT nombre FROM evento  JOIN notificacion WHERE Notificacion_id_notificacion=id_notificacion and id_remitente = id_us;
     END $$
 DELIMITER ;
-=======
+
 USE myunify;
 
 -- 5. cuando se borre un evento, borrarlo de la tabla eventos guardados
@@ -121,4 +121,32 @@ CREATE UNIQUE INDEX indice_usuarios ON usuario(id_usuario);
 -- justificación: es un indice unico por que se busca que la busqueda por id de usuario que es una de las
 -- busquedas más comúnes en la eplicación se realice de forma rápida y eficiente.
 
->>>>>>> f91a1d69409ed11564089db3ad17a2e987ebb867
+-- pas que cambia una notificacion de 0 a 1 y la borra de la tabla notificaciones, para evento
+DROP PROCEDURE borrarNOTIFICACIONESE;
+DELIMITER $$
+	CREATE PROCEDURE borrarNOTIFICACIONESE(nombreE varchar(50))
+    BEGIN
+		-- primero hayamos la id de la notificacion
+        DECLARE id_notV INT;
+        SELECT Notificacion_id_notificacion INTO id_notV FROM evento WHERE nombre LIKE nombreE;
+        -- luego borramos
+        DELETE FROM notificacion WHERE id_notificacion=id_notV;
+    END $$
+DELIMITER ;
+
+-- pas que cambia una notificacion de 0 a 1 y la borra de la tabla notificaciones, para usuario
+DROP PROCEDURE borrarNOTIFICACIONESU:
+DELIMITER $$
+	CREATE PROCEDURE borrarNOTIFICACIONESU(nombreU varchar(50))
+    BEGIN
+		 DECLARE id_uV INT;
+        SELECT id_usuario INTO id_uV FROM usuario WHERE nombre LIKE nombreU;
+       DELETE FROM notificacion WHERE id_remitente=id_uV;
+    END $$
+DELIMITER ;
+
+-- pruebas PAS
+SELECT * FROM EVENTO;
+SELECT * FROM notificacion;
+CALL borrarNOTIFICACIONESE("prueba evento por app");
+CALL borrarNOTIFICACIONESU(14)
