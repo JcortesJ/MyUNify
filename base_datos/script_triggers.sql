@@ -14,8 +14,15 @@ CREATE TRIGGER crear_notificacion
         INSERT INTO notificacion(id_notificacion,estado,tipo) VALUES (@id_not,TRUE,'evento');
         -- este trigger permite que no haya errores de que primero se deba insertar en notificacion para insertar en evento
         -- adicionamente insertamos en la tabla notificacionusuario
-        SET @id_user = NEW.Creador_id_creador;
-        INSERT INTO usuarionotificacion VALUES (@id_user,@id_not);
         END;     
         $$
 	DELIMITER ;
+    
+    DROP TRIGGER crear_usNot;
+    DELIMITER $$
+    CREATE TRIGGER crear_usNot AFTER INSERT ON evento
+    FOR EACH ROW BEGIN
+		 SET @id_user = NEW.Creador_id_creador;
+         INSERT INTO usuarionotificacion VALUES (@id_user,@id_not); 
+    END $$
+    DELIMITER ;
