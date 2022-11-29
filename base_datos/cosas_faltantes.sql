@@ -127,17 +127,18 @@ DELIMITER $$
     -- Eliminamos la notificación 
     DECLARE amixCount INT DEFAULT 0;
     DECLARE eventCount INT DEFAULT 0;
+    DECLARE ownEvent INT DEFAULT 0;
     DECLARE apodo CHAR(45);
     DECLARE ig CHAR(30);
     
     SELECT count(*) INTO amixCount FROM amigos WHERE id_amigo1 = id OR id_amigo2 = id;
-    SELECT count(id_evento) INTO eventCount FROM evento WHERE Creador_id_creador = id group by(Creador_id_creador);
+    SELECT count(*) INTO eventCount FROM eventoGuardado WHERE id_creador = id;
+    SELECT count(*) INTO ownEvent FROM evento WHERE Creador_id_creador = id;
     SELECT instagram INTO ig FROM usuario WHERE id_usuario = id;
     SELECT apodos INTO apodo FROM usuario WHERE id_usuario = id;
     
-    SELECT amixCount, eventCount, apodo, ig;
+    SELECT amixCount, eventCount, apodo, ig, ownEvent;
     
     END $$
 DELIMITER ;
-
 >>>>>>> f91a1d69409ed11564089db3ad17a2e987ebb867
