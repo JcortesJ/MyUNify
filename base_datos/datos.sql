@@ -1,5 +1,7 @@
 
-
+DROP SCHEMA myunify;
+CREATE SCHEMA myunify;
+USE myunify;
 INSERT INTO Creador (id_creador, nombre_creador) 
 VALUES
 -- FRATERNIDADES
@@ -90,6 +92,8 @@ VALUES
    (9,11,TRUE,'evento'),
    (10,12,TRUE,'evento')
 ;
+
+
 
 INSERT INTO Lugar (id_lugar,nombre,direccion,aforo)
 VALUES 
