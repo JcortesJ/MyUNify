@@ -121,6 +121,7 @@ CREATE UNIQUE INDEX indice_usuarios ON usuario(id_usuario);
 -- justificación: es un indice unico por que se busca que la busqueda por id de usuario que es una de las
 -- busquedas más comúnes en la eplicación se realice de forma rápida y eficiente.
 
+<<<<<<< HEAD
 -- pas que cambia una notificacion de 0 a 1 y la borra de la tabla notificaciones, para evento
 DROP PROCEDURE borrarNOTIFICACIONESE;
 DELIMITER $$
@@ -150,3 +151,26 @@ SELECT * FROM EVENTO;
 SELECT * FROM notificacion;
 CALL borrarNOTIFICACIONESE("prueba evento por app");
 CALL borrarNOTIFICACIONESU(14)
+=======
+DELIMITER $$
+	CREATE PROCEDURE infoUser(id int)
+    BEGIN
+    -- Eliminamos la notificación 
+    DECLARE amixCount INT DEFAULT 0;
+    DECLARE eventCount INT DEFAULT 0;
+    DECLARE ownEvent INT DEFAULT 0;
+    DECLARE apodo CHAR(45);
+    DECLARE ig CHAR(30);
+    
+    SELECT count(*) INTO amixCount FROM amigos WHERE id_amigo1 = id OR id_amigo2 = id;
+    SELECT count(*) INTO eventCount FROM eventoGuardado WHERE id_creador = id;
+    SELECT count(*) INTO ownEvent FROM evento WHERE Creador_id_creador = id;
+    SELECT instagram INTO ig FROM usuario WHERE id_usuario = id;
+    SELECT apodos INTO apodo FROM usuario WHERE id_usuario = id;
+    
+    SELECT amixCount, eventCount, apodo, ig, ownEvent;
+    
+    END $$
+DELIMITER ;
+>>>>>>> f91a1d69409ed11564089db3ad17a2e987ebb867
+>>>>>>> b3792881c948c759f6a479e7d196838960f4220c
